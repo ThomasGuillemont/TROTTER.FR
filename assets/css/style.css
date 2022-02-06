@@ -1,0 +1,125 @@
+body {
+  color: #222F3D;
+}
+a {
+  color: #222F3D;
+  text-decoration: underline;
+}
+
+
+
+
+/* glassmorphisme */
+.glassmorphism {
+  background: rgb(215 215 215 / 40%);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+}
+
+
+
+/* background */
+.bg-main {
+  background-image: url("../img/Illustrations/bg-main.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+/* navbar */
+h1 {
+  font-weight: bold;
+  color: #C74F2D;
+}
+h2 {
+  font-weight: bold;
+  color: #C74F2D;
+}
+.navImgLogo {
+  max-width: 10%;
+}
+.navImg {
+  max-width: 80%;
+}
+.socialIcon {
+  max-width: 50%;
+  height: auto;
+}
+.socialIconGithub {
+  max-width: 80%;
+  height: auto;
+}
+.nav-link {
+  font-weight: bold;
+  color: #C74F2D;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+
+
+/* formulaires */
+.formTitle {
+  color: #c74f2d;
+}
+.form-control {
+  color: #212529;
+  background-color: #ffffff00;
+  border: 1px solid #e5643f94;
+  border-radius: 10px;
+}
+.form-control:focus {
+  color: #5d646a;
+  background-color: #ffffff00;
+  border-color: #e5643f94;
+  box-shadow: 0 0 0 0.25rem rgb(243 161 105 / 50%);
+}
+.form-check-input[type=checkbox] {
+  border-radius: 10px;
+}
+.form-check-input {
+  background-color: #ffffff00;
+  border: 1px solid #e5643f94;
+}
+.form-check-input:checked {
+  background-color: #e5643f94;
+  border-color: #e5643f94;
+}
+.form-check-input:focus {
+  border-color: #e5643f94;
+  box-shadow: 0 0 0 0.25rem rgb(243 161 105 / 50%);
+}
+.btn-primary {
+  color: #c74f2d;
+  background-color: #ffffff00;
+  border-color: #e5643f94;
+}
+.btn-primary:focus {
+  color: #e1e1e1;
+  background-color: #e5643f;
+  border-color: #e5643f94;
+  box-shadow: 0 0 0 0.25rem rgb(243 161 105 / 50%);
+}
+.btn-primary:active, .show>.btn-primary.dropdown-toggle {
+  color: #e1e1e1;
+  background-color: #e5643f;
+  border-color: #e5643f94;
+}
+.btn-primary:hover {
+  color: #e1e1e1;
+  background-color: #e5643f;
+  border-color: #e5643f94;
+}
+.btn {
+  border-radius: 10px;
+}
+
+
+/* Screen size is 600px */
+/* @media screen and (max-width: 600px) {
+
+} */
