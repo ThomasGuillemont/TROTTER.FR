@@ -75,6 +75,10 @@ h2 {
   max-width: 80%;
   height: auto;
 }
+.img-profile{
+  max-width: 20%;
+  height: auto;
+}
 .fs-7 {
   font-size: 0.7rem;
 }
@@ -83,7 +87,7 @@ h2 {
 /* floating css */
 .floating {  
   animation-name: floating;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
