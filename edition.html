@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="Trotter.fr - Le réseau social 0% publicité pour 100% plaisir" />
     <meta name="author" content="Thomas Guillemont" />
-    <title>Trotter.fr - connexion</title>
+    <title>Trotter.fr - edition</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/icons/message.png" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,22 +25,16 @@
                     <div class="p-2">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" href="./index.html">Accueil</a>
+                                <a class="nav-link active" href="./index.html">Actualités</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./inscription.html">Inscription</a>
+                                <a class="nav-link" href="./profile.html">Mon profil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="connexion.html"./c">Connexion</a>
+                                <a class="nav-link" href="./friends.html">Mes amis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./faq.html">FAQ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./conditions.html">Conditions</a>
+                                <a class="nav-link" href="#">Déconnexion</a>
                             </li>
                         </ul>
                     </div>
@@ -49,7 +43,9 @@
                     <div class="d-flex justify-content-between m-3 glassmorphism">
                         <div class="d-flex">
                             <img class="navImgLogo my-auto" src="./assets/img/Illustrations/logo.png" alt="trotterLogo">
-                            <h1 class="my-auto align-middle">Trotter.fr</h1>
+                            <h1 class="my-auto align-middle">
+                                Trotter.fr
+                            </h1>
                         </div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
@@ -67,12 +63,19 @@
         <main class="px-5">
             <div class="container-fluid">
                 <div class="row d-flex glassmorphism">
-                    <div class="col-12 d-flex align-items-center col-sm-6">
+                    <div class="col-12 d-flex align-items-center">
 
                         <div class="container-fluid p-2">
                             <div class="row">
-                                <div class="col-12 d-flex justify-content-center">
-                                    <form id="contactForm">
+                                <div class="col-12">
+                                    <h2>Editer mon profil</h2>
+                                </div>
+                                <div class="col-12">
+                                    <img class="img-profile my-auto align-middle p-3 floating"
+                                        src="./assets/img/avatars/avatar.png" alt="Image de profil">
+                                </div>
+                                <div class="col-12 mt-4 d-flex justify-content-center">
+                                    <form id="connectionForm">
                                         <div class="mb-3">
                                             <label for="inputEmail" class="form-label fw-bolder formTitle">Email</label>
                                             <input type="email" class="form-control" id="inputEmail">
@@ -80,28 +83,28 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="inputPassword" class="form-label fw-bolder formTitle">Mot de passe</label>
+                                            <label for="inputPassword" class="form-label fw-bolder formTitle">Nouveau
+                                                mot de passe</label>
                                             <input type="password" class="form-control" id="inputPassword">
                                             <div class="fs-7 alert" id="alertPassword">
                                             </div>
-                                        </div>   
+                                        </div>
                                         <div class="mb-3">
-                                            <label for="formControlTextarea" class="form-label fw-bolder formTitle">Votre message</label>
-                                            <textarea class="form-control" id="formControlTextarea" rows="3"></textarea>
-                                            <div class="fs-7 alert" id="alertMessage">
+                                            <label for="inputPasswordConfirm"
+                                                class="form-label fw-bolder formTitle">Confirmation mot de passe</label>
+                                            <input type="password" class="form-control" id="inputPasswordConfirm"
+                                                name="inputPasswordConfirm">
+                                            <div class="fs-7 alert" id="alertPasswordConfirm">
                                             </div>
                                         </div>
-                                        <button type="button" class="btn my-btn fw-bolder" id="contactBtn">Envoyer</button>
+                                        <button type="button" class="btn my-btn fw-bolder"
+                                            id="connectionBtn">Valider</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 my-auto col-sm-6">
-                        <img class="img-fluid my-auto align-middle pb-3 floating" src="./assets/img/Illustrations/contact.png" alt="contactIllustration">
-                    </div>
                 </div>
-            </div>
         </main>
 
         <footer class="mt-auto colorText">
@@ -113,7 +116,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    <script src="./assets/js/scriptRegExpContact.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

@@ -21,6 +21,10 @@ a {
   color: #222F3D;
   text-decoration: underline;
 }
+a:link 
+{ 
+  text-decoration:none; 
+} 
 
 
 /* glassmorphisme */
@@ -72,11 +76,19 @@ h2 {
   box-shadow: none;
 }
 .img-fluid {
-  max-width: 80%;
+  max-width: 50%;
   height: auto;
 }
 .img-profile{
-  max-width: 20%;
+  max-width: 40%;
+  height: auto;
+}
+.img-friends {
+  max-width: 70%;
+  height: auto;
+}
+.img-friends-profile {
+  max-width: 100%;
   height: auto;
 }
 .fs-7 {
@@ -154,6 +166,9 @@ h2 {
 .btn {
   border-radius: 10px;
 }
+.btn-profile{
+  border: none;
+}
 .alert{
   color: var(--titleColor);
   padding: 0rem;
@@ -164,24 +179,32 @@ h2 {
 }
 
 
-/* Screen size is 576px
+/* Screen size is 576px */
 @media screen and (min-width: 576px) {
-  .img-fluid {
-    max-width: 80%;
+  .img-profile {
+    max-width: 20%;
     height: auto;
-  }
+}
+.img-friends {
+  max-width: 100%;
+  height: auto;
+}
 }
 /* Screen size is 992px */
-/* @media screen and (min-width: 992px) {
-  .img-fluid {
-    max-width: 50%;
-    height: auto;
-  }
-} */
+@media screen and (min-width: 992px) {
+.img-profile {
+  max-width: 10%;
+  height: auto;
+}
+.img-friends {
+  max-width: 70%;
+  height: auto;
+}
+}
 /* Screen size is 1200px */
-/* @media screen and (min-width: 1200px) {
-  .img-fluid {
-    max-width: 40%;
-    height: auto;
-  }
-} */
+@media screen and (min-width: 1200px) {
+.img-friends {
+  max-width: 50%;
+  height: auto;
+}
+}
