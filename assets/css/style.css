@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 
-:root{
-  --backgroundColor:#ffffff00;
-  --backgroundColorButton:#e5643f;
+:root {
+  --backgroundColor: #ffffff00;
+  --backgroundColorButton: #e5643f;
   --titleColor: #C74F2D;
   --buttonColor: #e1e1e1;
   --borderColor: #e5643f94;
@@ -14,24 +14,26 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
 body {
   color: #222F3D;
 }
+
 a {
   color: #222F3D;
   text-decoration: underline;
 }
-a:link 
-{ 
-  text-decoration:none; 
-} 
+
+a:link {
+  text-decoration: none;
+}
 
 
 /* glassmorphisme */
 .glassmorphism {
   background: rgb(215 215 215 / 40%);
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
 }
 
@@ -50,63 +52,84 @@ h1 {
   font-weight: bold;
   color: var(--titleColor);
 }
+
 h2 {
   font-weight: bold;
   color: var(--titleColor);
 }
+
 .navImgLogo {
   max-width: 10%;
 }
+
 .navImg {
   max-width: 100%;
 }
+
 .socialIcon {
   max-width: 50%;
   height: auto;
 }
+
 .socialIconGithub {
   max-width: 80%;
   height: auto;
 }
+
 .nav-link {
   font-weight: bold;
   color: var(--titleColor);
 }
+
 .navbar-toggler:focus {
   box-shadow: none;
 }
+
 .img-fluid {
   max-width: 50%;
   height: auto;
 }
-.img-profile{
+
+.img-profile {
   max-width: 40%;
   height: auto;
 }
+
 .img-friends {
   max-width: 70%;
   height: auto;
 }
+
 .img-friends-profile {
   max-width: 100%;
   height: auto;
 }
+
 .fs-7 {
   font-size: 0.7rem;
 }
 
 
 /* floating css */
-.floating {  
+.floating {
   animation-name: floating;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
+
 @keyframes floating {
-  from { transform: translate(0,  0px); }
-  65%  { transform: translate(0, 15px); }
-  to   { transform: translate(0, -0px); }    
+  from {
+    transform: translate(0, 0px);
+  }
+
+  65% {
+    transform: translate(0, 15px);
+  }
+
+  to {
+    transform: translate(0, -0px);
+  }
 }
 
 
@@ -114,67 +137,82 @@ h2 {
 .formTitle {
   color: var(--titleColor);
 }
+
 .form-control {
   color: #222F3D;
   background: var(--backgroundColor);
   border: 1px solid #e5643f94;
   border-radius: 10px;
 }
+
 .form-control:focus {
   color: #5d646a;
   background: var(--backgroundColor);
   border-color: var(--borderColor);
   box-shadow: var(--shadowColor);
 }
+
 .form-check-input[type=checkbox] {
   border-radius: 10px;
 }
+
 .form-check-input {
   background: var(--backgroundColor);
   border: 1px solid #e5643f94;
   cursor: pointer;
 }
+
 .form-check-input:checked {
   background-color: var(--borderColor);
   border-color: var(--borderColor);
 }
+
 .form-check-input:focus {
   border-color: var(--borderColor);
   box-shadow: var(--shadowColor);
 }
+
 .my-btn {
   color: var(--titleColor);
   background: var(--backgroundColor);
   border-color: var(--borderColor);
 }
+
 .my-btn:focus {
   color: var(--buttonColor);
   background: var(--backgroundColorButton);
   border-color: var(--borderColor);
   box-shadow: var(--shadowColor);
 }
-.my-btn:active, .show>.btn-primary.dropdown-toggle {
+
+.my-btn:active,
+.show>.btn-primary.dropdown-toggle {
   color: var(--buttonColor);
   background: var(--backgroundColorButton);
   border-color: var(--borderColor);
 }
+
 .my-btn:hover {
   color: var(--buttonColor);
   background: var(--backgroundColorButton);
   border-color: var(--borderColor);
 }
+
 .btn {
   border-radius: 10px;
 }
-.btn-profile{
+
+.btn-profile {
   border: none;
 }
-.alert{
+
+.alert {
   color: var(--titleColor);
   padding: 0rem;
   margin-bottom: 0rem;
 }
-.alertColor{
+
+.alertColor {
   background: #dc89893b;
 }
 
@@ -184,27 +222,31 @@ h2 {
   .img-profile {
     max-width: 20%;
     height: auto;
+  }
+
+  .img-friends {
+    max-width: 100%;
+    height: auto;
+  }
 }
-.img-friends {
-  max-width: 100%;
-  height: auto;
-}
-}
+
 /* Screen size is 992px */
 @media screen and (min-width: 992px) {
-.img-profile {
-  max-width: 10%;
-  height: auto;
+  .img-profile {
+    max-width: 10%;
+    height: auto;
+  }
+
+  .img-friends {
+    max-width: 70%;
+    height: auto;
+  }
 }
-.img-friends {
-  max-width: 70%;
-  height: auto;
-}
-}
+
 /* Screen size is 1200px */
 @media screen and (min-width: 1200px) {
-.img-friends {
-  max-width: 50%;
-  height: auto;
-}
+  .img-friends {
+    max-width: 50%;
+    height: auto;
+  }
 }
