@@ -58,6 +58,11 @@ h2 {
   color: var(--titleColor);
 }
 
+h3 {
+  font-weight: bold;
+  color: var(--titleColor);
+}
+
 .navImgLogo {
   max-width: 10%;
 }
@@ -132,6 +137,10 @@ h2 {
   }
 }
 
+/* dashboard */
+.nameDashboard {
+  color: var(--titleColor);
+}
 
 /* formulaires */
 .formTitle {

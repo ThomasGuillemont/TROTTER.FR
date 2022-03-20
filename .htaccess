@@ -1,0 +1,44 @@
+# links follow
+Options +FollowSymlinks
+# rewrite Apache activate
+RewriteEngine On
+
+# error 404 -> /404.php
+RewriteRule ^404/?$ 404.php
+ErrorDocument 404 /404.php
+
+# /home
+RewriteRule ^accueil$ /controllers/home-controller.php [L]
+
+# /registration
+RewriteRule ^inscription$ /controllers/registration-controller.php [L]
+
+# /connection
+RewriteRule ^connexion$ /controllers/connection-controller.php [L]
+
+# /faq
+RewriteRule ^faq$ /controllers/faq-controller.php [L]
+
+# /contact
+RewriteRule ^contact$ /controllers/contact-controller.php [L]
+
+# /conditions
+RewriteRule ^conditions$ /controllers/conditions-controller.php [L]
+
+# /actuality
+RewriteRule ^actualités$ /controllers/actuality-controller.php [L]
+
+# /actuality
+RewriteRule ^actualités$ /controllers/actuality-controller.php [L]
+
+# /profile
+RewriteRule ^profil$ /controllers/profile-controller.php [L]
+
+# /friends
+RewriteRule ^amis$ /controllers/friends-controller.php [L]
+
+# /edition
+RewriteRule ^edition$ /controllers/edition-controller.php [L]
+
+# /logout
+RewriteRule ^déconnexion$ /controllers/logout.php [L]
