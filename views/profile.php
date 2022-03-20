@@ -11,11 +11,11 @@
                             <img class="img-profile my-auto align-middle p-3 floating"
                                 src="/public/assets/img/avatars/avatar.png" alt="Image de profil">
                         </div>
-                        <div class="col-12 p-2">
-                            <a href="/edition" class="btn my-btn btn-profile fw-bolder">Modifier</a>
+                        <div class="col-12 col-sm-6 p-2">
+                            <a href="/edition" class="btn my-btn btn-profile fw-bolder">Modifier mon profil</a>
                         </div>
-                        <div class="col-12 p-2">
-                            <a href="/amis" class="btn my-btn btn-profile fw-bolder">Mes amis</a>
+                        <div class="col-12 col-sm-6 p-2">
+                            <a href="/amis" class="btn my-btn btn-profile fw-bolder">Accéder à mes amis</a>
                         </div>
                     </div>
                 </div>
