@@ -42,3 +42,6 @@ RewriteRule ^edition$ /controllers/edition-controller.php [L]
 
 # /logout
 RewriteRule ^déconnexion$ /controllers/logout.php [L]
+
+# /recovery
+RewriteRule ^récupération$ /controllers/recovery-controller.php [L]

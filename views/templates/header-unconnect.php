@@ -47,11 +47,13 @@
                 </div>
                 <nav>
                     <div class="d-flex justify-content-between m-3 glassmorphism">
-                        <div class="d-flex">
+                        <a href="/accueil" class="d-flex">
                             <img class="navImgLogo my-auto" src="/public/assets/img/Illustrations/logo.png" alt="trotterLogo">
-                            <h1 class="my-auto align-middle">Trotter.fr</h1>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            <h1 class="my-auto align-middle">
+                                Trotter.fr
+                            </h1>
+                        </a>
+                        <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon">

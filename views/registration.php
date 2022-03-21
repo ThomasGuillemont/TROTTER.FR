@@ -5,43 +5,47 @@
                 <div class="container-fluid p-2">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <form id="registrationForm">
+                            <form id="registrationForm" method="POST" action="/inscription">
                                 <div class="mb-3">
-                                    <label for="inputPseudo" class="form-label fw-bolder formTitle">Pseudo</label>
-                                    <input type="text" class="form-control" id="inputPseudo" name="inputPseudo">
-                                    <div class="fs-7 alert" id="alertPseudo">
+                                    <label for="pseudo" class="form-label fw-bolder formTitle">Pseudo</label>
+                                    <input required pattern="<?=PSEUDO?>" placeholder="pseudo" autocomplete="username" type="text" class="form-control text-center" id="pseudo" name="pseudo" value="<?= $pseudo ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPseudo">
+                                        <?= $error['pseudo'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputEmail" class="form-label fw-bolder formTitle">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" name="inputEmail">
-                                    <div class="fs-7 alert" id="alertEmail">
+                                    <label for="email" class="form-label fw-bolder formTitle">Email</label>
+                                    <input required placeholder="email@blabla.com" autocomplete="email" type="email" class="form-control text-center" id="email" name="email" value="<?= $email ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertEmail">
+                                        <?= $error['email'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputPassword" class="form-label fw-bolder formTitle">Mot de
+                                    <label for="password" class="form-label fw-bolder formTitle">Mot de
                                         passe</label>
-                                    <input type="password" class="form-control" id="inputPassword" name="inputPassword">
-                                    <div class="fs-7 alert" id="alertPassword">
+                                    <input required pattern="<?=PASSWORD?>" placeholder="mot de passe" autocomplete="new-password" type="password" class="form-control text-center" id="password" name="password" value="<?= $password ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPassword">
+                                        <?= $error['password'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputPasswordConfirm"
+                                    <label for="passwordConfirm"
                                         class="form-label fw-bolder formTitle">Confirmation mot de passe</label>
-                                    <input type="password" class="form-control" id="inputPasswordConfirm"
-                                        name="inputPasswordConfirm">
-                                    <div class="fs-7 alert" id="alertPasswordConfirm">
+                                    <input required pattern="<?=PASSWORD?>" placeholder="confirmez mot de passe" autocomplete="new-password" type="password" class="form-control text-center" id="passwordConfirm" name="passwordConfirm" value="<?= $passwordConfirm ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPasswordConfirm">
+                                        <?= $error['passwordConfirm'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="form-check d-flex justify-content-center">
-                                    <input type="checkbox" class="form-check-input m-1" id="inputCheckbox"
-                                        name="inputCheckbox">
-                                    <label class="form-check-label formTitle" for="inputCheckbox">J'accepte les <a
-                                            href="./conditions.html">conditions</a></label>
+                                    <input required type="checkbox" value="1" class="form-check-input m-1" id="checkbox"
+                                        <?= $checkboxCheked ?? ''?> name="checkbox">
+                                    <label class="form-check-label formTitle" for="checkbox">J'accepte les
+                                        <a href="/conditions.html">conditions générales</a>.</label>
                                 </div>
-                                <div class="fs-7 alert mb-3" id="alertCheckBox">
+                                <div class="fs-7 alert mb-3 fst-italic" id="alertCheckBox">
+                                    <?= $error['checkbox'] ?? ''?>
                                 </div>
-                                <button type="button" id="registrationBtn"
+                                <button type="submit" id="registrationBtn"
                                     class="btn my-btn fw-bolder">S'inscrire</button>
                             </form>
                         </div>

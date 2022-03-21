@@ -1,12 +1,13 @@
         <footer class="mt-auto colorText pt-2">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <a href="/conditions">Mentions légales</a>
-                        <a href="/conditions">CGU</a>
+                <div class="row align-items-center mb-2">
+                    <div class="col-12 col-sm-6 mb-0">
+                        <span>&copy Thomas Guillemont - 2022</span>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p>&copy Thomas Guillemont - 2022</p>
+                        <a href="/conditions">Conditions générales</a>
+                        <span>-</span>
+                        <a href="/conditions">Mentions légales</a>
                     </div>
                 </div>
             </div>

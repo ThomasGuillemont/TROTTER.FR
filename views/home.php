@@ -8,7 +8,7 @@
                             <h2>Bienvenue sur Trotter !</h2>
                             <p class="colorText fw-bold pt-2 fs-3" id="draw"></p>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 ps-5 pe-5">
                             <ul class="list-inline d-flex justify-content-center my-auto">
                                 <li class="my-auto w-25">
                                     <a target="_blank" href="https://www.linkedin.com/in/guillemont-thomas-pro/"><img

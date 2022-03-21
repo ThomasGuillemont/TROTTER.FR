@@ -5,21 +5,26 @@
                 <div class="container-fluid p-2">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <form id="connectionForm">
+                            <form id="connectionForm" method="POST" action="/connexion">
                                 <div class="mb-3">
-                                    <label for="inputEmail" class="form-label fw-bolder formTitle">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail">
-                                    <div class="fs-7 alert" id="alertEmail">
+                                    <label for="email" class="form-label fw-bolder formTitle">Email</label>
+                                    <input type="email" required placeholder="email@blabla.com" autocomplete="email" class="form-control text-center" id="email" name="email"  value="<?= $email ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertEmail">
+                                        <?= $error['email'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputPassword" class="form-label fw-bolder formTitle">Mot de
+                                    <label for="password" class="form-label fw-bolder formTitle">Mot de
                                         passe</label>
-                                    <input type="password" class="form-control" id="inputPassword">
-                                    <div class="fs-7 alert" id="alertPassword">
+                                    <input type="password" required pattern="<?=PASSWORD?>" placeholder="mot de passe" autocomplete="current-password" class="form-control text-center" id="password" name="password"  value="<?= $password ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPassword">
+                                        <?= $error['password'] ?? ''?>
                                     </div>
                                 </div>
-                                <button type="button" class="btn my-btn fw-bolder" id="connectionBtn">Connexion</button>
+                                <div class="mb-3">
+                                    <a href="/récupération">Mot de passe oublié</a>
+                                </div>
+                                <button type="submit" class="btn my-btn fw-bolder" id="connectionBtn">Connexion</button>
                             </form>
                         </div>
                     </div>

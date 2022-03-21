@@ -71,6 +71,15 @@ h3 {
   max-width: 100%;
 }
 
+.navbar-toggler:hover {
+  background-color: var(--backgroundColorButton);
+  border-radius: 0.5rem;
+}
+
+.navbar-toggler {
+  width: 20%;
+}
+
 .socialIcon {
   max-width: 50%;
   height: auto;
@@ -155,7 +164,7 @@ h3 {
 }
 
 .form-control:focus {
-  color: #5d646a;
+  color: #222F3D;
   background: var(--backgroundColor);
   border-color: var(--borderColor);
   box-shadow: var(--shadowColor);
@@ -233,6 +242,10 @@ h3 {
     max-width: 100%;
     height: auto;
   }
+
+  .navbar-toggler {
+    width: 10%;
+  }
 }
 
 /* Screen size is 992px */
@@ -245,6 +258,10 @@ h3 {
   .img-friends {
     max-width: 70%;
     height: auto;
+  }
+
+  .navbar-toggler {
+    width: 5%;
   }
 }
 
