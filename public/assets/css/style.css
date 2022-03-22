@@ -43,7 +43,7 @@ a:link {
   background-image: url("../img/Illustrations/bg-main.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 30% 50%;
 }
 
 
@@ -72,7 +72,7 @@ h3 {
 }
 
 .navbar-toggler:hover {
-  background-color: var(--backgroundColorButton);
+  background-color: #c74f2d47;
   border-radius: 0.5rem;
 }
 
@@ -148,6 +148,14 @@ h3 {
 
 /* dashboard */
 .nameDashboard {
+  color: var(--titleColor);
+}
+
+/* 404 */
+.notFound {
+  padding-top: 30vh;
+}
+.linkNotFound {
   color: var(--titleColor);
 }
 
@@ -261,7 +269,7 @@ h3 {
   }
 
   .navbar-toggler {
-    width: 5%;
+    width: 6%;
   }
 }
 
@@ -270,5 +278,9 @@ h3 {
   .img-friends {
     max-width: 50%;
     height: auto;
+  }
+
+  .navbar-toggler {
+    width: 4%;
   }
 }

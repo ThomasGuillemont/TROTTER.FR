@@ -16,17 +16,11 @@ RewriteRule ^inscription$ /controllers/registration-controller.php [L]
 # /connection
 RewriteRule ^connexion$ /controllers/connection-controller.php [L]
 
-# /faq
-RewriteRule ^faq$ /controllers/faq-controller.php [L]
-
 # /contact
 RewriteRule ^contact$ /controllers/contact-controller.php [L]
 
 # /conditions
 RewriteRule ^conditions$ /controllers/conditions-controller.php [L]
-
-# /actuality
-RewriteRule ^actualités$ /controllers/actuality-controller.php [L]
 
 # /actuality
 RewriteRule ^actualités$ /controllers/actuality-controller.php [L]
@@ -38,10 +32,16 @@ RewriteRule ^profil$ /controllers/profile-controller.php [L]
 RewriteRule ^amis$ /controllers/friends-controller.php [L]
 
 # /edition
-RewriteRule ^edition$ /controllers/edition-controller.php [L]
+RewriteRule ^édition$ /controllers/edition-controller.php [L]
 
 # /logout
 RewriteRule ^déconnexion$ /controllers/logout.php [L]
 
 # /recovery
 RewriteRule ^récupération$ /controllers/recovery-controller.php [L]
+
+# /dashboard
+RewriteRule ^administration$ /controllers/dashboard-controller.php [L]
+
+# /mentions
+RewriteRule ^mentions$ /controllers/mentions-controller.php [L]

@@ -40,10 +40,13 @@
                                     <input required type="checkbox" value="1" class="form-check-input m-1" id="checkbox"
                                         <?= $checkboxCheked ?? ''?> name="checkbox">
                                     <label class="form-check-label formTitle" for="checkbox">J'accepte les
-                                        <a href="/conditions.html">conditions générales</a>.</label>
+                                        <a href="/conditions">conditions générales</a>.</label>
                                 </div>
                                 <div class="fs-7 alert mb-3 fst-italic" id="alertCheckBox">
                                     <?= $error['checkbox'] ?? ''?>
+                                </div>
+                                <div class="mb-3">
+                                    <a href="/connexion"><small>J'ai un compte</small></a>
                                 </div>
                                 <button type="submit" id="registrationBtn"
                                     class="btn my-btn fw-bolder">S'inscrire</button>

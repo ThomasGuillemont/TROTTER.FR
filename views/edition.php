@@ -13,29 +13,32 @@
                                 src="/public/assets/img/avatars/avatar.png" alt="Image de profil">
                         </div>
                         <div class="col-12 mt-4 d-flex justify-content-center">
-                            <form id="editionForm">
+                            <form id="editionForm" method="POST" action="/édition">
                                 <div class="mb-3">
-                                    <label for="inputEmail" class="form-label fw-bolder formTitle">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail">
-                                    <div class="fs-7 alert" id="alertEmail">
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="inputPassword" class="form-label fw-bolder formTitle">Nouveau
+                                    <label for="password" class="form-label fw-bolder formTitle">Ancien
                                         mot de passe</label>
-                                    <input type="password" class="form-control" id="inputPassword">
-                                    <div class="fs-7 alert" id="alertPassword">
+                                    <input required pattern="<?=PASSWORD?>" placeholder="mot de passe" autocomplete="current-password" type="password" class="form-control text-center" id="password" name="password" value="<?= $password ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPassword">
+                                        <?= $error['password'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputPasswordConfirm"
-                                        class="form-label fw-bolder formTitle">Confirmation mot de passe</label>
-                                    <input type="password" class="form-control" id="inputPasswordConfirm"
-                                        name="inputPasswordConfirm">
-                                    <div class="fs-7 alert" id="alertPasswordConfirm">
+                                    <label for="newPassword" class="form-label fw-bolder formTitle">Nouveau
+                                        mot de passe</label>
+                                    <input required pattern="<?=PASSWORD?>" placeholder="nouveau mot de passe" autocomplete="new-password" type="password" class="form-control text-center" id="newPassword" name="newPassword" value="<?= $newPassword ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPassword">
+                                        <?= $error['newPassword'] ?? ''?>
                                     </div>
                                 </div>
-                                <button type="button" class="btn my-btn fw-bolder" id="editionBtn">Valider</button>
+                                <div class="mb-3">
+                                    <label for="newPasswordConfirm"
+                                        class="form-label fw-bolder formTitle">Confirmation nouveau mot de passe</label>
+                                    <input required pattern="<?=PASSWORD?>" placeholder="confirmez mot de passe" autocomplete="new-password" type="password" class="form-control text-center" id="newPasswordConfirm" name="newPasswordConfirm" value="<?= $newPasswordConfirm ?? '' ?>">
+                                    <div class="fs-7 alert fst-italic" id="alertPasswordConfirm">
+                                        <?= $error['newPasswordConfirm'] ?? ''?>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn my-btn fw-bolder" id="editionBtn">Valider</button>
                             </form>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 <?php
     require_once( dirname(__FILE__).'/../config/regex.php' );
+    $connected = false;
     $error = [];
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -60,7 +61,7 @@
         }
     }
 
-    include(dirname(__FILE__) .'/../views/templates/header-unconnect.php');
+    include(dirname(__FILE__) .'/../views/templates/header.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
         header('location: /profil');

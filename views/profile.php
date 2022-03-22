@@ -12,7 +12,7 @@
                                 src="/public/assets/img/avatars/avatar.png" alt="Image de profil">
                         </div>
                         <div class="col-12 col-sm-6 p-2">
-                            <a href="/edition" class="btn my-btn btn-profile fw-bolder">Modifier mon profil</a>
+                            <a href="/édition" class="btn my-btn btn-profile fw-bolder">Modifier mon profil</a>
                         </div>
                         <div class="col-12 col-sm-6 p-2">
                             <a href="/amis" class="btn my-btn btn-profile fw-bolder">Accéder à mes amis</a>

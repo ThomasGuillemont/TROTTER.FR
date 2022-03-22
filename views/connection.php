@@ -22,7 +22,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="/récupération">Mot de passe oublié</a>
+                                    <a href="/récupération"><small>Mot de passe oublié</small></a>
                                 </div>
                                 <button type="submit" class="btn my-btn fw-bolder" id="connectionBtn">Connexion</button>
                             </form>

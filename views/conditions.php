@@ -58,6 +58,7 @@
                         <p class="colorText pt-2">
                             <strong>Thomas Guillemont</strong><br>
                             <a target="_blank" href="https://discord.com/invite/YRD58Z6kYA">discord</a>
+                            <span>-</span>
                             <a target="_blank" href="https://www.linkedin.com/in/guillemont-thomas-pro/">linkedin</a>
                         </p>
                     </div>

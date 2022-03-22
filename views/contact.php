@@ -5,28 +5,23 @@
                 <div class="container-fluid p-2">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <form id="contactForm">
+                            <form id="contactForm" method="POST" action="/contact">
                                 <div class="mb-3">
-                                    <label for="inputEmail" class="form-label fw-bolder formTitle">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail">
+                                    <label for="email" class="form-label fw-bolder formTitle">Email</label>
+                                    <input required placeholder="email@blabla.com" autocomplete="email" type="email" class="form-control text-center" id="email" name="email" value="<?= $email ?? '' ?>">
                                     <div class="fs-7 alert" id="alertEmail">
+                                        <?= $error['email'] ?? ''?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputPassword" class="form-label fw-bolder formTitle">Mot de
-                                        passe</label>
-                                    <input type="password" class="form-control" id="inputPassword">
-                                    <div class="fs-7 alert" id="alertPassword">
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formControlTextarea" class="form-label fw-bolder formTitle">Votre
+                                    <label for="message" class="form-label fw-bolder formTitle">Votre
                                         message</label>
-                                    <textarea class="form-control" id="formControlTextarea" rows="3"></textarea>
+                                    <textarea required pattern="<?=TEXTAREA?>" placeholder="Saisissez votre message" class="form-control" id="message" name="message" rows="5"><?= $message ?? '' ?></textarea>
                                     <div class="fs-7 alert" id="alertMessage">
+                                        <?= $error['message'] ?? ''?>
                                     </div>
                                 </div>
-                                <button type="button" class="btn my-btn fw-bolder" id="contactBtn">Envoyer</button>
+                                <button type="submit" class="btn my-btn fw-bolder" id="contactBtn">Envoyer</button>
                             </form>
                         </div>
                     </div>
