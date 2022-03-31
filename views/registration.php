@@ -46,7 +46,7 @@
                                     <?= $error['checkbox'] ?? ''?>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="/connexion"><small>J'ai un compte</small></a>
+                                    <a href="/connexion"><small>J'ai déja un compte</small></a>
                                 </div>
                                 <button type="submit" id="registrationBtn"
                                     class="btn my-btn fw-bolder">S'inscrire</button>
