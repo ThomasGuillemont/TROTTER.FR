@@ -8,7 +8,7 @@
                         <div class="col-12">
                             <h2>Mes amis</h2>
                         </div>
-                        <div class="col-12 col-sm-4 p-3">
+                        <div class="col-12 col-xl-4 p-3">
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-4 p-3">
+                        <div class="col-12 col-xl-4 p-3">
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-4 p-3">
+                        <div class="col-12 col-xl-4 p-3">
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-4 p-3">
+                        <div class="col-12 col-xl-4 p-3">
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">

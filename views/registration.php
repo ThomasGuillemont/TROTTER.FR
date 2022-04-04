@@ -49,7 +49,7 @@
                                     <a href="/connexion"><small>J'ai déja un compte</small></a>
                                 </div>
                                 <button type="submit" id="registrationBtn"
-                                    class="btn my-btn fw-bolder">S'inscrire</button>
+                                    class="btn my-btn fw-bolder" onclick="confetti()">S'inscrire</button>
                             </form>
                         </div>
                     </div>

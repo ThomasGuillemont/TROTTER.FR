@@ -8,7 +8,7 @@
                             <h2>Bonjour Jean,</h2>
                         </div>
                         <div class="col-12">
-                            <img class="img-profile my-auto align-middle p-3 floating"
+                            <img class="img-profile my-auto align-middle pb-4 floating"
                                 src="/public/assets/img/avatars/avatar.png" alt="Image de profil">
                         </div>
                         <div class="col-12 col-sm-6 p-2">

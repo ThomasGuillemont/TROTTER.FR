@@ -7,10 +7,9 @@
                         <div class="col-12">
                             <h2 id="randomHello"></h2>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 pt-3">
                             <p>
-                                
-                                <a href="/inscription">J'ai pas encore de compte</a>
+                                <a href="/inscription">Créer un compte</a>
                             </p>
                         </div>
                         <div class="col-12 ps-5 pe-5">
@@ -24,11 +23,6 @@
                                     <a target="_blank" href="https://discord.com/invite/YRD58Z6kYA"><img class="socialIcon"
                                             src="/public/assets/img/socialMedia/Discord.png" alt="discordLogo"></a>
                                 </li>
-                                <li class="my-auto w-25">
-                                    <a target="_blank" href="https://github.com/ThomasGuillemont"><img
-                                            class="socialIconGithub" src="/public/assets/img/socialMedia/GitHub.png"
-                                            alt="githubLogo"></a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -41,3 +35,7 @@
         </div>
     </div>
 </main>
+<!-- JS confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<!-- JS -->
+<script src="/public/assets/js/hello.js"></script>

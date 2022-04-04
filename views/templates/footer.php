@@ -2,7 +2,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center mb-2">
                     <div class="col-12 col-sm-6 mb-0">
-                        <span>&copy Thomas Guillemont - <?= date("Y") ?></span>
+                        <span>&copy <a target="_blank" href="https://github.com/ThomasGuillemont">Thomas Guillemont</a> - <?= date("Y") ?></span>
                     </div>
                     <div class="col-12 col-sm-6">
                         <a href="/conditions">Conditions générales</a>
@@ -16,8 +16,6 @@
 
     <!-- Bootstrap JS -->
     <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-    <!-- JS -->
-    <script src="/public/assets/js/randomHello.js"></script>
 </body>
 
 </html>
