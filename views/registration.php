@@ -62,3 +62,7 @@
         </div>
     </div>
 </main>
+<!-- JS confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<!-- JS -->
+<script src="/public/assets/js/confettiRegistration.js"></script>

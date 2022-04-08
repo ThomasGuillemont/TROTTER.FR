@@ -64,6 +64,7 @@
     include(dirname(__FILE__) .'/../views/templates/header.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
+        sleep(1.5);
         header('location: /profil');
     } else {
         include(dirname(__FILE__) .'/../views/registration.php');

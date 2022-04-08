@@ -5,39 +5,97 @@
 
                 <div class="card tchat">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2>Tchat avec Paul</h2>
+                        <h2 class="fs-5">Tchat avec Paul</h2>
                     </div>
                     <div class="card-body overflow-scroll">
 
-                        <div class="d-flex flex-row justify-content-start mt-1">
+                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
                             <div>
-                                <p class="small p-2 ms-3 mb-1 rounded-3"
-                                    style="background-color: #f5f6f7;">What are you doing
-                                    tomorrow? Can we come up a bar?</p>
+                                <p class="small p-2 mb-1 bg-sender">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-recipient">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, rem.
+                                </p>
                             </div>
                         </div>
 
-                        <div class="d-flex flex-row justify-content-end mt-1">
+                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
                             <div>
-                                <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Long time
-                                    no see! Tomorrow
-                                    office. will
-                                    be free on sunday.</p>
+                                <p class="small p-2 mb-1 bg-sender">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit.
+                                </p>
                             </div>
                         </div>
 
-                        <div class="d-flex flex-row justify-content-start mt-1">
+                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
                             <div>
-                                <p class="small p-2 ms-3 mb-1 rounded-3"
-                                    style="background-color: #f5f6f7;">We will go on
-                                    Sunday?</p>
+                                <p class="small p-2 mb-1 bg-recipient">
+                                    Lorem ipsum dolor sit amet.
+                                </p>
                             </div>
                         </div>
 
+                        
+                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-recipient">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reiciendis ipsam fugiat harum facere quis eos delectus libero. Voluptate, nemo?
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-sender">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-recipient">
+                                    Lorem ipsum dolor sit amet.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-sender">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-recipient">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, libero!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
+                            <div>
+                                <p class="small p-2 mb-1 bg-recipient">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis repudiandae deserunt laborum? Magnam fugiat cumque dolorem vitae.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-start align-items-center">
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control me-3"
                             id="exampleFormControlInput1" placeholder="Message">
+                        <a target="_blank" href="/public/assets/img/icons/send.png"><img
+                                        class="socialIcon" src="/public/assets/img/icons/send.png"
+                                        alt="send"></a>
                     </div>
                 </div>
             </div>

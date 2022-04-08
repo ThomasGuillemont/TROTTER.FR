@@ -14,12 +14,12 @@
                         </div>
                         <div class="col-12 ps-5 pe-5">
                             <ul class="list-inline d-flex justify-content-center my-auto">
-                                <li class="my-auto w-25">
+                                <li class="my-auto">
                                     <a target="_blank" href="https://www.linkedin.com/in/guillemont-thomas-pro/"><img
                                             class="socialIcon" src="/public/assets/img/socialMedia/LinkedIn.png"
                                             alt="linkedInLogo"></a>
                                 </li>
-                                <li class="my-auto w-25">
+                                <li class="my-auto">
                                     <a target="_blank" href="https://discord.com/invite/YRD58Z6kYA"><img class="socialIcon"
                                             src="/public/assets/img/socialMedia/Discord.png" alt="discordLogo"></a>
                                 </li>
@@ -35,7 +35,5 @@
         </div>
     </div>
 </main>
-<!-- JS confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <!-- JS -->
 <script src="/public/assets/js/hello.js"></script>

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
+webkit-scrollbar { width: 0 !important }
+
 :root {
   --backgroundColor: #ffffff00;
   --backgroundColorButton: #e5643f;
@@ -47,6 +49,10 @@ a:link {
 }
 
 /* tchat */
+::-webkit-scrollbar {
+  display: none;
+}
+
 .tchat {
   height: 60vh;
 }
@@ -71,6 +77,16 @@ a:link {
   padding: 0.5rem 1rem;
   background-color: rgb(0 0 0 / 0%);
   border-top: none;
+}
+
+.bg-sender{
+  background-color: #6e8bd4;
+  border-radius: 1rem 1rem 1rem 0rem;
+}
+
+.bg-recipient{
+  background-color: #f29b69;
+  border-radius: 1rem 1rem 0rem 1rem;
 }
 
 /* navbar */
@@ -139,9 +155,6 @@ h3 {
 .fs-7 {
   font-size: 0.7rem;
 }
-
-/* confetti */
-
 
 /* floating css */
 .floating {
