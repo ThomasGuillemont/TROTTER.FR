@@ -8,8 +8,8 @@
                             <h2 id="randomHello"></h2>
                         </div>
                         <div class="col-12 pt-3">
-                            <p>
-                                <a href="/inscription">Créer un compte</a>
+                            <p class="fw-bold">
+                                <a href="/inscription">S'inscrire</a>
                             </p>
                         </div>
                         <div class="col-12 ps-5 pe-5">

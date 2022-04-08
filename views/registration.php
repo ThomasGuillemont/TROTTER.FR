@@ -45,7 +45,7 @@
                                 <div class="fs-7 alert mb-3 fst-italic" id="alertCheckBox">
                                     <?= $error['checkbox'] ?? ''?>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 fw-bold">
                                     <a href="/connexion"><small>J'ai déja un compte</small></a>
                                 </div>
                                 <button type="submit" id="registrationBtn"

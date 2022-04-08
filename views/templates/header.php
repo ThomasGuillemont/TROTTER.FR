@@ -42,7 +42,7 @@
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon">
                                 <img class="navImg my-auto" src="/public/assets/img/icons/hamburger.png"
-                                    alt="hamburger icone">
+                                    alt="barre de navigation hamburger menu">
                             </span>
                         </button>
                     </div>
