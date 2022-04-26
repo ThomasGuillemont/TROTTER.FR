@@ -22,11 +22,11 @@
             <div>
 
                 <?php
-                    if ($connected === true) {
-                        include(dirname(__FILE__) .'/header/connect.php');
-                    } else {
-                        include(dirname(__FILE__) .'/header/unconnect.php');
-                    }
+                if ($connected === true) {
+                    include(dirname(__FILE__) . '/header/connect.php');
+                } else {
+                    include(dirname(__FILE__) . '/header/unconnect.php');
+                }
                 ?>
 
                 <nav>
@@ -37,12 +37,9 @@
                                 Trotter.fr
                             </h1>
                         </a>
-                        <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon">
-                                <img class="navImg my-auto" src="/public/assets/img/icons/hamburger.png"
-                                    alt="barre de navigation hamburger menu">
+                                <img class="navImg my-auto mt-1" src="/public/assets/img/icons/hamburger.png" alt="barre de navigation hamburger menu">
                             </span>
                         </button>
                     </div>

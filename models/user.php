@@ -38,14 +38,14 @@ class User
         string $id_avatars = '',
         string $id_roles = ''
     ) {
-        $this->setIp = $ip;
-        $this->setRegistered_at = $registered_at;
-        $this->SetValidated_at = $validated_at;
-        $this->setEmail = $email;
-        $this->setPseudo = $pseudo;
-        $this->setPassword = $password;
-        $this->setId_avatars = $id_avatars;
-        $this->setId_roles = $id_roles;
+        $this->setIp($ip);
+        $this->setRegistered_at($registered_at);
+        $this->SetValidated_at($validated_at);
+        $this->setEmail($email);
+        $this->setPseudo($pseudo);
+        $this->setPassword($password);
+        $this->setId_avatars($id_avatars);
+        $this->setId_roles($id_roles);
         //! pdo
         $this->pdo = Database::dbConnect();
     }
@@ -74,7 +74,7 @@ class User
      */
     public function getIp(): string
     {
-        return $this->lastname;
+        return $this->ip;
     }
     /** //! setIp(string $ip)
      * @param string $ip

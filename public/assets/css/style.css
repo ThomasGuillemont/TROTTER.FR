@@ -137,6 +137,11 @@ h3 {
   height: auto;
 }
 
+.img-registration {
+  max-width: auto;
+  height: 3em;
+}
+
 .img-profile {
   max-width: 5em;
   height: auto;
