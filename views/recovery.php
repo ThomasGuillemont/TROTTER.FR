@@ -8,9 +8,9 @@
                             <form id="recoveryForm" method="POST" action="/récupération">
                                 <div class="mb-3">
                                     <label for="email" class="form-label fw-bolder formTitle">Email</label>
-                                    <input type="email" required placeholder="email@blabla.com" autocomplete="email" class="form-control text-center" id="email" name="email"  value="<?= $email ?? '' ?>">
+                                    <input type="email" required placeholder="email@blabla.com" autocomplete="email" class="form-control text-center" id="email" name="email" value="<?= $email ?? '' ?>">
                                     <div class="fs-7 alert fst-italic" id="alertEmail">
-                                        <?= $error['email'] ?? ''?>
+                                        <?= $error['email'] ?? '' ?>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn my-btn fw-bolder" id="recoveryBtn">Récupération</button>
@@ -20,8 +20,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/recovery.png"
-                    alt="recoveryIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/recovery.png" alt="recoveryIllustration">
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@
                     <div class="col-12">
                         <h2>Mentions légales</h2>
                         <p class="colorText pt-2">
-                            Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, dite L.C.E.N., 
+                            Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, dite L.C.E.N.,
                             il est porté à la connaissance des utilisateurs et visiteurs du site <strong>Trotter.fr</strong>, les présentes mentions légales.<br><br>
                             La connexion et la navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales.
                         </p>
@@ -28,7 +28,7 @@
                             L'hébergeur du Site est :
                         </p>
                         <p class="colorText pt-2">
-                        <strong><a target="_blank" href="https://www.o2switch.fr/">o2Switch</a>,</strong><br>
+                            <strong><a target="_blank" href="https://www.o2switch.fr/">o2Switch</a>,</strong><br>
                             Siret : 510 909 807 00024<br>
                             RCS Clermont Ferrand<br>
                             SARL au capital de 100 000€<br>
@@ -37,12 +37,12 @@
                         </p>
                         <h2>Accès au site</h2>
                         <p class="colorText pt-2">
-                            Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, 
+                            Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure,
                             interruption programmée ou non et pouvant découlant d’une nécessité de maintenance.
                         </p>
                         <p class="colorText pt-2">
                             En cas de modification, interruption ou suspension du Site, l'Editeur ne saurait être tenu responsable.
-                            </p>
+                        </p>
                         <h2>Collecte des données</h2>
                         <p class="colorText pt-2">
                             Le Site assure à l'Utilisateur une collecte et un traitement d'informations personnelles dans le respect de la vie privée conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés.<br><br>

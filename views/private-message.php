@@ -5,7 +5,7 @@
 
                 <div class="card tchat">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2 class="fs-5">Actualité</h2>
+                        <h2 class="fs-5">Tchat avec Paul</h2>
                     </div>
                     <div class="card-body overflow-scroll">
 

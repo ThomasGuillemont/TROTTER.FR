@@ -7,21 +7,18 @@
                         <div class="col-12">
                             <h2 id="randomHello"></h2>
                         </div>
-                        <div class="col-12 pt-3">
-                            <p class="fw-bold">
-                                <a href="/inscription">S'inscrire</a>
-                            </p>
+                        <div class="col-12 pt-2 pb-2">
+                            <span class="alert fst-italic">
+                                <?= SessionFlash::display('message') ?>
+                            </span>
                         </div>
                         <div class="col-12 ps-5 pe-5">
                             <ul class="list-inline d-flex justify-content-center my-auto">
                                 <li class="my-auto">
-                                    <a target="_blank" href="https://www.linkedin.com/in/guillemont-thomas-pro/"><img
-                                            class="socialIcon" src="/public/assets/img/socialMedia/LinkedIn.png"
-                                            alt="linkedInLogo"></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/guillemont-thomas-pro/"><img class="socialIcon" src="/public/assets/img/socialMedia/LinkedIn.png" alt="linkedInLogo"></a>
                                 </li>
                                 <li class="my-auto">
-                                    <a target="_blank" href="https://discord.com/invite/YRD58Z6kYA"><img class="socialIcon"
-                                            src="/public/assets/img/socialMedia/Discord.png" alt="discordLogo"></a>
+                                    <a target="_blank" href="https://discord.com/invite/YRD58Z6kYA"><img class="socialIcon" src="/public/assets/img/socialMedia/Discord.png" alt="discordLogo"></a>
                                 </li>
                             </ul>
                         </div>
@@ -29,8 +26,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/accueil.png"
-                    alt="accueilIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/accueil.png" alt="accueilIllustration">
             </div>
         </div>
     </div>

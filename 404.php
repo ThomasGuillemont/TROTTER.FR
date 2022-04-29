@@ -8,7 +8,7 @@
     <meta name="description" content="Trotter.fr - Le réseau social 0% publicité pour 100% plaisir" />
     <meta name="author" content="Thomas Guillemont" />
     <title>Trotter.fr - connexion</title>
-    <link rel="icon" type="image/x-icon" href="./assets/img/icons/message.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/icons/message.png" />
     <!-- Bootstrap CSS -->
     <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS -->

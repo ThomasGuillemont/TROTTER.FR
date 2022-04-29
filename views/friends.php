@@ -12,19 +12,16 @@
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/avatars/avatar1.png" alt="Image de profil">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/avatars/avatar1.png" alt="Image de profil">
                                     </div>
                                     <div class="col-3">
                                         <p class="my-auto">Alex</p>
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
                                     </div>
                                 </div>
                             </div>
@@ -33,19 +30,16 @@
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/avatars/avatar2.png" alt="Image de profil">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/avatars/avatar2.png" alt="Image de profil">
                                     </div>
                                     <div class="col-3">
                                         <p class="my-auto">Pierre</p>
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
                                     </div>
                                 </div>
                             </div>
@@ -54,19 +48,16 @@
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/avatars/avatar3.png" alt="Image de profil">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/avatars/avatar3.png" alt="Image de profil">
                                     </div>
                                     <div class="col-3">
                                         <p class="my-auto">Elise</p>
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
                                     </div>
                                 </div>
                             </div>
@@ -75,19 +66,16 @@
                             <div class="container">
                                 <div class="row d-flex align-items-center">
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/avatars/avatar4.png" alt="Image de profil">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/avatars/avatar4.png" alt="Image de profil">
                                     </div>
                                     <div class="col-3">
                                         <p class="my-auto">Jean</p>
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/delete.png" alt="Supprimer un ami">
                                     </div>
                                     <div class="col-3">
-                                        <img class="img-friends my-auto align-middle"
-                                            src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
+                                        <img class="img-friends my-auto align-middle" src="/public/assets/img/icons/message.png" alt="Envoyer un message privé">
                                     </div>
                                 </div>
                             </div>

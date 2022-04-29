@@ -22,10 +22,10 @@
             <div>
 
                 <?php
-                if ($connected === true) {
-                    include(dirname(__FILE__) . '/header/connect.php');
-                } else {
+                if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
                     include(dirname(__FILE__) . '/header/unconnect.php');
+                } else {
+                    include(dirname(__FILE__) . '/header/connect.php');
                 }
                 ?>
 

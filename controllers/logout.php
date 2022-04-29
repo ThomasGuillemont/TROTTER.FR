@@ -1,5 +1,9 @@
-<?php 
-    session_start();
-    session_destroy();
-    header('Location:index.php');
-    die();
+<?php
+
+//! logout
+session_start();
+$_SESSION = array();
+session_destroy();
+unset($_SESSION);
+header('location: /accueil');
+die();

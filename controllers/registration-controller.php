@@ -1,7 +1,13 @@
 <?php
+//! session_start();
+session_start();
+
+//! require once
 require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/user.php');
-$connected = false;
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
+
+$checked = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $error = [];
 
@@ -11,14 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! registered_at
     $registered_at = (new DateTime())->format('Y-m-d H:i:s');
 
-    //! validated_at
-    $validated_at = (new DateTime())->format('Y-m-d H:i:s');
-
     //! role
     $role = 3;
 
     //! avatar
-    $avatar = trim(filter_input(INPUT_POST, 'flexRadio', FILTER_SANITIZE_SPECIAL_CHARS));
+    $avatar = intval(filter_input(INPUT_POST, 'flexRadio', FILTER_SANITIZE_NUMBER_INT));
+
     $minAvatar = 1;
     $maxAvatar = 8;
     if (empty($avatar)) {
@@ -27,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $avatarValid = filter_var($avatar, FILTER_VALIDATE_INT, array("options" => array("min_range" => $minAvatar, "max_range" => $maxAvatar)));
         if ($avatarValid === false) {
             $error['avatar'] = 'L\'avatar n\'est pas valide';
+        } else {
+            $checked = $avatar;
         }
     }
 
@@ -38,6 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pseudoValid = filter_var($pseudo, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . PSEUDO . "$/")));
         if ($pseudoValid === false) {
             $error['pseudo'] = 'Le pseudo doit faire entre 5 et 30 caractères';
+        } else {
+            if (User::isPseudoExist($pseudo)) {
+                $error['pseudo'] = "Ce pseudo est déjà utilisé";
+            }
         }
     }
 
@@ -49,12 +59,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
         if ($emailValid === false) {
             $error['email'] = 'Le format de l\'email est incorrect';
+        } else {
+            if (User::isEmailExist($email)) {
+                $error['email'] = "Cette adresse email est déjà utilisée";
+            }
         }
     }
 
     //! password
-    $password = $_POST['password'];
-    $passwordConfirm = $_POST['passwordConfirm'];
+    $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS));
+    $passwordConfirm = trim(filter_input(INPUT_POST, 'passwordConfirm', FILTER_SANITIZE_SPECIAL_CHARS));
 
     if ($password != $passwordConfirm) {
         $error['passwordConfirm'] = 'La confirmation n\'est pas identique au mot de passe';
@@ -70,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $error['password'] = 'Le mot de passe doit faire entre 5 et 30 caractères';
                     $error['passwordConfirm'] = 'La confirmation doit faire entre 5 et 30 caractères';
                 } else {
-                    $passwordHash = password_hash($passwordValid, PASSWORD_DEFAULT);
+                    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
                 }
             }
         }
@@ -88,25 +102,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //! $user->add()
 if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    $user = new User($ip, $registered_at, $validated_at, $email, $pseudo, $passwordHash, $avatar, $role);
+    $user = new User($ip, $registered_at, $email, $pseudo, $passwordHash, $avatar, $role);
     $user = $user->add();
 
-    //! sentence success or error
+    //! message success or error
     if (!$user) {
-        $sentence = 'Une erreur est survenue';
+        $message = 'Une erreur est survenue';
     } else {
-        $sentence = 'Votre compte a été créé avec succès !';
+        SessionFlash::set('Votre compte a été créé avec succès !');
+        sleep(1.5);
+        header('Location: /accueil');
+        die;
     }
 }
 
+//! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
 include(dirname(__FILE__) . '/../views/registration.php');
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-//     sleep(1.5);
-//     header('location: /profil');
-// } else {
-//     include(dirname(__FILE__) . '/../views/registration.php');
-// }
-
 include(dirname(__FILE__) . '/../views/templates/footer.php');

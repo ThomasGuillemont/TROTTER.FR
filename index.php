@@ -1,3 +1,3 @@
 <?php
-    header( 'location: /accueil');
-    die;
+header('location: /accueil');
+die;

@@ -1,33 +1,58 @@
 <?php
-    require_once( dirname(__FILE__).'/../config/regex.php' );
-    $connected = false;
-    $error = [];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // email
-        $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-        if (empty($email)) {
-            $error['email'] = 'Veuillez saisir une adresse email';
-        } else {
-            $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
-            if ($emailValid === false) {
-                $error['email'] = 'Le format de l\'email est incorrect';
+//! session_start();
+session_start();
+
+//! require once
+require_once(dirname(__FILE__) . '/../config/regex.php');
+require_once(dirname(__FILE__) . '/../models/user.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
+
+$error = [];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //! email
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    if (empty($email)) {
+        $error['email'] = 'Veuillez saisir votre adresse email';
+    } else {
+        $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
+        if ($emailValid === false) {
+            $error['email'] = 'Le format de l\'email est incorrect';
+        }
+    }
+
+    //! getOneByEmail($email)
+    $user = User::getOneByEmail($email);
+    if ($user instanceof PDOException) {
+        $error['email'] = 'Votre email n\'existe pas';
+    }
+
+    //! password
+    $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS));
+    if (empty($password)) {
+        $error['password'] = 'Veuillez saisir votre mot de passe';
+    } else {
+        if (empty($user instanceof PDOException)) {
+            $hash = $user->password;
+            if (!password_verify($password, $hash)) {
+                $error['password'] = 'Votre mot de passe est incorrect';
             }
         }
-
-        // // password
-        $password = $_POST['password'];
-        if (empty($password)) {
-            $error['password'] = 'Veuillez saisir un mot de passe';
-        }
     }
+}
 
-    include(dirname(__FILE__) .'/../views/templates/header.php');
+//! include
+include(dirname(__FILE__) . '/../views/templates/header.php');
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
-        header('location: /profil');
-    } else {
-        include(dirname(__FILE__) .'/../views/connection.php');
-    }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
+    $_SESSION['id_user'] = $user->id;
+    SessionFlash::set('Vous êtes connecté avec succès !');
+    sleep(1.5);
+    header('location: /profil?id=' . $user->id);
+    die;
+} else {
+    include(dirname(__FILE__) . '/../views/connection.php');
+}
 
-    include(dirname(__FILE__) .'/../views/templates/footer.php');
+include(dirname(__FILE__) . '/../views/templates/footer.php');

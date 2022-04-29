@@ -3,14 +3,13 @@
 require_once(dirname(__FILE__) . '/../utils/database.php');
 
 
-//! CLASS USER
-class User
+//! CLASS POST
+class Post
 {
     private int $id;
-    private string $ip;
-    private string $registered_at;
-    private string $validated_at;
-    private string $email;
+    private string $post_at;
+    private string $post;
+    private string $id_user;
     private string $pseudo;
     private string $password;
     private string $id_avatars;
@@ -21,31 +20,31 @@ class User
      * @param int $id
      * @param string $ip
      * @param string $registered_at
+     * @param string $validated_at
      * @param string $email
      * @param string $pseudo
      * @param string $password
      * @param string $id_avatars
      * @param string $id_roles
-     * @param string $validated_at
      */
     function __construct(
         string $ip = '',
         string $registered_at = '',
+        string $validated_at = '',
         string $email = '',
         string $pseudo = '',
         string $password = '',
         string $id_avatars = '',
-        string $id_roles = '',
-        string $validated_at = ''
+        string $id_roles = ''
     ) {
         $this->setIp($ip);
         $this->setRegistered_at($registered_at);
+        $this->SetValidated_at($validated_at);
         $this->setEmail($email);
         $this->setPseudo($pseudo);
         $this->setPassword($password);
         $this->setId_avatars($id_avatars);
         $this->setId_roles($id_roles);
-        $this->SetValidated_at($validated_at);
         //! pdo
         $this->pdo = Database::dbConnect();
     }
@@ -219,12 +218,13 @@ class User
     public function add(): string
     {
         try {
-            $sql = 'INSERT INTO `trotter`.`users` (`ip`, `registered_at`, `email`, `pseudo`, `password`, `id_avatars`, `id_roles`)
-                    VALUES (:ip, :registered_at, :email, :pseudo, :password, :id_avatars, :id_roles);';
+            $sql = 'INSERT INTO `trotter`.`users` (`ip`, `registered_at`, `validated_at`, `email`, `pseudo`, `password`, `id_avatars`, `id_roles`)
+                    VALUES (:ip, :registered_at, :validated_at, :email, :pseudo, :password, :id_avatars, :id_roles);';
 
             $sth = $this->pdo->prepare($sql);
             $sth->bindValue(':ip', $this->getIp(), PDO::PARAM_STR);
             $sth->bindValue(':registered_at', $this->getRegistered_at(), PDO::PARAM_STR);
+            $sth->bindValue(':validated_at', $this->getValidated_at(), PDO::PARAM_STR);
             $sth->bindValue(':email', $this->getEmail(), PDO::PARAM_STR);
             $sth->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
             $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);
@@ -235,60 +235,6 @@ class User
                 throw new PDOException();
             } else {
                 return $sth->execute();
-            }
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
-
-
-    /** //! isEmailExist(string $email)
-     * @param string $email
-     * 
-     * @return bool
-     */
-    public static function isEmailExist(string $email): bool
-    {
-        try {
-            $sql = 'SELECT `email` FROM `trotter`.`users`
-                    WHERE `email` = :email;';
-
-            $sth = Database::DbConnect()->prepare($sql);
-            $sth->bindValue(':email', $email, PDO::PARAM_STR);
-
-            $sth->execute();
-
-            if (empty($sth->fetchAll())) {
-                return false;
-            } else {
-                return true;
-            }
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
-
-
-    /** //! isPseudoExist(string $pseudo)
-     * @param string $pseudo
-     * 
-     * @return bool
-     */
-    public static function isPseudoExist(string $pseudo): bool
-    {
-        try {
-            $sql = 'SELECT `email` FROM `trotter`.`users`
-                    WHERE `pseudo` = :pseudo;';
-
-            $sth = Database::DbConnect()->prepare($sql);
-            $sth->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-
-            $sth->execute();
-
-            if (empty($sth->fetchAll())) {
-                return false;
-            } else {
-                return true;
             }
         } catch (PDOException $e) {
             return false;
@@ -321,103 +267,19 @@ class User
     }
 
 
-    /** //! getOneById(int $id)
-     * @param int $id
-     * 
-     * @return object
-     */
-    public static function getOneById(int $id): object
-    {
-        try {
-            $sql = 'SELECT
-                        `users`.`id` AS `id`,
-                        `users`.`registered_at` AS `registered_at`,
-                        `users`.`email` AS `email`,
-                        `users`.`pseudo` AS `pseudo`,
-                        `users`.`password` AS `password`,
-                        `users`.`id_roles` AS `id_roles`,
-                        `avatars`.`avatar` AS `avatar`
-                    FROM `trotter`.`users`
-                    LEFT JOIN `avatars`
-                    ON `users`.`id_avatars` = `avatars`.`id`
-                    WHERE `users`.`id` = :id;';
-
-            $sth = Database::DbConnect()->prepare($sql);
-            $sth->bindValue(':id', $id, PDO::PARAM_INT);
-            $sth->execute();
-
-            if (!$sth) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
-            } else {
-                $user = $sth->fetch();
-            }
-
-            if (!$user) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
-            } else {
-                return $user;
-            }
-        } catch (PDOException $e) {
-            return $e;
-        }
-    }
-
-
-    /** //! getOneByEmail(string $email)
-     * @param string $email
-     * 
-     * @return object
-     */
-    public static function getOneByEmail(string $email = 'test@hotmail.fr'): object
-    {
-        try {
-            $sql = 'SELECT * FROM `trotter`.`users`
-                    WHERE `email` = :email;';
-
-            $sth = Database::DbConnect()->prepare($sql);
-            $sth->bindValue(':email', $email, PDO::PARAM_STR);
-            $sth->execute();
-
-            if (!$sth) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
-            } else {
-                $user = $sth->fetch();
-            }
-
-            if (!$user) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
-            } else {
-                return $user;
-            }
-        } catch (PDOException $e) {
-            return $e;
-        }
-    }
-
-
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $limit = 0, int $offset = 0,  $search = ''): array
+    public static function getAll(int $firstUser, int $perPage): array
     {
         try {
-            if (is_null($search)) {
-                $sql = 'SELECT * FROM `trotter`.`users`
+            $sql = 'SELECT * FROM `trotter`.`users`
                     ORDER BY `registered_at` DESC
-                    LIMIT :limit, :offset;';
-            } else {
-                $sql = 'SELECT * FROM `trotter`.`users`
-                    WHERE `pseudo` LIKE :search
-                    ORDER BY `registered_at` DESC
-                    LIMIT :limit, :offset;';
-            }
-            $sth = Database::DbConnect()->prepare($sql);
-            $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
-            $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
+                    LIMIT :firstUser, :perPage;';
 
-            if (!is_null($search)) {
-                $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);
-            }
+            $sth = Database::DbConnect()->prepare($sql);
+            $sth->bindValue(':firstUser', $firstUser, PDO::PARAM_INT);
+            $sth->bindValue(':perPage', $perPage, PDO::PARAM_INT);
 
             if (!$sth) {
                 throw new PDOException();
@@ -428,54 +290,6 @@ class User
             return $users;
         } catch (PDOException $e) {
             return [];
-        }
-    }
-
-
-    /** //! count()
-     * @return int
-     */
-    public static function count(): int
-    {
-        try {
-            $sql = 'SELECT COUNT(*) FROM `trotter`.`users`;';
-
-            $sth = Database::DbConnect()->prepare($sql);
-            $sth->execute();
-
-            if (!$sth) {
-                throw new PDOException();
-            } else {
-                $count = $sth->fetchColumn();
-            }
-            return $count;
-        } catch (PDOException $e) {
-            return 0;
-        }
-    }
-
-
-    /** //! update()
-     * @return bool
-     */
-    public function update(): bool
-    {
-        try {
-            $sql = 'UPDATE `trotter`.`users`
-                    SET `password` = :password
-                    WHERE `id` = :id;';
-
-            $sth = $this->pdo->prepare($sql);
-            $sth->bindValue(':id', $this->getId(), PDO::PARAM_INT);
-            $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);
-
-            if (!$sth) {
-                throw new PDOException();
-            } else {
-                return $sth->execute();
-            }
-        } catch (PDOException $e) {
-            return false;
         }
     }
 }

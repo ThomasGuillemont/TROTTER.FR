@@ -3,16 +3,13 @@
     <div class="p-2">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="/accueil">Accueil</a>
+                <a class="nav-link active" href="/profil?id=<?= $_SESSION['id_user'] ?? '' ?>">Profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/inscription">Inscription</a>
+                <a class="nav-link" href="/actualités">Actualités</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/connexion">Connexion</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" href="/déconnexion">Déconnexion</a>
             </li>
         </ul>
     </div>

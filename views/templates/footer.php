@@ -12,10 +12,10 @@
                 </div>
             </div>
         </footer>
-    </div>
+        </div>
 
-    <!-- Bootstrap JS -->
-    <script src="./public/bootstrap/js/bootstrap.min.js"></script>
-</body>
+        <!-- Bootstrap JS -->
+        <script src="./public/bootstrap/js/bootstrap.min.js"></script>
+        </body>
 
-</html>
+        </html>

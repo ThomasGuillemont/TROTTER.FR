@@ -10,15 +10,15 @@
                                     <label for="email" class="form-label fw-bolder formTitle">Email</label>
                                     <input required placeholder="email@blabla.com" autocomplete="email" type="email" class="form-control text-center" id="email" name="email" value="<?= $email ?? '' ?>">
                                     <div class="fs-7 alert" id="alertEmail">
-                                        <?= $error['email'] ?? ''?>
+                                        <?= $error['email'] ?? '' ?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label fw-bolder formTitle">Votre
                                         message</label>
-                                    <textarea required pattern="<?=TEXTAREA?>" placeholder="Saisissez votre message" class="form-control" id="message" name="message" rows="5"><?= $message ?? '' ?></textarea>
+                                    <textarea required pattern="<?= TEXTAREA ?>" placeholder="Saisissez votre message" class="form-control" id="message" name="message" rows="5"><?= $message ?? '' ?></textarea>
                                     <div class="fs-7 alert" id="alertMessage">
-                                        <?= $error['message'] ?? ''?>
+                                        <?= $error['message'] ?? '' ?>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn my-btn fw-bolder" id="contactBtn">Envoyer</button>
@@ -28,8 +28,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/contact.png"
-                    alt="contactIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/contact.png" alt="contactIllustration">
             </div>
         </div>
     </div>
