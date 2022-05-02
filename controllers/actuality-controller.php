@@ -44,13 +44,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_user = intval($_SESSION['id_user']);
 
     //! post
-    $post = trim(filter_input(INPUT_POST, 'post', FILTER_SANITIZE_EMAIL));
+    $post = trim(filter_input(INPUT_POST, 'post', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    $emoji_list = array('😀', '😁', '😂', '😅', '🤭', '🤧', '🤓', '🤠');
+    $replace = array('&#128512', '&#128513', '&#128514', '&#128517', '&#129325', '&#129319', '&#129299', '&#129312');
+    $post = str_replace($emoji_list, $replace, $post);
+
     if (empty($post)) {
-        $error['post'] = 'Veuillez saisir un message pour poster';
+        $error['noPostError'] = 'noPostError';
     } else {
         $postValid = filter_var($post, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . TEXTAREA . "$/")));
         if ($postValid === false) {
-            $error['post'] = 'Le post ne respecte pas les règles de formatage';
+            $error['noPostError'] = 'noPostError';
         }
     }
 }
@@ -63,6 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
     //! message success or error
     if (!$post) {
         $message = 'Une erreur est survenue';
+    } else {
+        header('Location: /actualités');
+        die;
     }
 }
 

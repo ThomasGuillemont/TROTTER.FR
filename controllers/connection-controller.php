@@ -47,7 +47,7 @@ include(dirname(__FILE__) . '/../views/templates/header.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
     $_SESSION['id_user'] = $user->id;
-    SessionFlash::set('Vous êtes connecté avec succès !');
+    SessionFlash::set('Vous êtes connecté !');
     sleep(1.5);
     header('location: /profil?id=' . $user->id);
     die;

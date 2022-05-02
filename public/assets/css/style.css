@@ -309,6 +309,69 @@ h3 {
   background: #dc89893b;
 }
 
+/* notif */
+.toast {
+  width: 100%;
+}
+
+.toast:not(.showing):not(.show) {
+  opacity: 1;
+}
+
+.bg-notif {
+  background-color: #c74f2d!important;
+}
+
+.modal-content {
+  background-color: #6389d400;
+  border: none;
+}
+
+.modal-btn:hover {
+  color: var(--buttonColor);
+  background: var(--backgroundColorButton);
+  border-color: var(--borderColor);
+}
+
+.modal-btn {
+  color: var(--buttonColor);
+  background: var(--backgroundColorButton);
+  border-color: var(--borderColor);
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 0.5rem;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 0.5em;
+}
+
+/* emoji */
+.emoji-drawer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  transition: opacity 0.2s;
+}
+
+.hidden {
+opacity: 0;
+}
+
+.emoji {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.emoji:hover {
+  cursor: pointer;
+}
 
 /* Screen size is 576px */
 @media screen and (min-width: 576px) {
