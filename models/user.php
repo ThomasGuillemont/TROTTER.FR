@@ -112,7 +112,7 @@ class User
     {
         return $this->validated_at;
     }
-    /** //! setValidated_at(string $Validated_at)
+    /** //! setValidated_at(string $validated_at)
      * @param string $validated_at
      * 
      * @return void

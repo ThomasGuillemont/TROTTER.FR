@@ -3,97 +3,73 @@
         <div class="row glassmorphism">
             <div class="col">
 
-                <div class="card tchat">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2 class="fs-5">Actualité</h2>
+                <?php if (!empty($message)) { ?>
+                    <div class="col-12 text-center fw-bold fst-italic orange p-3">
+                        <?= $message ?? '' ?>
                     </div>
-                    <div class="card-body overflow-scroll">
+                <?php } ?>
 
-                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-sender">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
+                <?php if (empty($message)) { ?>
+
+                    <div class="card tchat">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h2 class="fs-5">Actualité</h2>
                         </div>
+                        <div class="card-body overflow-scroll">
 
-                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-recipient">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, rem.
-                                </p>
-                            </div>
+                            <?php foreach ($listposts as $key => $value) {
+                                if ($value->id_user != intval($_SESSION['id_user'])) { ?>
+                                    <div class="d-flex flex-row justify-content-start mt-2 mb-2 ms-3">
+                                        <img class="img-friends my-auto align-middle me-3" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
+                                        <div class="d-flex flex-column">
+                                            <div class="small d-flex align-item-start">
+                                                <p class="mb-0 fw-bold ps-2">
+                                                    <a class="orange" href="/profil?id=<?= $value->id_user ?? '' ?>"><?= $value->pseudo ?? '' ?></a>
+                                                </p>
+                                                <p class="mb-0 ps-2 fw-bold"><?= date("d-m-Y", strtotime($value->post_at)) ?? '' ?></p>
+                                                <a class="ps-4 fst-italic" href="/signaler?id=<?= $value->id ?? '' ?>">Signaler</a>
+                                            </div>
+                                            <p class="fs-6 ps-2 text-start mb-0">
+                                                <?= $value->post ?? '' ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="d-flex flex-row justify-content-start mt-2 mb-2 ms-3">
+                                        <img class="img-friends my-auto align-middle me-3" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
+                                        <div class="d-flex flex-column">
+                                            <div class="small d-flex align-item-start">
+                                                <p class="mb-0 fw-bold ps-2">
+                                                    <a class="orange" href="/profil?id=<?= $value->id_user ?? '' ?>"><?= $value->pseudo ?? '' ?></a>
+                                                </p>
+                                                <p class="mb-0 ps-2 fw-bold"><?= date("d-m-Y", strtotime($value->post_at)) ?? '' ?></p>
+                                                <a class="ps-4 fst-italic" href="/modifier?id=<?= $value->id ?? '' ?>">Modifier</a>
+                                                <a class="ps-2 fst-italic" href="/supprimer?id=<?= $value->id ?? '' ?>">Supprimer</a>
+                                            </div>
+                                            <p class="fs-6 ps-2 text-start mb-0">
+                                                <?= $value->post ?? '' ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            <?php } ?>
+
                         </div>
+                        <div class="card-footer text-muted">
+                            <form class="pb-3 d-flex justify-content-center" action="/actualités" method="POST" id="search">
+                                <input type="text w-50" class="form-control me-3" id="post" name="post" placeholder="Message">
 
-                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-sender">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit.
-                                </p>
-                            </div>
-                        </div>
+                                <?php if (!empty($error['post'])) { ?>
+                                    <div class="fs-7 alert fst-italic" id="alertSearch">
+                                        <small class="error fst-italic d-flex align-self-center m-2"><?= $error['post'] ?? '' ?></small>
+                                    </div>
+                                <?php } ?>
 
-                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-recipient">
-                                    Lorem ipsum dolor sit amet.
-                                </p>
-                            </div>
-                        </div>
-
-
-                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-recipient">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reiciendis ipsam fugiat harum facere quis eos delectus libero. Voluptate, nemo?
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-sender">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-recipient">
-                                    Lorem ipsum dolor sit amet.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-start mt-1 me-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-sender">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-recipient">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, libero!
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-end mt-1 ms-5">
-                            <div>
-                                <p class="small p-2 mb-1 bg-recipient">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis repudiandae deserunt laborum? Magnam fugiat cumque dolorem vitae.
-                                </p>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="card-footer text-muted d-flex justify-content-start align-items-center">
-                        <input type="text" class="form-control me-3" id="exampleFormControlInput1" placeholder="Message">
-                    </div>
-                </div>
+                <?php } ?>
+
             </div>
         </div>
     </div>

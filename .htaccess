@@ -43,5 +43,8 @@ RewriteRule ^récupération$ /controllers/recovery-controller.php [L]
 # /dashboard
 RewriteRule ^administration$ /controllers/dashboard-controller.php [L]
 
+# /dashboard
+RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]
+
 # /mentions
 RewriteRule ^mentions$ /controllers/mentions-controller.php [L]

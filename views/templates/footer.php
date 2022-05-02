@@ -1,4 +1,4 @@
-        <footer class="mt-auto colorText pt-2">
+        <footer class="mt-auto colorText pt-3">
             <div class="container-fluid">
                 <div class="row align-items-center mb-2">
                     <div class="col-12 col-sm-6 mb-0">

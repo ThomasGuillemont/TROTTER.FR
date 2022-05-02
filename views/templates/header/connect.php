@@ -9,6 +9,9 @@
                 <a class="nav-link" href="/actualités">Actualités</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/amis?id=<?= $_SESSION['id_user'] ?? '' ?>">Amis</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/déconnexion">Déconnexion</a>
             </li>
         </ul>

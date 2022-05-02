@@ -11,33 +11,29 @@
                             </div>
                         <?php } ?>
 
-                        <div class="col-12 pt-2 pb-2">
-                            <span class="alert fst-italic">
-                                <?= SessionFlash::display('message') ?>
-                            </span>
-                        </div>
+                        <span class="alert fst-italic">
+                            <?= SessionFlash::display('message') ?>
+                        </span>
 
                         <?php if (empty($message)) { ?>
                             <div class="col-12">
                                 <h2><?= $user->pseudo ?></h2>
-                                <p>Compte actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
+                                <p>Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
                             </div>
                             <div class="col-12">
                                 <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
                             </div>
-                            <div class="col-12 p-2">
-                                <a href="/édition?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Changer de mot de passe</a>
-                            </div>
-                            <div class="col-12 p-2">
-                                <a href="/amis?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Mes amis</a>
-                            </div>
-
                             <?php if ($user->id_roles == 1) { ?>
                                 <div class="col-12 p-2">
                                     <a href="/administration" class="btn my-btn btn-profile fw-bolder">Administration</a>
                                 </div>
                             <?php } ?>
-
+                            <div class="col-12 p-2">
+                                <a href="/amis?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Ma liste d'amis</a>
+                            </div>
+                            <div class="col-12 p-2">
+                                <a href="/édition?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Changer de mot de passe</a>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>

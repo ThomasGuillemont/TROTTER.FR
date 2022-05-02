@@ -10,7 +10,61 @@ if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
 }
 
 //! require_once
+require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/post.php');
+require_once(dirname(__FILE__) . '/../config/offset.php');
+
+//! what is the page
+if (isset($_GET['page']) && !empty($_GET['page'])) {
+    $currentPage = intval(filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT));
+} else {
+    $currentPage = 1;
+}
+//! number of post
+$postCount = Post::count();
+$postCount = intval($postCount);
+//! number of patients per page
+$offset = OFFSET;
+//! total pages
+$pages = ceil($postCount / $offset);
+//! first user
+$limit = ($currentPage * $offset) - $offset;
+
+//! Post::getAll($limit, $offset)
+$listposts = Post::getAll($limit, $offset);
+if ($listposts instanceof PDOException) {
+    $message = $user->getMessage();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //! post_at
+    $post_at = (new DateTime())->format('Y-m-d H:i:s');
+
+    //! id_user
+    $id_user = intval($_SESSION['id_user']);
+
+    //! post
+    $post = trim(filter_input(INPUT_POST, 'post', FILTER_SANITIZE_EMAIL));
+    if (empty($post)) {
+        $error['post'] = 'Veuillez saisir un message pour poster';
+    } else {
+        $postValid = filter_var($post, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . TEXTAREA . "$/")));
+        if ($postValid === false) {
+            $error['post'] = 'Le post ne respecte pas les règles de formatage';
+        }
+    }
+}
+
+//! $post->add()
+if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
+    $post = new Post($post_at, $post, $id_user);
+    $post = $post->add();
+
+    //! message success or error
+    if (!$post) {
+        $message = 'Une erreur est survenue';
+    }
+}
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
