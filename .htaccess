@@ -46,6 +46,9 @@ RewriteRule ^administration-utilisateurs$ /controllers/dashboard-user-controller
 # /dashboard-post
 RewriteRule ^administration-actualités$ /controllers/dashboard-post-controller.php [L]
 
+# /dashboard-post
+RewriteRule ^supprimer-actualité$ /controllers/delete-post-controller.php [L]
+
 # /delete
 RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]
 

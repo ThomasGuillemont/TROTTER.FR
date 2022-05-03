@@ -3,14 +3,9 @@
 //! session_start();
 session_start();
 
-//! redirect
-if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
-    header('location: /accueil');
-    die;
-}
-
 //! require once
 require_once(dirname(__FILE__) . '/../models/user.php');
+require_once(dirname(__FILE__) . '/../models/post.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 
@@ -32,20 +27,20 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 } else {
     $currentPage = 1;
 }
-//! number of user
-$userCount = User::count();
-$userCount = intval($userCount);
+//! number of post
+$postCount = Post::count();
+$postCount = intval($postCount);
 //! number of patients per page
 $offset = OFFSET;
 //! total pages
-$pages = ceil($userCount / $offset);
-//! first user
+$pages = ceil($postCount / $offset);
+//! first post
 $limit = ($currentPage * $offset) - $offset;
 
-//! User::getAll($limit, $offset)
-$listUsers = User::getAll($limit, $offset);
-if ($listUsers instanceof PDOException) {
-    $message = $user->getMessage();
+//! Post::getAll($limit, $offset)
+$listPost = Post::getAll($limit, $offset);
+if ($listPost instanceof PDOException) {
+    $message = $post->getMessage();
 }
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -61,10 +56,10 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         }
     }
 
-    //! $user->search()
-    $listUsers = User::getAll($limit, $offset, $search);
-    if ($listUsers instanceof PDOException) {
-        $message = $user->getMessage();
+    //! $post->search()
+    $listPosts = Post::getAll($limit, $offset, $search);
+    if ($listPosts instanceof PDOException) {
+        $message = $post->getMessage();
     }
 }
 

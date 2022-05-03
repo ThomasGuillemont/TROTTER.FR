@@ -23,11 +23,11 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 //! number of post
 $postCount = Post::count();
 $postCount = intval($postCount);
-//! number of patients per page
+//! number of post per page
 $offset = OFFSET;
 //! total pages
 $pages = ceil($postCount / $offset);
-//! first user
+//! first post
 $limit = ($currentPage * $offset) - $offset;
 
 //! Post::getAll($limit, $offset)
@@ -38,10 +38,8 @@ if ($listposts instanceof PDOException) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! post_at
-    // $post_at = (new DateTime())->format('Y-m-d H:i');
-
     $date = new DateTime('', new DateTimeZone('Europe/Paris'));
-    $post_at = $date->format('Y-m-d H:i');
+    $post_at = $date->format('Y-m-d H:i:s');
 
     //! id_user
     $id_user = intval($_SESSION['id_user']);

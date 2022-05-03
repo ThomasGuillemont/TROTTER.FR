@@ -27,7 +27,7 @@
                             Utilisateurs
                         </div>
 
-                        <form class="w-50 pb-3" action="/administration" method="GET" id="search">
+                        <form class="w-50 pb-3" action="/administration-utilisateurs" method="GET" id="search">
                             <input type="search" class="form-control text-center" placeholder="🕵️‍♀️ Hello, Je cherche pour vous ! " name="search" id="search" value="<?= $search ?? '' ?>">
 
                             <?php if (!empty($error['search'])) { ?>
@@ -71,7 +71,7 @@
                             <?php for ($page = 1; $page <= $pages; $page++) : ?>
                                 <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                                 <li class="page-item p-1 <?= ($currentPage == $page) ? "active" : "" ?>">
-                                    <a href="/administration?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                    <a href="/administration-utilisateurs?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                                 </li>
                             <?php endfor ?>
                         </ul>

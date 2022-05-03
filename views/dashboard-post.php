@@ -27,7 +27,7 @@
                             Actualités
                         </div>
 
-                        <form class="w-50 pb-3" action="/administration" method="GET" id="search">
+                        <form class="w-50 pb-3" action="/administration-actualités" method="GET" id="search">
                             <input type="search" class="form-control text-center" placeholder="🕵️‍♀️ Hello, Je cherche pour vous ! " name="search" id="search" value="<?= $search ?? '' ?>">
 
                             <?php if (!empty($error['search'])) { ?>
@@ -42,24 +42,21 @@
                         <table class="table table-hover">
                             <thead class="orange">
                                 <tr>
-                                    <th>IP</th>
-                                    <th>Date d'inscription</th>
+                                    <th>Date</th>
+                                    <th>Message</th>
                                     <th>Pseudo</th>
-                                    <th>Email</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listUsers as $key => $value) { ?>
+                                <?php foreach ($listPost as $key => $value) { ?>
                                     <!-- tr -->
                                     <tr>
-                                        <td><?= $value->ip ?? '' ?></td>
-                                        <td><?= date("d-m-Y", strtotime($value->registered_at)) ?? '' ?></td>
+                                        <td><?= date("d-m-Y", strtotime($value->post_at)) ?? '' ?></td>
+                                        <td><?= $value->post ?? '' ?></td>
                                         <td><?= $value->pseudo ?? '' ?></td>
-                                        <td><a href="mailto:<?= $value->email ?? '' ?>"><?= $value->email ?? '' ?></a></td>
                                         <td>
-                                            <a href="/profil?id=<?= $value->id ?? '' ?>">🔎</a>
-                                            <a href="/supprimer-utilisateur?id=<?= $value->id ?? '' ?>">❌</a>
+                                            <a href="/supprimer-actualité?id=<?= $value->id ?? '' ?>">❌</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -71,7 +68,7 @@
                             <?php for ($page = 1; $page <= $pages; $page++) : ?>
                                 <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                                 <li class="page-item p-1 <?= ($currentPage == $page) ? "active" : "" ?>">
-                                    <a href="/administration?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                    <a href="/administration-actualités?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                                 </li>
                             <?php endfor ?>
                         </ul>

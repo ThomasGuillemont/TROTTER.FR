@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ip = trim(filter_input(INPUT_POST, 'ip', FILTER_SANITIZE_SPECIAL_CHARS));
 
     //! registered_at
-    $registered_at = (new DateTime())->format('Y-m-d H:i:s');
+    $date = new DateTime('', new DateTimeZone('Europe/Paris'));
+    $registered_at = $date->format('Y-m-d H:i');
 
     //! role
     $role = 3;

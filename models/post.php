@@ -130,27 +130,10 @@ class Post
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $limit = 0, int $offset = 0,  $search = ''): array
+    public static function getAll(int $limit = 0, int $offset = 25,  $search = null): array
     {
         try {
-            if (is_null($search)) {
-                $sql = 'SELECT
-                `posts`.`id`, AS `id`
-                `posts`.`post_at`, AS `post_at`
-                `posts`.`post`, AS `post`
-                `posts`.`id_user`, AS `id_user`
-                `users`.`pseudo`, AS `pseudo_user`
-                `avatars`.`avatar` AS `avatar_user`
-                FROM `trotter`.`posts`
-                INNER JOIN `users`
-                ON `posts`.`id_user` = `users`.`id`
-                INNER JOIN `avatars`
-                ON `avatars`.`id` = `users`.`id_avatar`
-                WHERE `post` LIKE :search
-                ORDER BY `post_at` DESC
-                LIMIT :limit, :offset;';
-            } else {
-                $sql = 'SELECT
+            $sql = 'SELECT
                 `posts`.`id` AS `id`,
                 `posts`.`post_at`,
                 `posts`.`post`,
@@ -160,14 +143,19 @@ class Post
                 FROM `trotter`.`posts`
                 LEFT JOIN `users` ON `posts`.`id_user` = `users`.`id`
                 LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`
-                ORDER BY `post_at` DESC;';
+                ORDER BY `post_at` DESC';
+            if (!is_null($search)) {
+                $sql .= ' WHERE `posts`.`post` LIKE :search';
             }
+            $sql .= ' LIMIT :limit, :offset;';
+
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
             $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
 
             if (!is_null($search)) {
                 $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);
+                var_dump($search);
             }
 
             if (!$sth) {
@@ -179,6 +167,39 @@ class Post
             return $users;
         } catch (PDOException $e) {
             return [];
+        }
+    }
+
+
+    /** //! getOneById(int $id)
+     * @param int $id
+     * 
+     * @return object
+     */
+    public static function getOneById(int $id): object
+    {
+        try {
+            $sql = 'SELECT *
+                    FROM `trotter`.`posts`
+                    WHERE `posts`.`id` = :id;';
+
+            $sth = Database::DbConnect()->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
+            $sth->execute();
+
+            if (!$sth) {
+                throw new PDOException('le message n\'existe pas');
+            } else {
+                $user = $sth->fetch();
+            }
+
+            if (!$user) {
+                throw new PDOException('le message n\'existe pas');
+            } else {
+                return $user;
+            }
+        } catch (PDOException $e) {
+            return $e;
         }
     }
 

@@ -25,7 +25,7 @@
                                                 </p>
                                                 <p class="mb-0 ps-2 fst-italic"><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></p>
                                             </div>
-                                            <p class="fs-5 ps-2 text-start mb-0 p-1 fw-bold">
+                                            <p class="fs-6 ps-2 text-start mb-0 p-1 fw-bold">
                                                 <?= $value->post ?? '' ?>
                                             </p>
                                             <div class="d-flex">
@@ -43,7 +43,7 @@
                                                 </p>
                                                 <p class="mb-0 ps-2 fst-italic"><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></p>
                                             </div>
-                                            <p class="fs-5 ps-2 text-start mb-0 p-1 fw-bold">
+                                            <p class="fs-6 ps-2 text-start mb-0 p-1 fw-bold">
                                                 <?= $value->post ?? '' ?>
                                             </p>
                                             <div class="d-flex">

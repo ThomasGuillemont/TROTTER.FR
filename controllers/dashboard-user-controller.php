@@ -3,12 +3,6 @@
 //! session_start();
 session_start();
 
-//! redirect
-if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
-    header('location: /accueil');
-    die;
-}
-
 //! require once
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
