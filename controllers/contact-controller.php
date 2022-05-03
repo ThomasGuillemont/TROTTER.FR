@@ -1,5 +1,8 @@
 <?php
 
+//! session_start();
+session_start();
+
 //! require once
 require_once(dirname(__FILE__) . '/../config/regex.php');
 

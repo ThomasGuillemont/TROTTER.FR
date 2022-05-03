@@ -17,35 +17,39 @@
                             <?php foreach ($listposts as $key => $value) {
                                 if ($value->id_user != intval($_SESSION['id_user'])) { ?>
                                     <div class="d-flex flex-row justify-content-start mt-2 mb-2 ms-3">
-                                        <img class="img-friends my-auto align-middle me-3 d-none d-sm-block" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
-                                        <div class="d-flex flex-column">
+                                        <img class="img-friends my-auto align-middle me-3" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
+                                        <div class="d-flex flex-column message">
                                             <div class="small d-flex align-item-start">
                                                 <p class="mb-0 fw-bold ps-2">
                                                     <a class="orange" href="/profil?id=<?= $value->id_user ?? '' ?>"><?= $value->pseudo ?? '' ?></a>
                                                 </p>
-                                                <p class="mb-0 ps-2 fw-bold d-none d-sm-block"><?= date("d-m-Y", strtotime($value->post_at)) ?? '' ?></p>
-                                                <a class="ps-4 fst-italic" href="/signaler?id=<?= $value->id ?? '' ?>">Signaler</a>
+                                                <p class="mb-0 ps-2 fst-italic"><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></p>
                                             </div>
-                                            <p class="fs-6 ps-2 text-start mb-0">
+                                            <p class="fs-5 ps-2 text-start mb-0 p-1 fw-bold">
                                                 <?= $value->post ?? '' ?>
                                             </p>
+                                            <div class="d-flex">
+                                                <a class="fst-italic small ps-2" href="/signaler?id=<?= $value->id ?? '' ?>">Signaler</a>
+                                            </div>
                                         </div>
                                     </div>
                                 <?php } else { ?>
                                     <div class="d-flex flex-row justify-content-start mt-2 mb-2 ms-3">
-                                        <img class="img-friends my-auto align-middle me-3 d-none d-sm-block" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
-                                        <div class="d-flex flex-column">
+                                        <img class="img-friends my-auto align-middle me-3" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
+                                        <div class="d-flex flex-column message">
                                             <div class="small d-flex align-item-start">
                                                 <p class="mb-0 fw-bold ps-2">
                                                     <a class="orange" href="/profil?id=<?= $value->id_user ?? '' ?>"><?= $value->pseudo ?? '' ?></a>
                                                 </p>
-                                                <p class="mb-0 ps-2 fw-bold d-none d-sm-block"><?= date("d-m-Y", strtotime($value->post_at)) ?? '' ?></p>
-                                                <a class="ps-4 fst-italic" href="/modifier?id=<?= $value->id ?? '' ?>">Modifier</a>
-                                                <a class="ps-2 fst-italic" href="/supprimer?id=<?= $value->id ?? '' ?>">Supprimer</a>
+                                                <p class="mb-0 ps-2 fst-italic"><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></p>
                                             </div>
-                                            <p class="fs-6 ps-2 text-start mb-0">
+                                            <p class="fs-5 ps-2 text-start mb-0 p-1 fw-bold">
                                                 <?= $value->post ?? '' ?>
                                             </p>
+                                            <div class="d-flex">
+                                                <a class="fst-italic small ps-2" href="/modifier?id=<?= $value->id ?? '' ?>">Modifier</a>
+                                                <a class="fst-italic small ps-2" href="/supprimer?id=<?= $value->id ?? '' ?>">Supprimer</a>
+                                            </div>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -68,7 +72,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-10 col-md-11 p-0">
-                                        <form class="pb-3 d-flex justify-content-center" action="/actualités" method="POST" id="search">
+                                        <form class="d-flex justify-content-center" action="/actualités" method="POST" id="search">
                                             <input type="text" class="form-control" id="input" name="post" placeholder="Message">
                                             <?php if (!empty($error['post'])) { ?>
                                                 <div class="fs-7 alert fst-italic" id="alertSearch">

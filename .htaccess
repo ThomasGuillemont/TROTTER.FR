@@ -40,10 +40,13 @@ RewriteRule ^déconnexion$ /controllers/logout.php [L]
 # /recovery
 RewriteRule ^récupération$ /controllers/recovery-controller.php [L]
 
-# /dashboard
-RewriteRule ^administration$ /controllers/dashboard-controller.php [L]
+# /dashboard-user
+RewriteRule ^administration-utilisateurs$ /controllers/dashboard-user-controller.php [L]
 
-# /dashboard
+# /dashboard-post
+RewriteRule ^administration-actualités$ /controllers/dashboard-post-controller.php [L]
+
+# /delete
 RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]
 
 # /mentions

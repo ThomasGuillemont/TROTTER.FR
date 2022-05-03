@@ -38,7 +38,10 @@ if ($listposts instanceof PDOException) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! post_at
-    $post_at = (new DateTime())->format('Y-m-d H:i:s');
+    // $post_at = (new DateTime())->format('Y-m-d H:i');
+
+    $date = new DateTime('', new DateTimeZone('Europe/Paris'));
+    $post_at = $date->format('Y-m-d H:i');
 
     //! id_user
     $id_user = intval($_SESSION['id_user']);

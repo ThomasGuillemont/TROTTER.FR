@@ -190,6 +190,12 @@ h3 {
   font-size: 0.7rem;
 }
 
+.message {
+  border: 1px solid #cb6143;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  padding: 0.5em;
+}
+
 /* floating css */
 .floating {
   animation-name: floating;

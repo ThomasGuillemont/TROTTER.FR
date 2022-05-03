@@ -70,5 +70,5 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
-include(dirname(__FILE__) . '/../views/dashboard.php');
+include(dirname(__FILE__) . '/../views/dashboard-post.php');
 include(dirname(__FILE__) . '/../views/templates/footer.php');

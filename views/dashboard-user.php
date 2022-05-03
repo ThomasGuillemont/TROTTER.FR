@@ -2,6 +2,18 @@
     <div class="container-fluid">
         <div class="row glassmorphism">
             <div class="col-12">
+                <nav>
+                    <div class="d-flex justify-content-start m-3">
+                        <a href="/administration-utilisateurs" class="btn my-btn btn-profile fw-bold m-2">
+                            👤 Utilisateurs
+                        </a>
+                        <a href="/administration-actualités" class="btn my-btn btn-profile fw-bold m-2">
+                            📮 Actualités
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12">
                 <div class="container-fluid p-2">
                     <div class="row justify-content-center">
 
