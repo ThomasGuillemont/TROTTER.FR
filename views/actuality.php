@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col-12 col-sm-10 col-md-11 p-0">
                                         <form class="pb-3 d-flex justify-content-center" action="/actualités" method="POST" id="search">
-                                            <input type="text" pattern="<?= TEXTAREA ?>" class="form-control" id="input" name="post" placeholder="Message">
+                                            <input type="text" class="form-control" id="input" name="post" placeholder="Message">
                                             <?php if (!empty($error['post'])) { ?>
                                                 <div class="fs-7 alert fst-italic" id="alertSearch">
                                                     <small class="error fst-italic d-flex align-self-center m-2"><?= $error['post'] ?? '' ?></small>

@@ -52,11 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($post)) {
         $error['noPostError'] = 'noPostError';
-    } else {
-        $postValid = filter_var($post, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . TEXTAREA . "$/")));
-        if ($postValid === false) {
-            $error['noPostError'] = 'noPostError';
-        }
     }
 }
 

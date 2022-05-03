@@ -139,19 +139,15 @@ h3 {
 }
 
 .navImgLogo {
-  max-width: 10%;
-}
-
-.navImg {
-  max-width: 1.5em;
-}
-
-.navbar-toggler:hover {
-  background-color: #c74f2d47;
-  border-radius: 0.5rem;
+  max-width: 4em;
 }
 
 .socialIcon {
+  max-width: 3em;
+  height: auto;
+}
+
+.img-dashboard{
   max-width: 3em;
   height: auto;
 }
