@@ -11,6 +11,7 @@ class Post
     private string $post;
     private string $id_user;
 
+
     /** //! construct
      * @param int $id
      * @param string $post_at
@@ -103,12 +104,12 @@ class Post
 
 
     /** //! add()
-     * @return string
+     * @return bool
      */
-    public function add(): string
+    public function add(): bool
     {
         try {
-            $sql = 'INSERT INTO `trotter`.`posts` (`post_at`, `post`, `id_user`)
+            $sql = 'INSERT INTO `posts` (`post_at`, `post`, `id_user`)
                     VALUES (:post_at, :post, :id_user);';
 
             $sth = $this->pdo->prepare($sql);
@@ -119,7 +120,7 @@ class Post
             if (!$sth) {
                 throw new PDOException();
             } else {
-                return $sth->execute();
+                return true;
             }
         } catch (PDOException $e) {
             return false;
@@ -130,24 +131,25 @@ class Post
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $limit = 0, int $offset = 25,  $search = null): array
+    public static function getAll(int $limit = 0, int $offset = OFFSET,  $search = null): array
     {
         try {
             $sql = 'SELECT
-                `posts`.`id` AS `id`,
-                `posts`.`post_at`,
-                `posts`.`post`,
-                `posts`.`id_user` AS `id_user`,
-                `users`.`pseudo`,
-                `avatars`.`avatar`
-                FROM `trotter`.`posts`
-                LEFT JOIN `users` ON `posts`.`id_user` = `users`.`id`
-                LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`
-                ORDER BY `post_at` DESC';
+                    `posts`.`id` AS `id`,
+                    `posts`.`post_at`,
+                    `posts`.`post`,
+                    `posts`.`id_user` AS `id_user`,
+                    `users`.`pseudo`,
+                    `avatars`.`avatar`
+                    FROM `trotter`.`posts`
+                    LEFT JOIN `users` ON `posts`.`id_user` = `users`.`id`
+                    LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`
+                    ORDER BY `post_at` DESC';
             if (!is_null($search)) {
-                $sql .= ' WHERE `posts`.`post` LIKE :search';
+                $sql .= ' WHERE `posts`.`post` LIKE :search;';
+            } else {
+                $sql .= ' LIMIT :limit, :offset;';
             }
-            $sql .= ' LIMIT :limit, :offset;';
 
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -155,7 +157,6 @@ class Post
 
             if (!is_null($search)) {
                 $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);
-                var_dump($search);
             }
 
             if (!$sth) {
@@ -200,6 +201,34 @@ class Post
             }
         } catch (PDOException $e) {
             return $e;
+        }
+    }
+
+
+    /** //! delete(int $id)
+     * @param int $id
+     * 
+     * @return bool
+     */
+    public static function delete(int $id): bool
+    {
+        try {
+            $sql = 'DELETE FROM `trotter`.`posts`
+                    WHERE `id` = :id;';
+
+            $sth = Database::DbConnect()->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
+
+            if (!$sth) {
+                throw new PDOException();
+            } else {
+                $sth->execute();
+
+                $count = $sth->rowCount();
+                return ($count <= 0) ? false : true;
+            }
+        } catch (PDOException $e) {
+            return false;
         }
     }
 

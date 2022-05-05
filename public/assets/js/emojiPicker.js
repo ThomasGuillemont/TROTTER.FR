@@ -1,3 +1,4 @@
+// emoji
 function addEmoji(emoji) {
   let inputEle = document.getElementById('post');
   input.value += emoji;

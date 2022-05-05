@@ -7,10 +7,10 @@ require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
+$error = [];
 $checked = 0;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $error = [];
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! ip
     $ip = trim(filter_input(INPUT_POST, 'ip', FILTER_SANITIZE_SPECIAL_CHARS));
 
@@ -98,21 +98,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($checkbox !== 1) {
         $error['checkbox'] = 'Vous devez lire et accepter les <a href="/conditions.html">conditions</a>';
     }
-}
 
-//! $user->add()
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    $user = new User($ip, $registered_at, $email, $pseudo, $passwordHash, $avatar, $role);
-    $user = $user->add();
+    //! $user->add()
+    if (empty($error)) {
+        $user = new User($ip, $registered_at, $email, $pseudo, $passwordHash, $avatar, $role);
+        $user = $user->add();
 
-    //! message success or error
-    if (!$user) {
-        $message = 'Une erreur est survenue';
-    } else {
-        SessionFlash::set('Votre compte a été créé avec succès !');
-        sleep(1.5);
-        header('Location: /accueil');
-        die;
+        //! message success or error
+        if (!$user) {
+            $message = 'Une erreur est survenue';
+        } else {
+            SessionFlash::set('Nous vous remercions pour la création de votre compte !');
+            sleep(1.5);
+            header('Location: /connexion');
+            die;
+        }
     }
 }
 

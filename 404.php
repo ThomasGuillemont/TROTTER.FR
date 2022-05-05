@@ -20,10 +20,13 @@
         <main class="px-5">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 notFound">
+                    <div class="col-12 notFound d-flex flex-column justify-content-center">
                         <h2>Erreur HTTP 404</h2>
-                        <p class="fw-bold pb-5">La page que vous recherchez semble introuvable.</p>
+                        <p class="fw-bold">La page que vous recherchez semble introuvable.</p>
                         <a class="linkNotFound fw-bold" href="/accueil">Retour à l'accueil</a>
+                        <div>
+                            <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/404.png" alt="404Illustration">
+                        </div>
                     </div>
                 </div>
             </div>

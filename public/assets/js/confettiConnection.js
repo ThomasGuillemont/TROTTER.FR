@@ -2,7 +2,7 @@
 connectionBtn.addEventListener('click', () => {
     let duration = 1000;
     let animationEnd = Date.now() + duration;
-    let defaults = { startVelocity: 30, spread: 360, ticks: 75, zIndex: 0 };
+    let defaults = { startVelocity: 30, spread: 360, ticks: 500, zIndex: 0 };
 
     function randomInRange(min, max) {
         return Math.random() * (max - min) + min;

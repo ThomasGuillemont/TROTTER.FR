@@ -31,16 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error["message"] = "Veuillez saisir des caractères valides";
         }
     }
+
+    if (empty($error)) {
+        header('location: /accueil');
+        die;
+    }
 }
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    header('location: /accueil');
-    die;
-} else {
-    include(dirname(__FILE__) . '/../views/contact.php');
-}
-
+include(dirname(__FILE__) . '/../views/contact.php');
 include(dirname(__FILE__) . '/../views/templates/footer.php');

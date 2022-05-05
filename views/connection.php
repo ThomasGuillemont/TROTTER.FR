@@ -5,6 +5,7 @@
                 <div class="container-fluid p-2">
                     <div class="row">
 
+                        <!-- error message -->
                         <?php if (!empty($message)) { ?>
                             <div class="col-12 text-center fw-bold fst-italic orange">
                                 <?= $message ?? '' ?>
@@ -12,6 +13,11 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
+                            <div class="col-12 pt-2 pb-2">
+                                <span class="alert fst-italic">
+                                    <?= SessionFlash::display('message') ?>
+                                </span>
+                            </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <form id="connectionForm" method="POST" action="/connexion">
                                     <div class="mb-3">
@@ -29,9 +35,9 @@
                                             <?= $error['password'] ?? '' ?>
                                         </div>
                                     </div>
-                                    <div class="mb-3 fw-bold">
+                                    <!-- <div class="mb-3 fw-bold">
                                         <a href="/récupération"><small>Mot de passe oublié</small></a>
-                                    </div>
+                                    </div> -->
                                     <button type="submit" class="btn my-btn fw-bolder" id="connectionBtn">Connexion</button>
                                 </form>
                             </div>

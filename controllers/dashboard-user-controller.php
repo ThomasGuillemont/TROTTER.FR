@@ -7,6 +7,7 @@ session_start();
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! User::getOneById($id)
 $user = User::getOneById($_SESSION['id_user']);
@@ -32,7 +33,7 @@ $userCount = intval($userCount);
 //! number of patients per page
 $offset = OFFSET;
 //! total pages
-$pages = ceil($userCount / $offset);
+$pages = intval(ceil($userCount / $offset));
 //! first user
 $limit = ($currentPage * $offset) - $offset;
 
@@ -56,7 +57,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     }
 
     //! $user->search()
-    $listUsers = User::getAll($limit, $offset, $search);
+    $listUsers = User::getAll($limit, $userCount, $search);
     if ($listUsers instanceof PDOException) {
         $message = $user->getMessage();
     }

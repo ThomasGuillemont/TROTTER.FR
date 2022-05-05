@@ -214,12 +214,12 @@ class User
 
 
     /** //! add()
-     * @return string
+     * @return bool
      */
-    public function add(): string
+    public function add(): bool
     {
         try {
-            $sql = 'INSERT INTO `trotter`.`users` (`ip`, `registered_at`, `email`, `pseudo`, `password`, `id_avatars`, `id_roles`)
+            $sql = 'INSERT INTO `users` (`ip`, `registered_at`, `email`, `pseudo`, `password`, `id_avatars`, `id_roles`)
                     VALUES (:ip, :registered_at, :email, :pseudo, :password, :id_avatars, :id_roles);';
 
             $sth = $this->pdo->prepare($sql);
@@ -234,7 +234,7 @@ class User
             if (!$sth) {
                 throw new PDOException();
             } else {
-                return $sth->execute();
+                return true;
             }
         } catch (PDOException $e) {
             return false;
@@ -250,7 +250,7 @@ class User
     public static function isEmailExist(string $email): bool
     {
         try {
-            $sql = 'SELECT `email` FROM `trotter`.`users`
+            $sql = 'SELECT `email` FROM `users`
                     WHERE `email` = :email;';
 
             $sth = Database::DbConnect()->prepare($sql);
@@ -277,7 +277,7 @@ class User
     public static function isPseudoExist(string $pseudo): bool
     {
         try {
-            $sql = 'SELECT `email` FROM `trotter`.`users`
+            $sql = 'SELECT `email` FROM `users`
                     WHERE `pseudo` = :pseudo;';
 
             $sth = Database::DbConnect()->prepare($sql);
@@ -304,7 +304,7 @@ class User
     public static function delete(int $id): bool
     {
         try {
-            $sql = 'DELETE FROM `trotter`.`users`
+            $sql = 'DELETE FROM `users`
                     WHERE `id` = :id;';
 
             $sth = Database::DbConnect()->prepare($sql);
@@ -313,7 +313,7 @@ class User
             if (!$sth) {
                 throw new PDOException();
             } else {
-                return $sth->execute();
+                return true;
             }
         } catch (PDOException $e) {
             return false;
@@ -337,7 +337,7 @@ class User
                         `users`.`password` AS `password`,
                         `users`.`id_roles` AS `id_roles`,
                         `avatars`.`avatar` AS `avatar`
-                    FROM `trotter`.`users`
+                    FROM `users`
                     LEFT JOIN `avatars`
                     ON `users`.`id_avatars` = `avatars`.`id`
                     WHERE `users`.`id` = :id;';
@@ -368,10 +368,10 @@ class User
      * 
      * @return object
      */
-    public static function getOneByEmail(string $email = 'test@hotmail.fr'): object
+    public static function getOneByEmail(string $email = ''): object
     {
         try {
-            $sql = 'SELECT * FROM `trotter`.`users`
+            $sql = 'SELECT * FROM `users`
                     WHERE `email` = :email;';
 
             $sth = Database::DbConnect()->prepare($sql);
@@ -398,19 +398,17 @@ class User
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $limit = 0, int $offset = 0,  $search = ''): array
+    public static function getAll(int $limit = 0, int $offset = OFFSET,  $search = null): array
     {
         try {
-            if (is_null($search)) {
-                $sql = 'SELECT * FROM `trotter`.`users`
-                    ORDER BY `registered_at` DESC
-                    LIMIT :limit, :offset;';
-            } else {
-                $sql = 'SELECT * FROM `trotter`.`users`
-                    WHERE `pseudo` LIKE :search
-                    ORDER BY `registered_at` DESC
-                    LIMIT :limit, :offset;';
+            $sql = 'SELECT *
+                    FROM `users`';
+            if (!is_null($search)) {
+                $sql .= ' WHERE `pseudo` LIKE :search';
             }
+            $sql .= ' ORDER BY `registered_at` DESC
+                    LIMIT :limit, :offset;';
+
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
             $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
@@ -438,7 +436,7 @@ class User
     public static function count(): int
     {
         try {
-            $sql = 'SELECT COUNT(*) FROM `trotter`.`users`;';
+            $sql = 'SELECT COUNT(*) FROM `users`;';
 
             $sth = Database::DbConnect()->prepare($sql);
             $sth->execute();
@@ -461,7 +459,7 @@ class User
     public function update(): bool
     {
         try {
-            $sql = 'UPDATE `trotter`.`users`
+            $sql = 'UPDATE `users`
                     SET `password` = :password
                     WHERE `id` = :id;';
 
@@ -472,7 +470,7 @@ class User
             if (!$sth) {
                 throw new PDOException();
             } else {
-                return $sth->execute();
+                return true;
             }
         } catch (PDOException $e) {
             return false;

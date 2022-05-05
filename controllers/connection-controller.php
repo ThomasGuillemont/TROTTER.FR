@@ -40,19 +40,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
+
+    if (empty($error)) {
+        $_SESSION['id_user'] = $user->id;
+        sleep(1.5);
+        header('location: /profil?id=' . $_SESSION['id_user']);
+        die;
+    }
 }
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    $_SESSION['id_user'] = $user->id;
-    SessionFlash::set('Vous êtes connecté !');
-    sleep(1.5);
-    header('location: /profil?id=' . $user->id);
-    die;
-} else {
-    include(dirname(__FILE__) . '/../views/connection.php');
-}
-
+include(dirname(__FILE__) . '/../views/connection.php');
 include(dirname(__FILE__) . '/../views/templates/footer.php');

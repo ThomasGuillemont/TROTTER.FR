@@ -1,4 +1,4 @@
-<!-- unconnect -->
+<!-- connect -->
 <div class="collapse" id="navbarToggleExternalContent">
     <div class="p-2">
         <ul class="navbar-nav">

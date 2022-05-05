@@ -54,19 +54,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($post)) {
         $error['noPostError'] = 'noPostError';
     }
-}
 
-//! $post->add()
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    $post = new Post($post_at, $post, $id_user);
-    $post = $post->add();
+    //! $post->add()
+    if (empty($error)) {
+        $post = new Post($post_at, $post, $id_user);
+        $post = $post->add();
 
-    //! message success or error
-    if (!$post) {
-        $message = 'Une erreur est survenue';
-    } else {
-        header('Location: /actualités');
-        die;
+        //! message success or error
+        if (!$post) {
+            $message = 'Une erreur est survenue';
+        } else {
+            header('Location: /actualités');
+            die;
+        }
     }
 }
 

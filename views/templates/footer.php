@@ -26,9 +26,10 @@
                     </div>
                 </div>
             </div>
+            <!-- footer -->
             <footer class="mt-auto colorText pt-3">
                 <div class="container-fluid">
-                    <div class="row align-items-center mb-2">
+                    <div class="row align-items-center mb-2 fw-bold">
                         <div class="col-12 col-sm-6 mb-0">
                             <span>&copy <a target="_blank" href="https://github.com/ThomasGuillemont">Thomas Guillemont</a> - <?= date("Y") ?></span>
                         </div>

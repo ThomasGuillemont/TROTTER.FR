@@ -8,6 +8,7 @@ require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../models/post.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! User::getOneById($id)
 $user = User::getOneById($_SESSION['id_user']);
@@ -33,7 +34,7 @@ $postCount = intval($postCount);
 //! number of patients per page
 $offset = OFFSET;
 //! total pages
-$pages = ceil($postCount / $offset);
+$pages = intval(ceil($postCount / $offset));
 //! first post
 $limit = ($currentPage * $offset) - $offset;
 
@@ -57,7 +58,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     }
 
     //! $post->search()
-    $listPosts = Post::getAll($limit, $offset, $search);
+    $listPosts = Post::getAll($limit, $postCount, $search);
     if ($listPosts instanceof PDOException) {
         $message = $post->getMessage();
     }

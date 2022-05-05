@@ -21,6 +21,7 @@
         <header class="mb-auto">
             <div>
 
+                <!-- if connect -->
                 <?php
                 if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
                     include(dirname(__FILE__) . '/header/unconnect.php');
@@ -29,6 +30,7 @@
                 }
                 ?>
 
+                <!-- nav -->
                 <nav>
                     <div class="d-flex justify-content-between m-3 glassmorphism">
                         <div class="d-flex justify-content-start align-self-center m-2">

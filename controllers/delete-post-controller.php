@@ -6,6 +6,7 @@ session_start();
 //! require once
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../models/post.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! User::getOneById($id)
 $user = User::getOneById($_SESSION['id_user']);
@@ -28,14 +29,21 @@ if ($post instanceof PDOException) {
     $message = $post->getMessage();
 }
 
-//! include
-include(dirname(__FILE__) . '/../views/templates/header.php');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //! Post::delete($id)
+    $postDelete = Post::delete($id);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    header('location: /administration-actualités');
-    die;
-} else {
-    include(dirname(__FILE__) . '/../views/delete-post.php');
+    //! message success or error
+    if ($postDelete === false) {
+        $message = 'Une erreur est survenue';
+    } else {
+        SessionFlash::set('Post supprimé !');
+        header('location: /administration-actualités');
+        die;
+    }
 }
 
+//! include
+include(dirname(__FILE__) . '/../views/templates/header.php');
+include(dirname(__FILE__) . '/../views/delete-post.php');
 include(dirname(__FILE__) . '/../views/templates/footer.php');

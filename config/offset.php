@@ -1,2 +1,3 @@
 <?php
-define('OFFSET', 25);
+
+define('OFFSET', 50);

@@ -7,13 +7,13 @@ RewriteEngine On
 RewriteRule ^404/?$ 404.php
 ErrorDocument 404 /404.php
 
-# /home
+# /accueil
 RewriteRule ^accueil$ /controllers/home-controller.php [L]
 
-# /registration
+# /inscription
 RewriteRule ^inscription$ /controllers/registration-controller.php [L]
 
-# /connection
+# /connexion
 RewriteRule ^connexion$ /controllers/connection-controller.php [L]
 
 # /contact
@@ -22,34 +22,34 @@ RewriteRule ^contact$ /controllers/contact-controller.php [L]
 # /conditions
 RewriteRule ^conditions$ /controllers/conditions-controller.php [L]
 
-# /actuality
+# /actualités
 RewriteRule ^actualités$ /controllers/actuality-controller.php [L]
 
-# /profile
+# /profil
 RewriteRule ^profil$ /controllers/profile-controller.php [L]
 
-# /friends
+# /amis
 RewriteRule ^amis$ /controllers/friends-controller.php [L]
 
-# /edition
+# /édition
 RewriteRule ^édition$ /controllers/edition-controller.php [L]
 
-# /logout
+# /déconnexion
 RewriteRule ^déconnexion$ /controllers/logout.php [L]
 
-# /recovery
+# /récupération
 RewriteRule ^récupération$ /controllers/recovery-controller.php [L]
 
-# /dashboard-user
+# /administration-utilisateurs
 RewriteRule ^administration-utilisateurs$ /controllers/dashboard-user-controller.php [L]
 
-# /dashboard-post
+# /administration-actualités
 RewriteRule ^administration-actualités$ /controllers/dashboard-post-controller.php [L]
 
-# /dashboard-post
+# /supprimer-actualité
 RewriteRule ^supprimer-actualité$ /controllers/delete-post-controller.php [L]
 
-# /delete
+# /supprimer-utilisateur
 RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]
 
 # /mentions

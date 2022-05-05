@@ -16,16 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error['email'] = 'Le format de l\'email est incorrect';
         }
     }
+
+    if (empty($error)) {
+        header('location: /accueil');
+        die;
+    }
 }
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    header('location: /accueil');
-    die;
-} else {
-    include(dirname(__FILE__) . '/../views/recovery.php');
-}
-
+include(dirname(__FILE__) . '/../views/recovery.php');
 include(dirname(__FILE__) . '/../views/templates/footer.php');

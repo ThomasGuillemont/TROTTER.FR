@@ -12,6 +12,7 @@
                             <img class="img-profile my-auto align-middle p-3 floating" src="<?= $user->avatar ?? '' ?>" alt="Image de profil">
                         </div>
 
+                        <!-- error message -->
                         <?php if (!empty($message)) { ?>
                             <div class="col-12 text-center fw-bold fst-italic orange">
                                 <?= $message ?? '' ?>

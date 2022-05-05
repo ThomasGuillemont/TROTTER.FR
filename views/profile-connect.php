@@ -11,10 +11,6 @@
                             </div>
                         <?php } ?>
 
-                        <span class="alert fst-italic">
-                            <?= SessionFlash::display('message') ?>
-                        </span>
-
                         <?php if (empty($message)) { ?>
                             <div class="col-12">
                                 <h2><?= $user->pseudo ?></h2>

@@ -4,6 +4,7 @@
             <div class="col-12 d-flex align-items-center">
                 <div class="container-fluid p-2">
 
+                    <!-- error message -->
                     <?php if (!empty($message)) { ?>
                         <div class="col-12 text-center fw-bold fst-italic orange">
                             <?= $message ?? '' ?>
@@ -110,7 +111,7 @@
                                     <div class="form-check d-flex justify-content-center">
                                         <input required type="checkbox" value="1" class="form-check-input m-1" id="checkbox" <?= $checkboxCheked ?? '' ?> name="checkbox">
                                         <label class="form-check-label formTitle" for="checkbox">J'accepte les
-                                            <a href="/conditions">conditions générales</a>.</label>
+                                            <a class="fw-bold" href="/conditions">conditions générales</a>.</label>
                                     </div>
                                     <div class="fs-7 alert fst-italic" id="alertCheckBox">
                                         <?= $error['checkbox'] ?? '' ?>

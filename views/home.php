@@ -5,12 +5,8 @@
                 <div class="container-fluid p-2">
                     <div class="row">
                         <div class="col-12">
+                            <!-- JS MSG -->
                             <h2 id="randomHello"></h2>
-                        </div>
-                        <div class="col-12 pt-2 pb-2">
-                            <span class="alert fst-italic">
-                                <?= SessionFlash::display('message') ?>
-                            </span>
                         </div>
                         <div class="col-12 ps-5 pe-5">
                             <ul class="list-inline d-flex justify-content-center my-auto">
