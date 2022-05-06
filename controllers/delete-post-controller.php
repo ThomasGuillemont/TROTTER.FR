@@ -2,8 +2,8 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../models/user.php');
-require_once(dirname(__FILE__) . '/../models/post.php');
+require_once(dirname(__FILE__) . '/../models/User.php');
+require_once(dirname(__FILE__) . '/../models/Post.php');
 
 //! redirect
 if ($_SESSION['user']->id_roles != 1) {

@@ -5,10 +5,10 @@
                 <nav>
                     <div class="d-flex justify-content-start m-3">
                         <a href="/administration-utilisateurs" class="btn my-btn btn-profile fw-bold m-2">
-                            👤 Utilisateurs
+                            👤
                         </a>
                         <a href="/administration-actualités" class="btn my-btn btn-profile fw-bold m-2">
-                            📮 Actualités
+                            📮
                         </a>
                     </div>
                 </nav>

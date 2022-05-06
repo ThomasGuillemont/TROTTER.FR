@@ -304,7 +304,7 @@ class User
     public static function delete(int $id): bool
     {
         try {
-            $sql = 'DELETE FROM `trotter`.`posts`
+            $sql = 'DELETE FROM `trotter`.`users`
                     WHERE `id` = :id;';
 
             $sth = Database::DbConnect()->prepare($sql);

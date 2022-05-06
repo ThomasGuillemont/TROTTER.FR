@@ -3,7 +3,7 @@
 //! require_once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
-require_once(dirname(__FILE__) . '/../models/post.php');
+require_once(dirname(__FILE__) . '/../models/Post.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 
 //! redirect

@@ -2,7 +2,7 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../models/user.php');
+require_once(dirname(__FILE__) . '/../models/User.php');
 
 //! redirect
 if ($_SESSION['user']->id_roles != 1) {
@@ -16,13 +16,13 @@ $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 //! User::getOneById($id)
 $user = User::getOneById($id);
 if ($user instanceof PDOException) {
-    $message = $post->getMessage();
+    $message = $user->getMessage();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! User::delete($id)
-    $userDelete = User::delete($id);
     $userDeletePost = User::deletePost($id);
+    $userDelete = User::delete($id);
 
     //! message success or error
     if ($userDelete === false) {

@@ -2,7 +2,7 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../models/user.php');
+require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 

@@ -1,18 +1,27 @@
 <main class="px-5">
     <div class="container-fluid">
         <div class="row glassmorphism">
-            <div class="col-12 d-flex justify-content-center align-items-center my-auto col-sm-6">
-                <h2>⚠️ Suppression d'utilisateur ⚠️</h2>
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center my-auto col-sm-6">
 
-                <?php foreach ($post as $key => $value) { ?>
-                    <div>
-                        <?= $value->post ?? '' ?>
+                <!-- error message -->
+                <?php if (!empty($message)) { ?>
+                    <div class="col-12 text-center fw-bold fst-italic orange">
+                        <?= $message ?? '' ?>
                     </div>
                 <?php } ?>
 
-                <form id="deleteForm" method="POST" action="/contact">
-                    <button type="submit" class="btn my-btn fw-bolder" id="deleteBtn">Supprimer</button>
-                </form>
+                <?php if (empty($message)) { ?>
+
+                    <h2>⚠️ Suppression d'utilisateur ⚠️</h2>
+                    <p class="fw-bold"><?= $user->pseudo ?? '' ?></p>
+                    <p class="fw-bold"><?= $user->email ?? '' ?></p>
+                    <p class="fw-bold">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?? '' ?></p>
+
+                    <form id="deleteForm" method="POST" action="/supprimer-utilisateur?id=<?= $user->id ?? '' ?>">
+                        <button type="submit" class="btn my-btn fw-bolder" id="deleteBtn">Supprimer</button>
+                    </form>
+
+                <?php } ?>
 
             </div>
             <div class="col-12 my-auto col-sm-6">

@@ -2,8 +2,8 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../models/user.php');
-require_once(dirname(__FILE__) . '/../models/post.php');
+require_once(dirname(__FILE__) . '/../models/User.php');
+require_once(dirname(__FILE__) . '/../models/Post.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 
@@ -29,12 +29,6 @@ $pages = intval(ceil($postCount / $offset));
 //! first post
 $limit = ($currentPage * $offset) - $offset;
 
-//! Post::getAll($limit, $offset)
-$listPost = Post::getAll($limit, $offset);
-if ($listPost instanceof PDOException) {
-    $message = $post->getMessage();
-}
-
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     //! initialize errors
     $error = [];
@@ -50,6 +44,12 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
     //! $post->search()
     $listPosts = Post::getAll($limit, $postCount, $search);
+    if ($listPosts instanceof PDOException) {
+        $message = $post->getMessage();
+    }
+} else {
+    //! Post::getAll($limit, $offset)
+    $listPosts = Post::getAll($limit, $offset);
     if ($listPosts instanceof PDOException) {
         $message = $post->getMessage();
     }

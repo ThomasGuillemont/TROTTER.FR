@@ -143,13 +143,12 @@ class Post
                     `avatars`.`avatar`
                     FROM `trotter`.`posts`
                     LEFT JOIN `users` ON `posts`.`id_user` = `users`.`id`
-                    LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`
-                    ORDER BY `post_at` DESC';
+                    LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`';
             if (!is_null($search)) {
-                $sql .= ' WHERE `posts`.`post` LIKE :search;';
-            } else {
-                $sql .= ' LIMIT :limit, :offset;';
+                $sql .= ' WHERE `posts`.`post` LIKE :search';
             }
+            $sql .= ' ORDER BY `post_at` DESC
+                    LIMIT :limit, :offset;';
 
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -163,9 +162,10 @@ class Post
                 throw new PDOException();
             } else {
                 $sth->execute();
-                $users = $sth->fetchAll();
+                $posts = $sth->fetchAll();
             }
-            return $users;
+
+            return $posts;
         } catch (PDOException $e) {
             return [];
         }

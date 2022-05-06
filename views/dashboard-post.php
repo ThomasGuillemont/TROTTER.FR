@@ -5,10 +5,10 @@
                 <nav>
                     <div class="d-flex justify-content-start m-3">
                         <a href="/administration-utilisateurs" class="btn my-btn btn-profile fw-bold  m-2">
-                            👤 Utilisateurs
+                            👤
                         </a>
                         <a href="/administration-actualités" class="btn my-btn btn-profile fw-bold m-2">
-                            📮 Actualités
+                            📮
                         </a>
                     </div>
                 </nav>
@@ -50,7 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listPost as $key => $value) { ?>
+                                <?php foreach ($listPosts as $key => $value) { ?>
                                     <!-- tr -->
                                     <tr>
                                         <td><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></td>
