@@ -231,6 +231,8 @@ class User
             $sth->bindValue(':id_avatars', $this->getId_avatars(), PDO::PARAM_STR);
             $sth->bindValue(':id_roles', $this->getId_roles(), PDO::PARAM_STR);
 
+            $sth->execute();
+
             if (!$sth) {
                 throw new PDOException();
             } else {
