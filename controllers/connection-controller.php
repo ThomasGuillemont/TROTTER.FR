@@ -1,9 +1,7 @@
 <?php
 
-//! session_start();
-session_start();
-
 //! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
@@ -29,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     //! password
-    $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS));
+    $password = $_POST['password'];
     if (empty($password)) {
         $error['password'] = 'Veuillez saisir votre mot de passe';
     } else {
@@ -42,9 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($error)) {
-        $_SESSION['id_user'] = $user->id;
+        $_SESSION['user'] = $user;
         sleep(1.5);
-        header('location: /profil?id=' . $_SESSION['id_user']);
+        header('location: /profil?id=' . $user->id);
         die;
     }
 }

@@ -1,22 +1,13 @@
 <?php
 
-//! session_start();
-session_start();
-
 //! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
-
-//! User::getOneById($id)
-$user = User::getOneById($_SESSION['id_user']);
-if ($user instanceof PDOException) {
-    $message = $user->getMessage();
-}
 
 //! redirect
-if ($user->id_roles != 1) {
+if ($_SESSION['user']->id_roles != 1) {
     header('location: /accueil');
     die;
 }

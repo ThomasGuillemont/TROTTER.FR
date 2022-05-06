@@ -14,10 +14,10 @@
                                     </p>
                                     <div class="d-flex align-self-center p-2">
                                         <div>
-                                            <a href="/édition?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn modal-btn btn-profile fw-bolder m-1">✔️</a>
+                                            <a href="/édition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn modal-btn btn-profile fw-bolder m-1">✔️</a>
                                         </div>
                                         <div>
-                                            <a href="/édition?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn modal-btn btn-profile fw-bolder m-1">❌</a>
+                                            <a href="/édition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn modal-btn btn-profile fw-bolder m-1">❌</a>
                                         </div>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center mb-2 fw-bold">
                         <div class="col-12 col-sm-6 mb-0">
-                            <span>&copy <a target="_blank" href="https://github.com/ThomasGuillemont">Thomas Guillemont</a> - <?= date("Y") ?></span>
+                            <span>&copy <a class="orange" target="_blank" href="https://github.com/ThomasGuillemont">Thomas Guillemont</a> - <?= date("Y") ?></span>
                         </div>
                         <div class="col-12 col-sm-6">
                             <a href="/conditions">Conditions générales</a>

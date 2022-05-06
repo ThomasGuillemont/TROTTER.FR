@@ -1,14 +1,12 @@
 <?php
 
-//! session_start();
-session_start();
-
 //! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 
-$error = [];
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $error = [];
+
     //! email
     $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
     if (empty($email)) {

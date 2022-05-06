@@ -1,21 +1,12 @@
 <?php
 
-//! session_start();
-session_start();
-
 //! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../models/post.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
-
-//! User::getOneById($id)
-$user = User::getOneById($_SESSION['id_user']);
-if ($user instanceof PDOException) {
-    $message = $user->getMessage();
-}
 
 //! redirect
-if ($user->id_roles != 1) {
+if ($_SESSION['user']->id_roles != 1) {
     header('location: /accueil');
     die;
 }
@@ -37,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($postDelete === false) {
         $message = 'Une erreur est survenue';
     } else {
-        SessionFlash::set('Post supprimé !');
         header('location: /administration-actualités');
         die;
     }

@@ -15,7 +15,7 @@
                         <div class="card-body overflow-scroll d-flex flex-column-reverse">
 
                             <?php foreach ($listposts as $key => $value) {
-                                if ($value->id_user != intval($_SESSION['id_user'])) { ?>
+                                if ($value->id_user != intval($_SESSION['user']->id)) { ?>
                                     <div class="d-flex flex-row justify-content-start mt-2 mb-2 ms-3">
                                         <img class="img-friends my-auto align-middle me-3" src="<?= $value->avatar ?? '' ?>" alt="Image de profil">
                                         <div class="d-flex flex-column message">

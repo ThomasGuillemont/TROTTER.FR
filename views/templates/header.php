@@ -23,7 +23,7 @@
 
                 <!-- if connect -->
                 <?php
-                if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
+                if (empty($_SESSION['user']->id) && !isset($_SESSION['user']->id)) {
                     include(dirname(__FILE__) . '/header/unconnect.php');
                 } else {
                     include(dirname(__FILE__) . '/header/connect.php');
@@ -41,16 +41,12 @@
                             </a>
                         </div>
                         <div class="d-flex justify-content-center align-self-center">
-                            <?php if (!empty($_SESSION['id_user']) && isset($_SESSION['id_user'])) {
-                                if (isset($user)) {
-                                    if ($user->id_roles == 1) { ?>
-                                        <a href="/administration-utilisateurs" class="btn my-btn btn-profile m-2">
-                                            🔐
-                                        </a>
-                                <?php
-                                    }
-                                }
-                                ?>
+                            <?php if (!empty($_SESSION['user']->id) && isset($_SESSION['user']->id)) {
+                                if ($_SESSION['user']->id_roles == 1) { ?>
+                                    <a href="/administration-utilisateurs" class="btn my-btn btn-profile m-2">
+                                        🔐
+                                    </a>
+                                <?php } ?>
 
                                 <!-- Button trigger modal notif -->
                                 <button type="button" class="btn my-btn btn-profile fw-bolder m-2" data-bs-toggle="modal" data-bs-target="#modal">

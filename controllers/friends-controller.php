@@ -1,12 +1,12 @@
 <?php
 
-//! session_start();
-session_start();
+//! require_once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 
 //! redirect
 $idGet = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
-$idSession = intval($_SESSION['id_user']);
-if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user']) || $idSession != $idGet) {
+$id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+if (empty($_SESSION['user']) && !isset($_SESSION['user']) || $_SESSION['user']->id != $id) {
     header('location: /accueil');
     die;
 }

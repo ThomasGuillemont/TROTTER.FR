@@ -1,10 +1,10 @@
 <?php
 
-//! session_start();
-session_start();
+//! require_once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 
 //! redirect
-if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
+if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
     header('location: /accueil');
     die;
 }
@@ -25,7 +25,7 @@ if ($user instanceof PDOException) {
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
 
-if ($_SESSION['id_user'] == $id) {
+if ($_SESSION['user']->id == $id) {
     include(dirname(__FILE__) . '/../views/profile-connect.php');
 } else {
     include(dirname(__FILE__) . '/../views/profile-unconnect.php');

@@ -1,7 +1,7 @@
 <?php
 
-//! session_start();
-session_start();
+//! require_once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');

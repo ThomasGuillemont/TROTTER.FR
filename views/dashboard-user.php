@@ -39,12 +39,6 @@
 
                         </form>
 
-                        <div class="col-12 pb-2">
-                            <span class="alert fst-italic">
-                                <?= SessionFlash::display('message') ?>
-                            </span>
-                        </div>
-
                         <!-- table -->
                         <table class="table table-hover">
                             <thead class="orange">

@@ -1,16 +1,16 @@
 <?php
-//! session_start();
-session_start();
 
 //! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/user.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
-$error = [];
 $checked = 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $error = [];
+
     //! ip
     $ip = trim(filter_input(INPUT_POST, 'ip', FILTER_SANITIZE_SPECIAL_CHARS));
 
@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     //! password
-    $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS));
-    $passwordConfirm = trim(filter_input(INPUT_POST, 'passwordConfirm', FILTER_SANITIZE_SPECIAL_CHARS));
+    $password = $_POST['password'];
+    $passwordConfirm = $_POST['passwordConfirm'];
 
     if (empty($password)) {
         $error['password'] = 'Veuillez saisir un mot de passe';
@@ -78,12 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error['passwordConfirm'] = 'Veuillez confirmez votre mot de passe';
     } else {
         if ($password != $passwordConfirm) {
-            $error['password'] = 'Le mots de passe et la confirmation ne correspondent pas';
-            $error['passwordConfirm'] = 'Le mots de passe et la confirmation ne correspondent pas';
+            $error['password'] = 'Le mots de passe et la confirmation ne sont pas identiques';
+            $error['passwordConfirm'] = 'Le mots de passe et la confirmation ne sont pas identiques';
         } else {
             $passwordValid = filter_var($password, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . PASSWORD . "$/")));
             if ($passwordValid === false) {
                 $error['password'] = 'Le mot de passe doit faire entre 2 et 30 caractères';
+                $error['passwordConfirm'] = 'La confirmation doit faire entre 2 et 30 caractères';
             } else {
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             }
@@ -108,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$user) {
             $message = 'Une erreur est survenue';
         } else {
-            SessionFlash::set('Nous vous remercions pour la création de votre compte !');
+            SessionFlash::set('Un email de confirmation vous à était adressé, merci cliquer sur le lien envoyé  !');
             sleep(1.5);
             header('Location: /connexion');
             die;

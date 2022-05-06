@@ -1,18 +1,16 @@
 <?php
 
-//! session_start();
-session_start();
-
-//! redirect
-if (empty($_SESSION['id_user']) && !isset($_SESSION['id_user'])) {
-    header('location: /accueil');
-    die;
-}
-
 //! require_once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/post.php');
 require_once(dirname(__FILE__) . '/../config/offset.php');
+
+//! redirect
+if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
+    header('location: /accueil');
+    die;
+}
 
 //! what is the page
 if (isset($_GET['page']) && !empty($_GET['page'])) {
@@ -42,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $post_at = $date->format('Y-m-d H:i:s');
 
     //! id_user
-    $id_user = intval($_SESSION['id_user']);
+    $id_user = intval($_SESSION['user']->id);
 
     //! post
     $post = trim(filter_input(INPUT_POST, 'post', FILTER_SANITIZE_SPECIAL_CHARS));

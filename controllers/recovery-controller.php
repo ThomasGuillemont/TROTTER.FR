@@ -1,11 +1,11 @@
 <?php
 
-//! session_start();
-session_start();
-
-$error = [];
+//! require_once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $error = [];
+
     //! email
     $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
     if (empty($email)) {

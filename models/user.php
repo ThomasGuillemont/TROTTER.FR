@@ -304,7 +304,7 @@ class User
     public static function delete(int $id): bool
     {
         try {
-            $sql = 'DELETE FROM `users`
+            $sql = 'DELETE FROM `trotter`.`posts`
                     WHERE `id` = :id;';
 
             $sth = Database::DbConnect()->prepare($sql);
@@ -313,7 +313,35 @@ class User
             if (!$sth) {
                 throw new PDOException();
             } else {
-                return true;
+                $sth->execute();
+
+                $count = $sth->rowCount();
+                return ($count <= 0) ? false : true;
+            }
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+
+    /** //! deletePost(int $id)
+     * @param int $id
+     * 
+     * @return bool
+     */
+    public static function deletePost(int $id): bool
+    {
+        try {
+            $sql = 'DELETE FROM `trotter`.`posts`
+                    WHERE `id_user` = :id;'; // request
+
+            $sth = Database::DbConnect()->prepare($sql); // prepare
+            $sth->bindValue(':id', $id, PDO::PARAM_INT); //bindValue
+
+            if (!$sth) {
+                throw new PDOException();
+            } else {
+                return $sth->execute();
             }
         } catch (PDOException $e) {
             return false;

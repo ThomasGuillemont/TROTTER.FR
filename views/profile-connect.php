@@ -20,10 +20,7 @@
                                 <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
                             </div>
                             <div class="col-12 p-2">
-                                <a href="/amis?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Ma liste d'amis</a>
-                            </div>
-                            <div class="col-12 p-2">
-                                <a href="/édition?id=<?= $_SESSION['id_user'] ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Changer de mot de passe</a>
+                                <a href="/édition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Modifier votre mot de passe</a>
                             </div>
                         <?php } ?>
                     </div>
