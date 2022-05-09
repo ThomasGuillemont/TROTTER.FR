@@ -2,16 +2,15 @@
 
 //! require_once
 require_once(dirname(__FILE__) . '/../utils/init.php');
+require_once(dirname(__FILE__) . '/../models/User.php');
+require_once(dirname(__FILE__) . '/../models/Post.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
 if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
     header('location: /accueil');
     die;
 }
-
-//! require_once
-require_once(dirname(__FILE__) . '/../models/user.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! INPUT_GET ID
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -20,6 +19,12 @@ $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 $user = User::getOneById($id);
 if ($user instanceof PDOException) {
     $message = $user->getMessage();
+}
+
+//! Post::getLastByIdUser($id)
+$posts = Post::getLastByIdUser($id);
+if ($posts instanceof PDOException) {
+    $message = $posts->getMessage();
 }
 
 //! include

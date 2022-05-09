@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$user) {
             $message = 'Une erreur est survenue';
         } else {
-            SessionFlash::set('Merci cliquer sur le lien envoyé sur votre email !');
+            SessionFlash::set('Veuillez cliquer sur le lien envoyé sur votre email !');
             sleep(1.5);
             header('Location: /connexion');
             die;

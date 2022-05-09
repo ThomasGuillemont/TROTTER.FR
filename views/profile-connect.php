@@ -12,15 +12,30 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
-                            <div class="col-12">
-                                <h2><?= $user->pseudo ?></h2>
-                                <p>Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
+                            <div class="col-12 col-md-6 p-2">
+                                <div class="col-12">
+                                    <h2><?= $user->pseudo ?></h2>
+                                    <p class="fst-italic">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
+                                </div>
+                                <div class="col-12">
+                                    <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
+                                </div>
+                                <div class="col-12 p-2">
+                                    <a href="/édition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Modifier mot de passe</a>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
-                            </div>
-                            <div class="col-12 p-2">
-                                <a href="/édition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Modifier votre mot de passe</a>
+                            <div class="col-12 col-md-6 p-2">
+                                <h2>Dernier(s) post(s)</h2>
+                                <div>
+                                    <?php if (!empty($posts)) { ?>
+                                        <?php foreach ($posts as $key => $value) { ?>
+                                            <p><?= $value->post ?? '' ?></p>
+                                        <?php }
+                                    } else { ?>
+                                        <p>Aucune activité actuellement</p>
+                                        <p class="fs-2">🙊</p>
+                                    <?php } ?>
+                                </div>
                             </div>
                         <?php } ?>
                     </div>

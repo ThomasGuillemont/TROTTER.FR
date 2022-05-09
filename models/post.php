@@ -117,6 +117,8 @@ class Post
             $sth->bindValue(':post', $this->getPost(), PDO::PARAM_STR);
             $sth->bindValue(':id_user', $this->getId_user(), PDO::PARAM_STR);
 
+            $sth->execute();
+
             if (!$sth) {
                 throw new PDOException();
             } else {
@@ -157,6 +159,35 @@ class Post
             if (!is_null($search)) {
                 $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);
             }
+
+            if (!$sth) {
+                throw new PDOException();
+            } else {
+                $sth->execute();
+                $posts = $sth->fetchAll();
+            }
+
+            return $posts;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+
+    /** //! getLastByIdUser()
+     * @return array
+     */
+    public static function getLastByIdUser(int $id = 0): array
+    {
+        try {
+            $sql = 'SELECT *
+                    FROM `trotter`.`posts`
+                    WHERE `id_user` = :id
+                    ORDER BY `post_at` DESC
+                    LIMIT 0, 5;';
+
+            $sth = Database::DbConnect()->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
 
             if (!$sth) {
                 throw new PDOException();
