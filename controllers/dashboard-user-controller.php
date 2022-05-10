@@ -3,8 +3,7 @@
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
-require_once(dirname(__FILE__) . '/../config/offset.php');
-require_once(dirname(__FILE__) . '/../config/regex.php');
+require_once(dirname(__FILE__) . '/../config/constants.php');
 
 //! redirect
 if ($_SESSION['user']->id_roles != 1) {
@@ -22,7 +21,7 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 $userCount = User::count();
 $userCount = intval($userCount);
 //! number of patients per page
-$offset = OFFSET;
+$offset = LIMIT;
 //! total pages
 $pages = intval(ceil($userCount / $offset));
 //! first user

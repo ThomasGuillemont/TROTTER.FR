@@ -177,7 +177,7 @@ h3 {
 }
 
 .img-friends {
-  max-width: 2em;
+  max-width: 3.5em;
   height: auto;
 }
 
@@ -191,7 +191,7 @@ h3 {
 }
 
 .message {
-  border: 1px solid #cb6143;
+  border: 1px solid var(--borderColor);
   border-radius: 0.5em 0.5em 0.5em 0.5em;
   padding: 0.5em;
 }
@@ -240,7 +240,7 @@ h3 {
 .form-control {
   color: #222F3D;
   background: var(--backgroundColor);
-  border: 1px solid #e5643f94;
+  border: 1px solid var(--borderColor);
   border-radius: 10px;
 }
 
@@ -257,7 +257,7 @@ h3 {
 
 .form-check-input {
   background: var(--backgroundColor);
-  border: 1px solid #e5643f94;
+  border: 1px solid var(--borderColor);
   cursor: pointer;
 }
 

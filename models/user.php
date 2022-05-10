@@ -428,7 +428,7 @@ class User
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $limit = 0, int $offset = OFFSET,  $search = null): array
+    public static function getAll(int $offset = LIMIT, int $limit = 0,  $search = null): array
     {
         try {
             $sql = 'SELECT *
@@ -437,11 +437,11 @@ class User
                 $sql .= ' WHERE `pseudo` LIKE :search';
             }
             $sql .= ' ORDER BY `registered_at` DESC
-                    LIMIT :limit, :offset;';
+                    LIMIT :offset, :limit;';
 
             $sth = Database::DbConnect()->prepare($sql);
-            $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
             $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
+            $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
 
             if (!is_null($search)) {
                 $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);

@@ -2,36 +2,13 @@
 
 //! require_once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../config/regex.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
-require_once(dirname(__FILE__) . '/../config/offset.php');
+require_once(dirname(__FILE__) . '/../config/constants.php');
 
 //! redirect
 if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
     header('location: /accueil');
     die;
-}
-
-//! what is the page
-if (isset($_GET['page']) && !empty($_GET['page'])) {
-    $currentPage = intval(filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT));
-} else {
-    $currentPage = 1;
-}
-//! number of post
-$postCount = Post::count();
-$postCount = intval($postCount);
-//! number of post per page
-$offset = OFFSET;
-//! total pages
-$pages = ceil($postCount / $offset);
-//! first post
-$limit = ($currentPage * $offset) - $offset;
-
-//! Post::getAll($limit, $offset)
-$listposts = Post::getAll($limit, $offset);
-if ($listposts instanceof PDOException) {
-    $message = $user->getMessage();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -45,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! post
     $post = trim(filter_input(INPUT_POST, 'post', FILTER_SANITIZE_SPECIAL_CHARS));
 
-    $emoji_list = array('😀', '😁', '😂', '😅', '🤭', '🤧', '🤓', '🤠');
-    $replace = array('&#128512', '&#128513', '&#128514', '&#128517', '&#129325', '&#129319', '&#129299', '&#129312');
+    $emoji_list = array('😀', '😁', '😂', '😅', '😘', '😳', '🤭', '🤧', '🤓', '🤠', '😷');
+    $replace = array('&#128512', '&#128513', '&#128514', '&#128517', '&#128536', '&#128567', '&#129325', '&#129319', '&#129299', '&#129312', '&#128567');
     $post = str_replace($emoji_list, $replace, $post);
 
     if (empty($post)) {

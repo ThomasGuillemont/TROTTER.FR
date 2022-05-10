@@ -3,7 +3,7 @@
 //! require_once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
-require_once(dirname(__FILE__) . '/../config/regex.php');
+require_once(dirname(__FILE__) . '/../config/constants.php');
 
 //! redirect
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
