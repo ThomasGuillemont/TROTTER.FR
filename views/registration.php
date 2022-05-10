@@ -20,50 +20,51 @@
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-evenly flex-wrap">
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar1" value="1" <?= ($checked == 1) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar1">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar1" value="1" <?= ($checked == 1) ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar2" value="2" <?= ($checked == 2) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar2">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar2" value="2" <?= ($checked == 2) ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar1.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar3" value="3" <?= ($checked == 3) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar3">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar3" value="3" <?= ($checked == 3) ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar2.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar4" value="4" <?= ($checked == 4) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar4">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar4" value="4" <?= ($checked == 4) ? 'checked' : ''; ?>>
+
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar3.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar5" value="5" <?= ($checked == 5) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar5">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar5" value="5" <?= ($checked == 5) ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar4.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar6" value="6" <?= ($checked == 6)  ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar6">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar6" value="6" <?= ($checked == 6)  ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar5.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar7" value="7" <?= ($checked == 7) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar7">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar7" value="7" <?= ($checked == 7) ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar6.png" alt="Image de profil">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
-                                            <input class="form-check-input" type="radio" name="flexRadio" id="avatar8" value="8" <?= ($checked == 8) ? 'checked' : ''; ?>>
                                             <label class="form-check-label" for="avatar8">
+                                                <input class="form-check-input" type="radio" name="flexRadio" id="avatar8" value="8" <?= ($checked == 8) ? 'checked' : ''; ?>>
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar7.png" alt="Image de profil">
                                             </label>
                                         </div>
