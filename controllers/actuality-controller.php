@@ -38,9 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //! message success or error
         if (!$post) {
             $message = 'Une erreur est survenue';
-        } else {
-            header('Location: /actualités');
-            die;
         }
     }
 }

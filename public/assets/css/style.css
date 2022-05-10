@@ -177,8 +177,8 @@ h3 {
 }
 
 .img-friends {
-  max-width: 3.5em;
-  height: auto;
+  max-height: 3em;
+  width: auto;
 }
 
 .img-friends-profile {
@@ -194,6 +194,7 @@ h3 {
   border: 1px solid var(--borderColor);
   border-radius: 0.5em 0.5em 0.5em 0.5em;
   padding: 0.5em;
+  background-color: #6a8bd321;
 }
 
 /* floating css */

@@ -18,7 +18,7 @@
                                     <?= SessionFlash::display('message') ?>
                                 </span>
                             </div>
-                            <div class="col-12 d-flex justify-content-center">
+                            <div class="col-12 d-flex justify-content-center pb-5">
                                 <form id="connectionForm" method="POST" action="/connexion">
                                     <div class="mb-3">
                                         <label for="email" class="form-label fw-bolder formTitle">Email</label>

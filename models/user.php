@@ -497,6 +497,35 @@ class User
             $sth->bindValue(':id', $this->getId(), PDO::PARAM_INT);
             $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);
 
+            $sth->execute();
+
+            if (!$sth) {
+                throw new PDOException();
+            } else {
+                return true;
+            }
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+
+    /** //! activate()
+     * @return bool
+     */
+    public function activate(): bool
+    {
+        try {
+            $sql = 'UPDATE `users`
+                    SET `validated_at` = :validated_at
+                    WHERE `id` = :id;';
+
+            $sth = $this->pdo->prepare($sql);
+            $sth->bindValue(':id', $this->getId(), PDO::PARAM_INT);
+            $sth->bindValue(':validated_at', $this->getValidated_at(), PDO::PARAM_STR);
+
+            $sth->execute();
+
             if (!$sth) {
                 throw new PDOException();
             } else {

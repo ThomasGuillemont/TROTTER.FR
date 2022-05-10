@@ -5,6 +5,14 @@ require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/constants.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
+require_once(dirname(__FILE__) . '/../helpers/JWT.php');
+
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
+
+// //Load Composer's autoloader
+// require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 $checked = 0;
 
@@ -16,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //! registered_at
     $date = new DateTime('', new DateTimeZone('Europe/Paris'));
-    $registered_at = $date->format('Y-m-d H:i');
+    $registered_at = $date->format('Y-m-d H:i:s');
 
     //! role
     $role = 3;
@@ -105,11 +113,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = new User($ip, $registered_at, $email, $pseudo, $passwordHash, $avatar, $role);
         $user = $user->add();
 
+        $payload = ['email' => $email, 'exp' => (time() + 600)];
+        $jwt = JWT::generate_jwt($payload);
+
+        $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/activation?jwt=' . $jwt;
+        $message = '
+        Veuillez cliquer sur le lien suivant pour activé votre compte <b>Trotter</b><br>
+        <a href="' . $link . '">Activation</a>
+        ';
+
+        var_dump($message);
+
+        $to = $email;
+        $subject = 'Validation de votre inscription Trotter.fr';
+        $message = wordwrap($message, 50, "\r\n");
+        $headers = 'From: admin@trotter.fr';
+
+        mail($to, $subject, $message, $headers);
+
+        // $mailer = new PHPMailer(true);
+
+        // try {
+        //     $mailer->isSMTP();
+        //     $mailer->Host       = 'smtp.gmail.com';
+        //     $mailer->SMTPAuth   = true;
+        //     $mailer->Username   = 'tguillemont@gmail.com';
+        //     $mailer->Password   = 'zxslsidvdqxblevl';
+        //     $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        //     $mailer->Port       = 587;
+
+        //     $mailer->setFrom('tguillemont@gmail.com', 'Administrateur Trotter');
+        //     $mailer->addAddress($email, $pseudo);
+
+        //     $mailer->isHTML(true);
+        //     $mailer->Subject = 'Validation de votre inscription Trotter.fr';
+        //     $mailer->Body    = $message;
+
+        //     $mailer->send();
+        // } catch (Exception $e) {
+        //     throw $e;
+        // }
+
         //! message success or error
         if (!$user) {
             $message = 'Une erreur est survenue';
         } else {
-            SessionFlash::set('Veuillez cliquer sur le lien envoyé sur votre email !');
+            SessionFlash::set('Veuillez cliquer sur le lien envoyé sur votre boite mail pour activer votre compte !');
             sleep(1.5);
             header('Location: /connexion');
             die;

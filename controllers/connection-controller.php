@@ -26,6 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error['email'] = 'Votre email n\'existe pas';
     }
 
+    //! check if validated_at is null
+    if (is_null($user->validated_at)) {
+        $error['email'] = 'Votre compte n\'est pas encore activé';
+    }
+
     //! password
     $password = $_POST['password'];
     if (empty($password)) {
