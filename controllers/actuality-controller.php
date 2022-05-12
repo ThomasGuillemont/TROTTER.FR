@@ -4,6 +4,7 @@
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
 require_once(dirname(__FILE__) . '/../config/constants.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
 if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $post = $post->add();
 
         //! message success or error
-        if (!$post) {
+        if ($post === false) {
             $message = 'Une erreur est survenue';
         }
     }

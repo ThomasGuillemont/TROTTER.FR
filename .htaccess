@@ -49,8 +49,17 @@ RewriteRule ^administration-utilisateurs$ /controllers/dashboard-user-controller
 # /administration-actualités
 RewriteRule ^administration-actualités$ /controllers/dashboard-post-controller.php [L]
 
+# /administration-signalements
+RewriteRule ^administration-signalements$ /controllers/dashboard-reported-controller.php [L]
+
 # /supprimer-actualité
 RewriteRule ^supprimer-actualité$ /controllers/delete-post-controller.php [L]
+
+# /modifier-actualité
+RewriteRule ^modifier-actualité$ /controllers/update-post-controller.php [L]
+
+# /signaler-actualité
+RewriteRule ^signaler-actualité$ /controllers/report-post-controller.php [L]
 
 # /supprimer-utilisateur
 RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]

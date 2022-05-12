@@ -28,11 +28,11 @@
                         <?php } ?>
 
                         <div class="col-12 fw-bold orange fs-5 pb-3">
-                            Utilisateurs
+                            Signalements
                         </div>
 
-                        <form class="w-50 pb-3" action="/administration-utilisateurs" method="GET" id="search">
-                            <input type="search" class="form-control text-center" placeholder="🕵️‍♀️ Hello, Je cherche pour vous ! " pattern="<?= SEARCH ?>" name="search" id="search" value="<?= $search ?? '' ?>">
+                        <form class="w-50 pb-3" action="/administration-signalements" method="GET" id="search">
+                            <input type="search" class="form-control text-center" placeholder="🕵️‍♀️ Hello, Je cherche pour vous !" pattern="<?= SEARCH ?>" name="search" id="search" value="<?= $search ?? '' ?>">
 
                             <?php if (!empty($error['search'])) { ?>
                                 <div class="fs-7 alert fst-italic" id="alertSearch">
@@ -46,23 +46,23 @@
                         <table class="table table-hover">
                             <thead class="orange">
                                 <tr>
-                                    <th>IP</th>
-                                    <th>Date d'inscription</th>
-                                    <th>Pseudo</th>
-                                    <th>Email</th>
+                                    <th>Date de signalement</th>
+                                    <th>Message de signalement</th>
+                                    <th>Date de publication</th>
+                                    <th>Post</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listUsers as $key => $value) { ?>
+                                <?php foreach ($listReported as $key => $value) { ?>
                                     <!-- tr -->
                                     <tr>
-                                        <td><?= $value->ip ?? '' ?></td>
-                                        <td><?= date("d-m-Y", strtotime($value->registered_at)) ?? '' ?></td>
-                                        <td><?= $value->pseudo ?? '' ?></td>
-                                        <td><a href="mailto:<?= $value->email ?? '' ?>"><?= $value->email ?? '' ?></a></td>
+                                        <td><?= date("d-m-Y H:i", strtotime($value->reported_at)) ?? '' ?></td>
+                                        <td><?= $value->message ?? '' ?></td>
+                                        <td><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></td>
+                                        <td><?= $value->post ?? '' ?></td>
                                         <td>
-                                            <a href="/profil?id=<?= $value->id ?? '' ?>">🔎 Voir le profil</a>
+                                            <a href="/bannir-utilisateur?id=<?= $value->id_users ?? '' ?>">🚫 Bannir</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -73,9 +73,9 @@
                         <div class="col-12 d-flex justify-content-center">
                             <ul class="pagination">
                                 <?php for ($page = 1; $page <= $pages; $page++) : ?>
-                                    <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                                    <li class="page-item p-1 <?= ($currentPage == $page) ? "active" : "" ?>">
-                                        <a href="/administration-utilisateurs?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                    <!-- Link active -->
+                                    <li class="page-item p-1 <?= ($currentPage == $page) ? "active" : '' ?>">
+                                        <a href="/administration-actualités?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                                     </li>
                                 <?php endfor ?>
                             </ul>

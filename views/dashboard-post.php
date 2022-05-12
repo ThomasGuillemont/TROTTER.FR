@@ -3,12 +3,15 @@
         <div class="row glassmorphism">
             <div class="col-12">
                 <nav>
-                    <div class="d-flex justify-content-start m-3">
-                        <a href="/administration-utilisateurs" class="btn my-btn btn-profile fw-bold  m-2">
-                            👤
+                    <div class="d-flex justify-content-center m-3">
+                        <a href="/administration-utilisateurs" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
+                            👤 <span class="d-none d-lg-block">Utilisateurs</span>
                         </a>
-                        <a href="/administration-actualités" class="btn my-btn btn-profile fw-bold m-2">
-                            📮
+                        <a href="/administration-actualités" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
+                            📮 <span class="d-none d-lg-block">Actualités</span>
+                        </a>
+                        <a href="/administration-signalements" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
+                            🚨 <span class="d-none d-lg-block">Signalements</span>
                         </a>
                     </div>
                 </nav>
@@ -43,10 +46,9 @@
                         <table class="table table-hover">
                             <thead class="orange">
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Message</th>
+                                    <th>Date de publication</th>
+                                    <th>Post</th>
                                     <th>Pseudo</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,9 +58,6 @@
                                         <td><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></td>
                                         <td><?= $value->post ?? '' ?></td>
                                         <td><?= $value->pseudo ?? '' ?></td>
-                                        <td>
-                                            <a href="/supprimer-actualité?id=<?= $value->id ?? '' ?>">❌</a>
-                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

@@ -35,7 +35,7 @@ a:link {
 /* glassmorphisme */
 .glassmorphism {
   background: rgb(215 215 215 / 40%);
-  border-radius: 10px;
+  border-radius: 0.5em;
   border: 1px solid rgb(229 229 229);
   backdrop-filter: blur(5px);
 }
@@ -190,6 +190,12 @@ h3 {
   font-size: 0.7rem;
 }
 
+.my-message {
+  border: 1px solid var(--borderColor);
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  padding: 0.5em;
+  background-color: #ffeb5226;
+}
 .message {
   border: 1px solid var(--borderColor);
   border-radius: 0.5em 0.5em 0.5em 0.5em;
@@ -242,7 +248,7 @@ h3 {
   color: #222F3D;
   background: var(--backgroundColor);
   border: 1px solid var(--borderColor);
-  border-radius: 10px;
+  border-radius: 0.5em;
 }
 
 .form-control:focus {
@@ -253,7 +259,7 @@ h3 {
 }
 
 .form-check-input[type=checkbox] {
-  border-radius: 10px;
+  border-radius: 0.5em;
 }
 
 .form-check-input {
@@ -299,7 +305,7 @@ h3 {
 }
 
 .btn {
-  border-radius: 10px;
+  border-radius: 0.5em;
 }
 
 .alert {
@@ -381,47 +387,4 @@ opacity: 0;
   tbody, td, tfoot, th, thead, tr {
       font-size: 0.9em;
   }
-
-  /* .img-profile {
-    max-width: 20%;
-    height: auto;
-  } */
-
-  /* .img-friends {
-    max-width: 100%;
-    height: auto;
-  } */
-
-  /* .navbar-toggler {
-    width: 10%;
-  } */
-}
-
-/* Screen size is 992px */
-@media screen and (min-width: 992px) {
-  /* .img-profile {
-    max-width: 10%;
-    height: auto;
-  } */
-
-  /* .img-friends {
-    max-width: 70%;
-    height: auto;
-  } */
-
-  /* .navbar-toggler {
-    width: 6%;
-  } */
-}
-
-/* Screen size is 1200px */
-@media screen and (min-width: 1200px) {
-  /* .img-friends {
-    max-width: 50%;
-    height: auto;
-  } */
-
-  /* .navbar-toggler {
-    width: 4%;
-  } */
 }

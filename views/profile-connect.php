@@ -12,6 +12,11 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
+                            <div class="col-12">
+                                <span class="alert fst-italic">
+                                    <?= SessionFlash::display('message') ?>
+                                </span>
+                            </div>
                             <div class="col-12 col-md-6 p-2">
                                 <div class="col-12">
                                     <h2><?= $user->pseudo ?></h2>
@@ -22,6 +27,9 @@
                                 </div>
                                 <div class="col-12 p-2">
                                     <a href="/édition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Modifier mot de passe</a>
+                                </div>
+                                <div class="col-12 p-2">
+                                    <a href="/supprimer-utilisateur?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Supprimer mon compte</a>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 p-2">

@@ -1,7 +1,7 @@
 <main class="px-5">
     <div class="container-fluid">
         <div class="row glassmorphism">
-            <div class="col-12 d-flex flex-column justify-content-center align-items-center my-auto col-sm-6">
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center my-auto col-sm-6 p-3">
 
                 <!-- error message -->
                 <?php if (!empty($message)) { ?>
@@ -12,13 +12,10 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>⚠️ Suppression d'utilisateur ⚠️</h2>
-                    <p class="fw-bold"><?= $user->pseudo ?? '' ?></p>
-                    <p class="fw-bold"><?= $user->email ?? '' ?></p>
-                    <p class="fw-bold">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?? '' ?></p>
+                    <h2>Nous sommes triste de te voir partir</h2>
 
                     <form id="deleteForm" method="POST" action="/supprimer-utilisateur?id=<?= $user->id ?? '' ?>">
-                        <button type="submit" class="btn my-btn fw-bolder" id="deleteBtn">Supprimer</button>
+                        <button type="submit" class="btn my-btn fw-bolder mt-3" id="deleteBtn">Supprimer mon compte</button>
                     </form>
 
                 <?php } ?>

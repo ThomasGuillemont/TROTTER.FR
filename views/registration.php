@@ -40,7 +40,6 @@
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar4">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar4" value="4" <?= ($checked == 4) ? 'checked' : ''; ?>>
-
                                                 <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar3.png" alt="Image de profil">
                                             </label>
                                         </div>

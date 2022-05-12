@@ -7,6 +7,12 @@ require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 require_once(dirname(__FILE__) . '/../helpers/JWT.php');
 
+//! redirect
+if (!empty($_SESSION['user']) && isset($_SESSION['user'])) {
+    header('location: /profil?id=' . $_SESSION['user']->id);
+    die;
+}
+
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
@@ -121,8 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Veuillez cliquer sur le lien suivant pour activé votre compte <b>Trotter</b><br>
         <a href="' . $link . '">Activation</a>
         ';
-
-        var_dump($message);
 
         $to = $email;
         $subject = 'Validation de votre inscription Trotter.fr';

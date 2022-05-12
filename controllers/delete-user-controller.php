@@ -3,12 +3,7 @@
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
-
-//! redirect
-if ($_SESSION['user']->id_roles != 1) {
-    header('location: /accueil');
-    die;
-}
+require_once(dirname(__FILE__) . '/../models/Reported.php');
 
 //! INPUT_GET ID
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -19,17 +14,24 @@ if ($user instanceof PDOException) {
     $message = $user->getMessage();
 }
 
+//! redirect
+if ($_SESSION['user']->id != $user->id) {
+    header('location: /accueil');
+    die;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //! User::delete($id)
-    $userDeletePost = User::deletePost($id);
-    $userDelete = User::delete($id);
+    //! User::delete($_SESSION['user']->id)
+    $userDelete = User::delete($_SESSION['user']->id);
 
     //! message success or error
     if ($userDelete === false) {
         $message = 'Une erreur est survenue';
     } else {
-        header('location: /administration-utilisateurs');
-        die;
+        $_SESSION = array();
+        session_destroy();
+        header('location: /accueil');
+        die();
     }
 }
 

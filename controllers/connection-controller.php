@@ -6,6 +6,12 @@ require_once(dirname(__FILE__) . '/../config/constants.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
+//! redirect
+if (!empty($_SESSION['user']) && isset($_SESSION['user'])) {
+    header('location: /profil?id=' . $_SESSION['user']->id);
+    die;
+}
+
 $error = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = User::getOneByEmail($email);
     if ($user instanceof PDOException) {
         $error['email'] = 'Votre email n\'existe pas';
-    }
-
-    //! check if validated_at is null
-    if (is_null($user->validated_at)) {
-        $error['email'] = 'Votre compte n\'est pas encore activé';
+    } else {
+        //! check if validated_at is null
+        if (is_null($user->validated_at)) {
+            $error['email'] = 'Votre compte n\'est pas encore activé';
+        }
     }
 
     //! password

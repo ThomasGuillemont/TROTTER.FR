@@ -12,11 +12,18 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Plus envie de voir ça ?</h2>
+                    <h2>Signaler</h2>
+
                     <p class="fw-bold mb-0 mt-3 mb-3">"<?= $post->post ?? '' ?>"</p>
 
-                    <form id="deleteForm" method="POST" action="/supprimer-actualité?id=<?= $post->id ?? '' ?>">
-                        <button type="submit" class="btn my-btn fw-bolder" id="deleteBtn">Supprimer</button>
+                    <form id="deleteForm" method="POST" class="w-100" action="/signaler-actualité?id=<?= $post->id ?? '' ?>">
+                        <input type="hidden" name="idPost" id="idPost" value="<?= $post->id ?? '' ?> " />
+                        <input type="hidden" name="idUser" id="idUser" value="<?= $_SESSION['user']->id ?? '' ?> " />
+                        <input type="text" class="text-center form-control" id="reportMessage" name="reportMessage" placeholder="Pourquoi souhaitez vous signaler le post ?">
+                        <div class="fs-7 alert fst-italic" id="alertReportMessage">
+                            <?= $error['reportMessage'] ?? '' ?>
+                        </div>
+                        <button type="submit" class="btn my-btn fw-bolder mt-3" id="reportBtn">Signaler</button>
                     </form>
 
                 <?php } ?>

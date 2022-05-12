@@ -31,6 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($error)) {
+        $to = 'admin@trotter.fr';
+        $subject = 'Contact';
+        $message = wordwrap($message, 50, "\r\n");
+        $headers = 'From: ' . $email;
+
+        mail($to, $subject, $message, $headers);
+
         header('location: /accueil');
         die;
     }

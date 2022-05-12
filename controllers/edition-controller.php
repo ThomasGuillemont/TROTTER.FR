@@ -4,6 +4,7 @@
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../config/constants.php');
+require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -37,35 +38,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($newPasswordConfirm)) {
             $error['newPasswordConfirm'] = 'Veuillez confirmez votre nouveau mot de passe';
         } else {
-            if ($newPassword != $newPasswordConfirm) {
-                $error['newPassword'] = 'Le mot de passe et la confirmation ne sont pas identiques';
-                $error['newPasswordConfirm'] = 'Le mot de passe et la confirmation ne sont pas identiques';
+            if ($newPassword == $password) {
+                $error['newPassword'] = 'Veuillez saisir un nouveau mot de passe différent de l\'ancien';
+                $error['newPasswordConfirm'] = 'Veuillez saisir un nouveau mot de passe différent de l\'ancien';
             } else {
-                $newPasswordValid = filter_var($newPassword, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . PASSWORD . "$/")));
-                if ($newPasswordValid === false) {
-                    $error['newPassword'] = 'Le mot de passe doit faire entre 2 et 30 caractères';
-                    $error['newPasswordConfirm'] = 'La confirmation doit faire entre 2 et 30 caractères';
+                if ($newPassword != $newPasswordConfirm) {
+                    $error['newPassword'] = 'Le mot de passe et la confirmation ne sont pas identiques';
+                    $error['newPasswordConfirm'] = 'Le mot de passe et la confirmation ne sont pas identiques';
                 } else {
-                    $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+                    $newPasswordValid = filter_var($newPassword, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . PASSWORD . "$/")));
+                    if ($newPasswordValid === false) {
+                        $error['newPassword'] = 'Le mot de passe doit faire entre 2 et 30 caractères';
+                        $error['newPasswordConfirm'] = 'La confirmation doit faire entre 2 et 30 caractères';
+                    } else {
+                        $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+                    }
                 }
             }
         }
     }
-}
 
-//! $user->update()
-if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)) {
-    $user = new User();
-    $user->setPassword($passwordHash);
-    $user->setId($_SESSION['user']->id);
-    $user = $user->update();
+    //! $user->update()
+    if (empty($error)) {
+        $user = new User();
+        $user->setPassword($passwordHash);
+        $user->setId($_SESSION['user']->id);
+        $user = $user->update();
 
-    //! message success or error
-    if (!$user) {
-        $message = 'Une erreur est survenue';
-    } else {
-        header('location: /profil?id=' . $_SESSION['user']->id ?? '' . '');
-        die;
+        //! message success or error
+        if ($user === false) {
+            $message = 'Une erreur est survenue';
+        } else {
+            SessionFlash::set('Le mot de passe a été modifié avec succès !');
+            header('location: /profil?id=' . $_SESSION['user']->id ?? '' . '');
+            die;
+        }
     }
 }
 

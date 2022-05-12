@@ -2,7 +2,7 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../models/User.php');
+require_once(dirname(__FILE__) . '/../models/Reported.php');
 require_once(dirname(__FILE__) . '/../config/constants.php');
 
 //! redirect
@@ -17,20 +17,20 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 } else {
     $currentPage = 1;
 }
-//! number of user
-$userCount = User::count();
-$userCount = intval($userCount);
+//! number of reported
+$reportedCount = Reported::count();
+$reportedCount = intval($reportedCount);
 //! number of patients per page
 $offset = LIMIT;
 //! total pages
-$pages = intval(ceil($userCount / $offset));
-//! first user
+$pages = intval(ceil($reportedCount / $offset));
+//! first reported
 $limit = ($currentPage * $offset) - $offset;
 
-//! User::getAll($limit, $offset)
-$listUsers = User::getAll($limit, $offset);
-if ($listUsers instanceof PDOException) {
-    $message = $user->getMessage();
+//! Reported::getAll($limit, $offset)
+$listReported = Reported::getAll($limit, $offset);
+if ($listReported instanceof PDOException) {
+    $message = $listReported->getMessage();
 }
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -46,14 +46,14 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         }
     }
 
-    //! User::getAll($limit, $userCount, $search)
-    $listUsers = User::getAll($limit, $userCount, $search);
-    if ($listUsers instanceof PDOException) {
-        $message = $user->getMessage();
+    //! Reported::getAll($limit, $userCount, $search)
+    $listReported = Reported::getAll($limit, $reportedCount, $search);
+    if ($listReported instanceof PDOException) {
+        $message = $listReported->getMessage();
     }
 }
 
 //! include
 include(dirname(__FILE__) . '/../views/templates/header.php');
-include(dirname(__FILE__) . '/../views/dashboard-user.php');
+include(dirname(__FILE__) . '/../views/dashboard-reported.php');
 include(dirname(__FILE__) . '/../views/templates/footer.php');

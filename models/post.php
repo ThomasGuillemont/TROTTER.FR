@@ -264,6 +264,33 @@ class Post
     }
 
 
+    /** //! update()
+     * @return bool
+     */
+    public function update(): bool
+    {
+        try {
+            $sql = 'UPDATE `posts`
+                    SET `post` = :post
+                    WHERE `id` = :id;';
+
+            $sth = $this->pdo->prepare($sql);
+            $sth->bindValue(':id', $this->getId(), PDO::PARAM_INT);
+            $sth->bindValue(':post', $this->getPost(), PDO::PARAM_STR);
+
+            $sth->execute();
+
+            if (!$sth) {
+                throw new PDOException();
+            } else {
+                return true;
+            }
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+
     /** //! count()
      * @return int
      */
