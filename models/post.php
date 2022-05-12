@@ -13,7 +13,6 @@ class Post
 
 
     /** //! construct
-     * @param int $id
      * @param string $post_at
      * @param string $post
      * @param int $id_user
@@ -152,9 +151,14 @@ class Post
             $sql .= ' ORDER BY `post_at` DESC
                     LIMIT :offset, :limit;';
 
+            $sql2 = 'SELECT `banned`.`id`,
+                    `banned`.`id_users`
+                    FROM `banned`';
+
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
+            $sth2 = Database::DbConnect()->prepare($sql2);
 
             if (!is_null($search)) {
                 $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);
@@ -164,10 +168,13 @@ class Post
                 throw new PDOException();
             } else {
                 $sth->execute();
+                $sth2->execute();
                 $posts = $sth->fetchAll();
+                $banned = $sth2->fetchAll();
+                $array = [$posts, $banned];
             }
 
-            return $posts;
+            return $array;
         } catch (PDOException $e) {
             return [];
         }
@@ -184,7 +191,7 @@ class Post
                     FROM `trotter`.`posts`
                     WHERE `id_user` = :id
                     ORDER BY `post_at`
-                    LIMIT 0, 5;';
+                    LIMIT 0, 3;';
 
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':id', $id, PDO::PARAM_INT);
@@ -220,13 +227,13 @@ class Post
             $sth->execute();
 
             if (!$sth) {
-                throw new PDOException('le message n\'existe pas');
+                throw new PDOException('Le message n\'existe pas');
             } else {
                 $user = $sth->fetch();
             }
 
             if (!$user) {
-                throw new PDOException('le message n\'existe pas');
+                throw new PDOException('Le message n\'existe pas');
             } else {
                 return $user;
             }

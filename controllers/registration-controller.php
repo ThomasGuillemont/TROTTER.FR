@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/activation?jwt=' . $jwt;
         $message = '
-        Veuillez cliquer sur le lien suivant pour activé votre compte <b>Trotter</b><br>
+        Veuillez cliquer sur le lien suivant pour activé votre compte <b>Trotter</b>.<br>
         <a href="' . $link . '">Activation</a>
         ';
 

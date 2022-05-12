@@ -4,6 +4,7 @@
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/constants.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
+require_once(dirname(__FILE__) . '/../models/Banned.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
@@ -34,6 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //! check if validated_at is null
         if (is_null($user->validated_at)) {
             $error['email'] = 'Votre compte n\'est pas encore activé';
+        } else {
+            //! check if banned
+            $bannedCheck = Banned::isBanned($user->id);
+            if ($bannedCheck === true) {
+                $error['email'] = 'Votre compte est banni';
+            }
         }
     }
 

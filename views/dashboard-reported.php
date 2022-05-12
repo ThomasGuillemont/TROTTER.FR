@@ -54,7 +54,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listReported as $key => $value) { ?>
+                                <?php foreach ($listReported as $key => $value) {
+                                    var_dump($listReported); ?>
                                     <!-- tr -->
                                     <tr>
                                         <td><?= date("d-m-Y H:i", strtotime($value->reported_at)) ?? '' ?></td>
@@ -62,7 +63,7 @@
                                         <td><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></td>
                                         <td><?= $value->post ?? '' ?></td>
                                         <td>
-                                            <a class="fw-bold" href="/bannir-utilisateur?id=<?= $value->id_users ?? '' ?>">🚫 Bannir l'utilisateur</a>
+                                            <a class="fw-bold" href="/bannir-utilisateur?id=<?= $value->id_user ?? '' ?>">🚫 Bannir l'utilisateur</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

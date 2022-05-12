@@ -14,10 +14,9 @@ class Reported
 
 
     /** //! construct
-     * @param int $id
      * @param string $post_at
      * @param string $post
-     * @param string $id_user
+     * @param int $id_user
      */
     function __construct(
         string $reported_at = '',
@@ -162,7 +161,7 @@ class Reported
                     `reported`.`id` AS `id`,
                     `reported`.`reported_at`,
                     `reported`.`message`,
-                    `reported`.`id_users`,
+                    `reported`.`id_users` AS `id_user`,
                     `posts`.`id` AS `id_post`,
                     `posts`.`post` AS `post`,
                     `posts`.`post_at` AS `post_at`

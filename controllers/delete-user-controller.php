@@ -28,9 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($userDelete === false) {
         $message = 'Une erreur est survenue';
     } else {
-        $_SESSION = array();
-        session_destroy();
-        header('location: /accueil');
+        $message = 'Votre compte <b>Trotter</b> a été désactivé avec succès.';
+
+        $to = $user->email;
+        $subject = 'Suppression de compte Trotter.fr';
+        $message = wordwrap($message, 50, "\r\n");
+        $headers = 'From: admin@trotter.fr';
+
+        mail($to, $subject, $message, $headers);
+
+        header('location: /logout');
         die();
     }
 }

@@ -9,12 +9,12 @@ class User
     private int $id;
     private string $ip;
     private string $registered_at;
+    private string $validated_at;
     private string $email;
     private string $pseudo;
     private string $password;
-    private int $id_avatars;
-    private int $id_roles;
-    private string $validated_at;
+    private string $id_avatars;
+    private string $id_roles;
 
 
     /** //! construct
@@ -24,8 +24,8 @@ class User
      * @param string $email
      * @param string $pseudo
      * @param string $password
-     * @param int $id_avatars
-     * @param int $id_roles
+     * @param string $id_avatars
+     * @param string $id_roles
      * @param string $validated_at
      */
     function __construct(
@@ -34,8 +34,8 @@ class User
         string $email = '',
         string $pseudo = '',
         string $password = '',
-        int $id_avatars = 1,
-        int $id_roles = 3,
+        string $id_avatars = '',
+        string $id_roles = '',
         string $validated_at = ''
     ) {
         $this->setIp($ip);
@@ -178,36 +178,36 @@ class User
 
 
     /** //! getId_avatars()
-     * @return int
+     * @return string
      */
-    public function getId_avatars(): int
+    public function getId_avatars(): string
     {
         return $this->id_avatars;
     }
-    /** //! setId_avatars(int $id_avatars)
-     * @param int $id_avatars
+    /** //! setId_avatars(string $id_avatars)
+     * @param string $id_avatars
      * 
      * @return void
      */
-    public function setId_avatars(int $id_avatars): void
+    public function setId_avatars(string $id_avatars): void
     {
         $this->id_avatars = $id_avatars;
     }
 
 
     /** //! getId_roles()
-     * @return int
+     * @return string
      */
-    public function getId_roles(): int
+    public function getId_roles(): string
     {
         return $this->id_roles;
     }
-    /** //! setId_roles(int $id_roles)
-     * @param int $id_roles
+    /** //! setId_roles(string $id_roles)
+     * @param string $id_roles
      * 
      * @return void
      */
-    public function setId_roles(int $id_roles): void
+    public function setId_roles(string $id_roles): void
     {
         $this->id_roles = $id_roles;
     }
@@ -228,8 +228,8 @@ class User
             $sth->bindValue(':email', $this->getEmail(), PDO::PARAM_STR);
             $sth->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
             $sth->bindValue(':password', $this->getPassword(), PDO::PARAM_STR);
-            $sth->bindValue(':id_avatars', $this->getId_avatars(), PDO::PARAM_INT);
-            $sth->bindValue(':id_roles', $this->getId_roles(), PDO::PARAM_INT);
+            $sth->bindValue(':id_avatars', $this->getId_avatars(), PDO::PARAM_STR);
+            $sth->bindValue(':id_roles', $this->getId_roles(), PDO::PARAM_STR);
 
             $sth->execute();
 
@@ -360,13 +360,13 @@ class User
     {
         try {
             $sql = 'SELECT
-                        `users`.`id` AS `id`,
-                        `users`.`registered_at` AS `registered_at`,
-                        `users`.`email` AS `email`,
-                        `users`.`pseudo` AS `pseudo`,
-                        `users`.`password` AS `password`,
-                        `users`.`id_roles` AS `id_roles`,
-                        `avatars`.`avatar` AS `avatar`
+                        `users`.`id`,
+                        `users`.`registered_at`,
+                        `users`.`email`,
+                        `users`.`pseudo`,
+                        `users`.`password`,
+                        `users`.`id_roles`,
+                        `avatars`.`avatar`
                     FROM `users`
                     LEFT JOIN `avatars`
                     ON `users`.`id_avatars` = `avatars`.`id`

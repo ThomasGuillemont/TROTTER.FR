@@ -42,15 +42,15 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     }
 
     //! $post->search()
-    $listPosts = Post::getAll($limit, $postCount, $search);
+    $listPosts = Post::getAll($limit, $postCount, $search)[0];
     if ($listPosts instanceof PDOException) {
-        $message = $post->getMessage();
+        $message = $listPosts->getMessage();
     }
 } else {
     //! Post::getAll($limit, $offset)
-    $listPosts = Post::getAll($limit, $offset);
+    $listPosts = Post::getAll($limit, $offset)[0];
     if ($listPosts instanceof PDOException) {
-        $message = $post->getMessage();
+        $message = $listPosts->getMessage();
     }
 }
 

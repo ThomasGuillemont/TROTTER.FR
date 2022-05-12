@@ -12,7 +12,7 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Signaler</h2>
+                    <h2>Signaler le post ?</h2>
 
                     <p class="fw-bold mb-0 mt-3 mb-3">"<?= $post->post ?? '' ?>"</p>
 

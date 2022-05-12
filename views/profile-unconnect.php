@@ -36,7 +36,12 @@
                                 <div>
                                     <?php if (!empty($posts)) { ?>
                                         <?php foreach ($posts as $key => $value) { ?>
-                                            <p class="message"><?= $value->post ?? '' ?></p>
+                                            <div class="message mb-2">
+                                                <?= $value->post ?? '' ?>
+                                                <div>
+                                                    <a class="fst-italic small ps-2 fw-bold" href="/signaler-actualité?id=<?= $value->id ?? '' ?>">Signaler</a>
+                                                </div>
+                                            </div>
                                         <?php }
                                     } else { ?>
                                         <p>Aucune activité actuellement</p>

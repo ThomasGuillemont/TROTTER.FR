@@ -39,11 +39,13 @@
                                 <div>
                                     <?php if (!empty($posts)) { ?>
                                         <?php foreach ($posts as $key => $value) { ?>
-                                            <p class="my-message">
+                                            <div class="my-message mb-2">
                                                 <?= $value->post ?? '' ?>
-                                                <a class="fst-italic small ps-2 fw-bold" href="/modifier-actualité?id=<?= $value->id ?? '' ?>">Modifier</a>
-                                                <a class="fst-italic small ps-2 fw-bold" href="supprimer-actualité?id=<?= $value->id ?? '' ?>">Supprimer</a>
-                                            </p>
+                                                <div>
+                                                    <a class="fst-italic small ps-2 fw-bold" href="/modifier-actualité?id=<?= $value->id ?? '' ?>">Modifier</a>
+                                                    <a class="fst-italic small ps-2 fw-bold" href="supprimer-actualité?id=<?= $value->id ?? '' ?>">Supprimer</a>
+                                                </div>
+                                            </div>
                                         <?php }
                                     } else { ?>
                                         <p>Aucune activité actuellement</p>
