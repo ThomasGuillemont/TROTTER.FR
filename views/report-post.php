@@ -19,7 +19,7 @@
                     <form id="deleteForm" method="POST" class="w-100" action="/signaler-actualité?id=<?= $post->id ?? '' ?>">
                         <input type="hidden" name="idPost" id="idPost" value="<?= $post->id ?? '' ?> " />
                         <input type="hidden" name="idUser" id="idUser" value="<?= $_SESSION['user']->id ?? '' ?> " />
-                        <input type="text" class="text-center form-control" id="reportMessage" name="reportMessage" placeholder="Pourquoi souhaitez vous signaler le post ?">
+                        <input type="text" class="text-center form-control" pattern="<?= SEARCH ?>" id="reportMessage" name="reportMessage" placeholder="Pourquoi souhaitez vous signaler le post ?">
                         <div class="fs-7 alert fst-italic" id="alertReportMessage">
                             <?= $error['reportMessage'] ?? '' ?>
                         </div>

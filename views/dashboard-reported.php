@@ -62,7 +62,7 @@
                                         <td><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></td>
                                         <td><?= $value->post ?? '' ?></td>
                                         <td>
-                                            <a href="/bannir-utilisateur?id=<?= $value->id_users ?? '' ?>">🚫 Bannir</a>
+                                            <a class="fw-bold" href="/bannir-utilisateur?id=<?= $value->id_users ?? '' ?>">🚫 Bannir l'utilisateur</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

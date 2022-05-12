@@ -17,7 +17,7 @@
                         <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">&#128512</button>
                     </div>
                     <form id="deleteForm" method="POST" class="w-100" action="/modifier-actualité?id=<?= $postById->id ?? '' ?>">
-                        <input type="text" class="text-center form-control" id="post" value="<?= $postById->post ?? '' ?>" name="post" placeholder="Entrez votre message pour modification">
+                        <input type="text" class="text-center form-control" pattern="<?= SEARCH ?>" id="post" value="<?= $postById->post ?? '' ?>" name="post" placeholder="Entrez votre message pour modification">
                         <div id="drawer" class="emoji-drawer d-flex flex-wrap justify-content-center d-none">
                             <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😀</div>
                             <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😁</div>

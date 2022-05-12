@@ -2,6 +2,7 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
@@ -38,6 +39,11 @@ if (empty($message)) {
 
         if (empty($post)) {
             $error['noPostError'] = 'noPostError';
+        } else {
+            $post = filter_var($post, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . SEARCH . "$/")));
+            if ($post === false) {
+                $error['noPostError'] = 'noPostError';
+            }
         }
 
         //! $post->add()

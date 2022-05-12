@@ -62,7 +62,7 @@
                                         <td><?= $value->pseudo ?? '' ?></td>
                                         <td><a href="mailto:<?= $value->email ?? '' ?>"><?= $value->email ?? '' ?></a></td>
                                         <td>
-                                            <a href="/profil?id=<?= $value->id ?? '' ?>">🔎 Voir le profil</a>
+                                            <a class="fw-bold" href="/profil?id=<?= $value->id ?? '' ?>">🔎 Voir le profil</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

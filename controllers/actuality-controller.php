@@ -29,6 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($post)) {
         $error['noPostError'] = 'noPostError';
+    } else {
+        $post = filter_var($post, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . SEARCH . "$/")));
+        if ($post === false) {
+            $error['noPostError'] = 'noPostError';
+        }
     }
 
     //! $post->add()

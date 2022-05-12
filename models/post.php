@@ -9,19 +9,19 @@ class Post
     private int $id;
     private string $post_at;
     private string $post;
-    private string $id_user;
+    private int $id_user;
 
 
     /** //! construct
      * @param int $id
      * @param string $post_at
      * @param string $post
-     * @param string $id_user
+     * @param int $id_user
      */
     function __construct(
         string $post_at = '',
         string $post = '',
-        string $id_user = ''
+        int $id_user = 0
     ) {
         $this->setPost_at($post_at);
         $this->setPost($post);
@@ -86,18 +86,18 @@ class Post
 
 
     /** //! getId_user()
-     * @return string
+     * @return int
      */
-    public function getId_user(): string
+    public function getId_user(): int
     {
         return $this->id_user;
     }
-    /** //! setId_user(string $id_user)
-     * @param string $id_user
+    /** //! setId_user(int $id_user)
+     * @param int $id_user
      * 
      * @return void
      */
-    public function setId_user(string $id_user): void
+    public function setId_user(int $id_user): void
     {
         $this->id_user = $id_user;
     }
@@ -115,7 +115,7 @@ class Post
             $sth = $this->pdo->prepare($sql);
             $sth->bindValue(':post_at', $this->getPost_at(), PDO::PARAM_STR);
             $sth->bindValue(':post', $this->getPost(), PDO::PARAM_STR);
-            $sth->bindValue(':id_user', $this->getId_user(), PDO::PARAM_STR);
+            $sth->bindValue(':id_user', $this->getId_user(), PDO::PARAM_INT);
 
             $sth->execute();
 

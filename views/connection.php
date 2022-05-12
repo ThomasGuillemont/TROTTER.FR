@@ -13,12 +13,10 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
-                            <div class="col-12 pt-2 pb-2">
-                                <span class="alert fst-italic">
-                                    <?= SessionFlash::display('message') ?>
-                                </span>
-                            </div>
-                            <div class="col-12 d-flex justify-content-center pb-5">
+                            <span class="alert fst-italic">
+                                <?= SessionFlash::display('message') ?>
+                            </span>
+                            <div class="col-12 d-flex justify-content-center">
                                 <form id="connectionForm" method="POST" action="/connexion">
                                     <div class="mb-3">
                                         <label for="email" class="form-label fw-bolder formTitle">Email</label>

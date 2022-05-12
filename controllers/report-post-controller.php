@@ -30,6 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = trim(filter_input(INPUT_POST, 'reportMessage', FILTER_SANITIZE_SPECIAL_CHARS));
     if (empty($message)) {
         $error['reportMessage'] = 'Vous devez entrer un message';
+    } else {
+        $message = filter_var($message, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . SEARCH . "$/")));
+        if ($message === false) {
+            $error['reportMessage'] = 'Veuillez entrer un message valide';
+        }
     }
 
     //! id_post

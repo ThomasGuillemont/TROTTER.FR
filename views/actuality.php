@@ -15,11 +15,9 @@
                         <div class="card-hearder text-muted">
                             <div class="container-fluid p-0">
                                 <div class="row justify-content-center me-1 ms-1">
-                                    <div class="col-12">
-                                        <span class="alert fst-italic">
-                                            <?= SessionFlash::display('message') ?>
-                                        </span>
-                                    </div>
+                                    <span class="alert fst-italic">
+                                        <?= SessionFlash::display('message') ?>
+                                    </span>
                                     <div class="col-12 col-sm-10 col-xl-11 p-0 mt-2 mb-2">
                                         <form class="d-flex justify-content-center" action="/actualités" method="POST" id="postForm">
                                             <input type="hidden" name="id_user_input" id="id_user_input" value="<?= $_SESSION['user']->id ?> " />

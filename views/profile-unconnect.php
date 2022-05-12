@@ -12,19 +12,23 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
-                            <div class="col-12 col-md-6 p-2">
-                                <div class="col-12">
-                                    <h2><?= $user->pseudo ?></h2>
-                                    <p class="fst-italic">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
-                                </div>
-                                <div class="col-12">
-                                    <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
-                                </div>
-                                <div class="col-12 p-2">
-                                    <a href="/édition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
-                                </div>
-                                <div class="col-12 p-2">
-                                    <a href="/message-privée?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
+                            <div class="col-12 col-md-6 p-2 d-flex align-self-center">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2><?= $user->pseudo ?></h2>
+                                            <p class="fst-italic">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
+                                        </div>
+                                        <div class="col-12">
+                                            <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
+                                        </div>
+                                        <div class="col-12 p-2">
+                                            <a href="/édition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
+                                        </div>
+                                        <div class="col-12 p-2">
+                                            <a href="/message-privée?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 p-2">
@@ -32,7 +36,7 @@
                                 <div>
                                     <?php if (!empty($posts)) { ?>
                                         <?php foreach ($posts as $key => $value) { ?>
-                                            <p><?= $value->post ?? '' ?></p>
+                                            <p class="message"><?= $value->post ?? '' ?></p>
                                         <?php }
                                     } else { ?>
                                         <p>Aucune activité actuellement</p>
