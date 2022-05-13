@@ -162,7 +162,7 @@ h3 {
 }
 
 .img-fluid {
-  max-width: 15em;
+  max-width: 10em;
   height: auto;
 }
 
@@ -376,7 +376,7 @@ opacity: 0;
 
 .emoji {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .emoji:hover {
@@ -388,4 +388,30 @@ opacity: 0;
   tbody, td, tfoot, th, thead, tr {
       font-size: 0.9em;
   }
+}
+
+/* Screen size is 768px */
+@media screen and (min-width: 768px) {
+  .img-fluid {
+    max-width: 16em;
+    height: auto;
+  }
+}
+
+.like {
+  width: 75px;
+  height: 75px;
+  background: url(/public/assets/img/icons/like.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+  margin-top: -1.2em;
+  margin-bottom: -2em;
+  margin-left: -2em;
+  margin-right: -1em;
+}
+.like.is-active {
+  transition-duration: 1s;
+  background-position: -2100px 0;
 }

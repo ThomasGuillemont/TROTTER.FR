@@ -1,4 +1,4 @@
-let reload = () => {    
+let reload = () => {
     fetch('/controllers/actuality-ajax-controller.php')
 
     .then((response)=> {
@@ -40,13 +40,18 @@ let reload = () => {
                 if (parseInt(post.id_user) == parseInt(user_id_value)) {
                     posts +=
                         `<div class="d-flex justify-content-end fw-bold">
-                            <a class="fst-italic small ps-2" href="/modifier-actualité?id=${post.id}">Modifier</a>
-                            <a class="fst-italic small ps-2" href="supprimer-actualité?id=${post.id}">Supprimer</a>
+                            <div>
+                                <a class="fst-italic small p-2" href="/modifier-actualité?id=${post.id}">Modifier</a>
+                                <a class="fst-italic small p-2" href="supprimer-actualité?id=${post.id}">Supprimer</a>
+                            </div>
                         </div>`;
                 } else {
                     posts +=
                         `<div class="d-flex justify-content-end fw-bold">
-                            <a class="fst-italic small ps-2" href="/signaler-actualité?id=${post.id}">Signaler</a>
+                            <div class="like" data-id="${post.id}"></div>
+                            <div class="d-flex align-self-end">
+                                <a class="fst-italic small p-2" href="/signaler-actualité?id=${post.id}">Signaler</a>
+                            </div>
                         </div>`;
                 }
                     posts +=
@@ -58,6 +63,15 @@ let reload = () => {
         })
 
         setInterval(reload,120000);
+    }).finally(() => {
+        let like = document.querySelector('.like');
+        like.addEventListener('click', (e) => {
+            e.target.classList.toggle('is-active');
+            console.log(e.target.dataset.id);
+            // je fetch en ajax post avec le e target id
+            // fetch('/controllers/like-ajax-controller.php', {
+
+        });
     })
 }
 

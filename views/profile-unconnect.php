@@ -16,40 +16,53 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2><?= $user->pseudo ?></h2>
-                                            <p class="fst-italic">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
+                                            <?php if (!empty($banned)) { ?>
+                                                <h2>Compte banni</h2>
+                                            <?php } else { ?>
+                                                <h2><?= $user->pseudo ?></h2>
+                                                <p class="fst-italic">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
+                                            <?php } ?>
                                         </div>
                                         <div class="col-12">
                                             <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
                                         </div>
-                                        <div class="col-12 p-2">
-                                            <a href="/édition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <a href="/message-privée?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
-                                        </div>
+
+                                        <?php if (empty($banned)) { ?>
+                                            <div class="col-12 p-2">
+                                                <a href="/édition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
+                                            </div>
+                                            <div class="col-12 p-2">
+                                                <a href="/message-privée?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
+                                            </div>
+                                        <?php } ?>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 p-2">
                                 <h2>Dernier(s) post(s)</h2>
                                 <div>
-                                    <?php if (!empty($posts)) { ?>
-                                        <?php foreach ($posts as $key => $value) { ?>
-                                            <div class="message mb-2">
-                                                <?= $value->post ?? '' ?>
-                                                <div>
-                                                    <a class="fst-italic small ps-2 fw-bold" href="/signaler-actualité?id=<?= $value->id ?? '' ?>">Signaler</a>
+                                    <?php if (empty($banned)) {
+                                        if (!empty($posts)) { ?>
+                                            <?php foreach ($posts as $key => $value) { ?>
+                                                <div class="message mb-2">
+                                                    <?= $value->post ?? '' ?>
+                                                    <div>
+                                                        <a class="fst-italic small ps-2 fw-bold" href="/signaler-actualité?id=<?= $value->id ?? '' ?>">Signaler</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        <?php }
-                                    } else { ?>
-                                        <p>Aucune activité actuellement</p>
-                                        <p class="fs-2">🙊</p>
-                                    <?php } ?>
+                                            <?php }
+                                        } else { ?>
+                                            <p>Aucune activité actuellement</p>
+                                            <p class="fs-2">🙊</p>
+                                        <?php } ?>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php } else { ?>
+                            <p><?= $banned ?? '' ?></p>
+                            <p class="fs-2">🙈</p>
+                    <?php }
+                                } ?>
                     </div>
                 </div>
             </div>

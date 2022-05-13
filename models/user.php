@@ -377,13 +377,13 @@ class User
             $sth->execute();
 
             if (!$sth) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
+                throw new PDOException('L\'utilisateur n\'existe pas');
             } else {
                 $user = $sth->fetch();
             }
 
             if (!$user) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
+                throw new PDOException('L\'utilisateur n\'existe pas');
             } else {
                 return $user;
             }
@@ -409,13 +409,13 @@ class User
             $sth->execute();
 
             if (!$sth) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
+                throw new PDOException('L\'utilisateur n\'existe pas');
             } else {
                 $user = $sth->fetch();
             }
 
             if (!$user) {
-                throw new PDOException('l\'utilisateur n\'existe pas');
+                throw new PDOException('L\'utilisateur n\'existe pas');
             } else {
                 return $user;
             }

@@ -12,7 +12,7 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Au revoir "<?= $user->pseudo ?? '' ?>" ?</h2>
+                    <h2>Adieu "<?= $user->pseudo ?? '' ?>" ?</h2>
 
                     <form id="deleteForm" method="POST" class="w-100" action="/bannir-utilisateur?id=<?= $user->id ?? '' ?>">
                         <input type="text" class="text-center form-control" pattern="<?= SEARCH ?>" id="bannedMessage" name="bannedMessage" placeholder="Pourquoi souhaitez vous bannir <?= $user->pseudo ?? '' ?> ?">
@@ -26,7 +26,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/dashboard.png" alt="dashboardIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/banned-user.png" alt="banned-userIllustration">
             </div>
         </div>
     </div>

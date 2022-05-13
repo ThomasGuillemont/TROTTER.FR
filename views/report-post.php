@@ -14,7 +14,7 @@
 
                     <h2>Signaler le post ?</h2>
 
-                    <p class="fw-bold mb-0 mt-3 mb-3">"<?= $post->post ?? '' ?>"</p>
+                    <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
 
                     <form id="deleteForm" method="POST" class="w-100" action="/signaler-actualité?id=<?= $post->id ?? '' ?>">
                         <input type="hidden" name="idPost" id="idPost" value="<?= $post->id ?? '' ?> " />
@@ -30,7 +30,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/dashboard.png" alt="dashboardIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/report-post.png" alt="report-postIllustration">
             </div>
         </div>
     </div>

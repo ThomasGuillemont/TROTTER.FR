@@ -4,6 +4,7 @@
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
+require_once(dirname(__FILE__) . '/../models/Banned.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
@@ -21,10 +22,18 @@ if ($user instanceof PDOException) {
     $message = $user->getMessage();
 }
 
-//! Post::getLastByIdUser($id)
-$posts = Post::getLastByIdUser($id);
-if ($posts instanceof PDOException) {
-    $message = $posts->getMessage();
+//! check if banned
+$bannedCheck = Banned::isBanned($id);
+if ($bannedCheck === true) {
+    $banned = 'Nous ne préférons pas vous montrer cela !';
+} else {
+    $banned = '';
+
+    //! Post::getLastByIdUser($id)
+    $posts = Post::getLastByIdUser($id);
+    if ($posts instanceof PDOException) {
+        $message = $posts->getMessage();
+    }
 }
 
 //! include

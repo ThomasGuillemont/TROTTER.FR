@@ -12,10 +12,10 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Plus envie de voir ça ?</h2>
-                    <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
+                    <h2>Supprimer le signalement ?</h2>
+                    <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($reported->reported_at)) ?? '' ?><br><?= $reported->message ?? '' ?></p>
 
-                    <form id="deleteForm" method="POST" action="/supprimer-actualité?id=<?= $post->id ?? '' ?>">
+                    <form id="deleteForm" method="POST" action="/supprimer-signalement?id=<?= $reported->id ?? '' ?>">
                         <button type="submit" class="btn my-btn fw-bolder" id="deleteBtn">Supprimer</button>
                     </form>
 
@@ -23,7 +23,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/delete-post.png" alt="delete-postIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/delete-report.png" alt="delete-reportIllustration">
             </div>
         </div>
     </div>

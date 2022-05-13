@@ -12,7 +12,7 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Un correction s'impose ?</h2>
+                    <h2>Besoin de modifier ?</h2>
                     <div class="mt-2 mb-2">
                         <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">&#128512</button>
                     </div>
@@ -38,7 +38,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/dashboard.png" alt="dashboardIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/update-post.png" alt="updateIllustration">
             </div>
         </div>
     </div>

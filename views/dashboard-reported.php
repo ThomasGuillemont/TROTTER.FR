@@ -17,6 +17,9 @@
                 </nav>
             </div>
             <div class="col-12">
+                <span class="alert fst-italic">
+                    <?= SessionFlash::display('message') ?>
+                </span>
                 <div class="container-fluid p-2">
                     <div class="row justify-content-center">
 
@@ -51,17 +54,20 @@
                                     <th>Date de publication</th>
                                     <th>Post</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listReported as $key => $value) {
-                                    var_dump($listReported); ?>
+                                <?php foreach ($listReported as $key => $value) { ?>
                                     <!-- tr -->
                                     <tr>
                                         <td><?= date("d-m-Y H:i", strtotime($value->reported_at)) ?? '' ?></td>
                                         <td><?= $value->message ?? '' ?></td>
                                         <td><?= date("d-m-Y H:i", strtotime($value->post_at)) ?? '' ?></td>
                                         <td><?= $value->post ?? '' ?></td>
+                                        <td>
+                                            <a class="fw-bold" href="/supprimer-signalement?id=<?= $value->id ?? '' ?>">🗑️ Supprimer le signalement</a>
+                                        </td>
                                         <td>
                                             <a class="fw-bold" href="/bannir-utilisateur?id=<?= $value->id_user ?? '' ?>">🚫 Bannir l'utilisateur</a>
                                         </td>

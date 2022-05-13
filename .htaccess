@@ -64,6 +64,9 @@ RewriteRule ^signaler-actualité$ /controllers/report-post-controller.php [L]
 # /supprimer-utilisateur
 RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]
 
+# /supprimer-signalement
+RewriteRule ^supprimer-signalement$ /controllers/delete-report-controller.php [L]
+
 # /bannir-utilisateur
 RewriteRule ^bannir-utilisateur$ /controllers/banned-user-controller.php [L]
 

@@ -161,7 +161,7 @@ class Reported
                     `reported`.`id` AS `id`,
                     `reported`.`reported_at`,
                     `reported`.`message`,
-                    `reported`.`id_users` AS `id_user`,
+                    `posts`.`id_user`,
                     `posts`.`id` AS `id_post`,
                     `posts`.`post` AS `post`,
                     `posts`.`post_at` AS `post_at`
@@ -195,16 +195,49 @@ class Reported
     }
 
 
+    /** //! getOneById(int $id)
+     * @param int $id
+     * 
+     * @return object
+     */
+    public static function getOneById(int $id): object
+    {
+        try {
+            $sql = 'SELECT *
+                    FROM `trotter`.`reported`
+                    WHERE `reported`.`id` = :id;';
+
+            $sth = Database::DbConnect()->prepare($sql);
+            $sth->bindValue(':id', $id, PDO::PARAM_INT);
+            $sth->execute();
+
+            if (!$sth) {
+                throw new PDOException('Le signalement n\'existe pas');
+            } else {
+                $user = $sth->fetch();
+            }
+
+            if (!$user) {
+                throw new PDOException('Le signalement n\'existe pas');
+            } else {
+                return $user;
+            }
+        } catch (PDOException $e) {
+            return $e;
+        }
+    }
+
+
     /** //! delete(int $id)
      * @param int $id
      * 
      * @return bool
      */
-    public static function deleteByIdPost(int $id): bool
+    public static function delete(int $id): bool
     {
         try {
             $sql = 'DELETE FROM `trotter`.`reported`
-                    WHERE `id_posts` = :id;';
+                    WHERE `id` = :id;';
 
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':id', $id, PDO::PARAM_INT);
