@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             SessionFlash::set('Veuillez activer votre compte en cliquant sur le lien envoyé par email !');
             sleep(1.5);
-            header('Location: /accueil');
+            header('Location: /connexion');
             die;
         }
     }

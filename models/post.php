@@ -132,7 +132,7 @@ class Post
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $offset = LIMIT, int $limit = 0,  $search = null): array
+    public static function getAll(int $offset = LIMIT, int $limit = 0, $search = null): array
     {
         try {
             $sql = 'SELECT
@@ -155,10 +155,16 @@ class Post
                     `banned`.`id_users`
                     FROM `banned`';
 
+            // $sql3 = 'SELECT `likes`.`id_posts`,
+            //         `likes`.`id_users`
+            //         FROM `likes`';
+
             $sth = Database::DbConnect()->prepare($sql);
+            $sth2 = Database::DbConnect()->prepare($sql2);
+            // $sth3 = Database::DbConnect()->prepare($sql3);
+
             $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
-            $sth2 = Database::DbConnect()->prepare($sql2);
 
             if (!is_null($search)) {
                 $sth->bindValue(':search', "%$search%", PDO::PARAM_STR);
@@ -169,8 +175,10 @@ class Post
             } else {
                 $sth->execute();
                 $sth2->execute();
+                // $sth3->execute();
                 $posts = $sth->fetchAll();
                 $banned = $sth2->fetchAll();
+                // $likes = $sth3->fetchAll();
                 $array = [$posts, $banned];
             }
 

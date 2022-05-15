@@ -6,12 +6,6 @@ require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
 require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
-//! redirect
-if ($_SESSION['user']->id_roles != 1) {
-    header('location: /accueil');
-    die;
-}
-
 //! INPUT_GET ID
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 
@@ -19,6 +13,12 @@ $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 $post = Post::getOneById($id);
 if ($post instanceof PDOException) {
     $message = $post->getMessage();
+}
+
+//! redirect
+if ($_SESSION['user']->id != $post->id_user) {
+    header('location: /accueil');
+    die;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
