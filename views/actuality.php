@@ -20,7 +20,6 @@
                                     </span>
                                     <div class="col-12 col-sm-10 col-xl-11 p-0 mt-2 mb-2">
                                         <form class="d-flex justify-content-center" action="/actualités" method="POST" id="postForm">
-                                            <input type="hidden" name="id_user_input" id="id_user_input" value="<?= $_SESSION['user']->id ?> " />
                                             <input type="text" pattern="<?= SEARCH ?>" class="text-center form-control" id="post" name="post" placeholder="Quoi de neuf ?">
                                             <?php if (!empty($error['post'])) { ?>
                                                 <div class="fs-7 alert fst-italic" id="alertPost">

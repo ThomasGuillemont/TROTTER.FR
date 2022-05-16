@@ -141,9 +141,14 @@ class Post
                     `posts`.`post`,
                     `posts`.`id_user` AS `id_user`,
                     `users`.`pseudo`,
-                    `avatars`.`avatar`
+                    `avatars`.`avatar`,
+                    `banned`.`id_users` AS `users_banned`,
+                    `likes`.`id_posts` AS `likes_posts`,
+                    `likes`.`id_users` AS `likes_users`
                     FROM `trotter`.`posts`
                     LEFT JOIN `users` ON `posts`.`id_user` = `users`.`id`
+                    LEFT JOIN `banned` ON `banned`.`id_users` = `users`.`id`
+                    LEFT JOIN `likes` ON `likes`.`id_posts` = `posts`.`id`
                     LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`';
             if (!is_null($search)) {
                 $sql .= ' WHERE `posts`.`post` LIKE :search';
@@ -151,17 +156,8 @@ class Post
             $sql .= ' ORDER BY `post_at` DESC
                     LIMIT :offset, :limit;';
 
-            $sql2 = 'SELECT `banned`.`id`,
-                    `banned`.`id_users`
-                    FROM `banned`';
-
-            // $sql3 = 'SELECT `likes`.`id_posts`,
-            //         `likes`.`id_users`
-            //         FROM `likes`';
 
             $sth = Database::DbConnect()->prepare($sql);
-            $sth2 = Database::DbConnect()->prepare($sql2);
-            // $sth3 = Database::DbConnect()->prepare($sql3);
 
             $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
             $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -174,15 +170,10 @@ class Post
                 throw new PDOException();
             } else {
                 $sth->execute();
-                $sth2->execute();
-                // $sth3->execute();
                 $posts = $sth->fetchAll();
-                $banned = $sth2->fetchAll();
-                // $likes = $sth3->fetchAll();
-                $array = [$posts, $banned];
             }
 
-            return $array;
+            return $posts;
         } catch (PDOException $e) {
             return [];
         }

@@ -12,6 +12,9 @@ if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
     die;
 }
 
+// //! Post::getAll($limit, $offset)
+// $listposts = Post::getAll(0, LIMIT);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! post_at
     $date = new DateTime('', new DateTimeZone('Europe/Paris'));
