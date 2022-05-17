@@ -154,7 +154,7 @@ class Reported
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $offset = LIMIT, int $limit = 0,  $search = null): array
+    public static function getAll(int $offset = 0, int $limit = LIMIT,  $search = null): array
     {
         try {
             $sql = 'SELECT

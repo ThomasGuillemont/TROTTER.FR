@@ -21,15 +21,13 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 //! number of reported
 $reportedCount = Reported::count();
 $reportedCount = intval($reportedCount);
-//! number of patients per page
-$offset = LIMIT;
 //! total pages
-$pages = intval(ceil($reportedCount / $offset));
+$pages = intval(ceil($reportedCount / LIMIT));
 //! first reported
-$limit = ($currentPage * $offset) - $offset;
+$offset = ($currentPage * LIMIT) - LIMIT;
 
-//! Reported::getAll($limit, $offset)
-$listReported = Reported::getAll($limit, $offset);
+//! Reported::getAll($offset, LIMIT)
+$listReported = Reported::getAll($offset, LIMIT);
 if ($listReported instanceof PDOException) {
     $message = $listReported->getMessage();
 }
@@ -47,8 +45,8 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         }
     }
 
-    //! Reported::getAll($limit, $userCount, $search)
-    $listReported = Reported::getAll($limit, $reportedCount, $search);
+    //! Reported::getAll($offset, $userCount, $search)
+    $listReported = Reported::getAll($offset, $reportedCount, $search);
     if ($listReported instanceof PDOException) {
         $message = $listReported->getMessage();
     }

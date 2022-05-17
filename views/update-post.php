@@ -12,25 +12,25 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Besoin de modifier ?</h2>
+                    <h2>On change le message ?</h2>
                     <div class="mt-2 mb-2">
-                        <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">&#128512</button>
+                        <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">Emoji</button>
+                    </div>
+                    <div id="drawer" class="emoji-drawer d-flex flex-wrap justify-content-center d-none">
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😁</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😂</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😅</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😘</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😳</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤭</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤧</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤓</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤠</div>
+                        <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😷</div>
                     </div>
                     <form id="deleteForm" method="POST" class="w-100" action="/modifier-actualité?id=<?= $postById->id ?? '' ?>">
                         <input type="text" class="text-center form-control" pattern="<?= SEARCH ?>" id="post" value="<?= $postById->post ?? '' ?>" name="post" placeholder="Entrez votre message pour modification">
-                        <div id="drawer" class="emoji-drawer d-flex flex-wrap justify-content-center d-none">
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😀</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😁</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😂</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😅</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😘</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😳</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤭</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤧</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤓</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤠</div>
-                            <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😷</div>
-                        </div>
                         <button type="submit" class="btn my-btn fw-bolder mt-3" id="deleteBtn">Modifier</button>
                     </form>
 

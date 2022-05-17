@@ -44,17 +44,26 @@
                             <?php if (!empty($_SESSION['user']) && isset($_SESSION['user'])) {
                                 if ($_SESSION['user']->id_roles == 1) { ?>
                                     <a href="/administration-utilisateurs" class="btn my-btn btn-profile ms-2 me-2 d-flex align-self-center fw-bold">
-                                        🔐 <span class="d-none d-lg-block">Administration</span>
+                                        🔐
                                     </a>
                                 <?php } ?>
 
                                 <!-- Button trigger modal notif -->
                                 <button type="button" class="btn my-btn btn-profile ms-2 me-2 d-flex align-self-center fw-bold" data-bs-toggle="modal" data-bs-target="#modal">
-                                    🔔 <span class="d-none d-lg-block">Notifications</span>
+                                    <div class=" position-relative">
+                                        🔔
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            1
+                                        </span>
+                                    </div>
+                                    <!-- 🔔
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        1
+                                    </span> -->
                                 </button>
                             <?php } ?>
                             <button class="btn my-btn btn-profile ms-2 me-4 d-flex align-self-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                                ⚙️ <span class="d-none d-lg-block">Menu</span>
+                                Menu
                             </button>
                         </div>
                     </div>

@@ -281,13 +281,11 @@ h3 {
 .my-btn {
   color: var(--titleColor);
   background: var(--backgroundColor);
-  border-color: var(--borderColor);
 }
 
 .my-btn:focus {
   color: var(--buttonColor);
   background: var(--backgroundColorButton);
-  border-color: var(--borderColor);
   box-shadow: var(--shadowColor);
 }
 
@@ -295,13 +293,11 @@ h3 {
 .show>.btn-primary.dropdown-toggle {
   color: var(--buttonColor);
   background: var(--backgroundColorButton);
-  border-color: var(--borderColor);
 }
 
 .my-btn:hover {
   color: var(--buttonColor);
   background: var(--backgroundColorButton);
-  border-color: var(--borderColor);
 }
 
 .btn {
@@ -383,21 +379,7 @@ opacity: 0;
   cursor: pointer;
 }
 
-/* Screen size is 576px */
-@media screen and (min-width: 576px) {
-  tbody, td, tfoot, th, thead, tr {
-      font-size: 0.9em;
-  }
-}
-
-/* Screen size is 768px */
-@media screen and (min-width: 768px) {
-  .img-fluid {
-    max-width: 16em;
-    height: auto;
-  }
-}
-
+/* like */
 .like {
   width: 75px;
   height: 75px;
@@ -414,4 +396,19 @@ opacity: 0;
 .like.is-active {
   transition-duration: 1s;
   background-position: -2100px 0;
+}
+
+/* Screen size is 576px */
+@media screen and (min-width: 576px) {
+  tbody, td, tfoot, th, thead, tr {
+      font-size: 0.9em;
+  }
+}
+
+/* Screen size is 768px */
+@media screen and (min-width: 768px) {
+  .img-fluid {
+    max-width: 16em;
+    height: auto;
+  }
 }

@@ -428,13 +428,14 @@ class User
     /** //! getAll()
      * @return array
      */
-    public static function getAll(int $offset = LIMIT, int $limit = 0,  $search = null): array
+    public static function getAll(int $offset = 0, int $limit = LIMIT,  $search = null): array
     {
         try {
             $sql = 'SELECT *
                     FROM `users`';
             if (!is_null($search)) {
-                $sql .= ' WHERE `pseudo` LIKE :search';
+                $sql .= ' WHERE `pseudo` LIKE :search
+                        OR `email` LIKE :search';
             }
             $sql .= ' ORDER BY `registered_at` DESC
                     LIMIT :offset, :limit;';

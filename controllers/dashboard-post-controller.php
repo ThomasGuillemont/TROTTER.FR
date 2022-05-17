@@ -21,12 +21,10 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 //! number of post
 $postCount = Post::count();
 $postCount = intval($postCount);
-//! number of patients per page
-$offset = LIMIT;
 //! total pages
-$pages = intval(ceil($postCount / $offset));
+$pages = intval(ceil($postCount / LIMIT));
 //! first post
-$limit = ($currentPage * $offset) - $offset;
+$offset = ($currentPage * LIMIT) - LIMIT;
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     //! initialize errors
@@ -42,13 +40,13 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     }
 
     //! $post->search()
-    $listPosts = Post::getAll($limit, $postCount, $search)[0];
+    $listPosts = Post::getAll($offset, $postCount, $search);
     if ($listPosts instanceof PDOException) {
         $message = $listPosts->getMessage();
     }
 } else {
-    //! Post::getAll($limit, $offset)
-    $listPosts = Post::getAll($limit, $offset)[0];
+    //! Post::getAll($offset, LIMIT)
+    $listPosts = Post::getAll($offset, LIMIT);
     if ($listPosts instanceof PDOException) {
         $message = $listPosts->getMessage();
     }

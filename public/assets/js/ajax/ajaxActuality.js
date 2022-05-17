@@ -11,7 +11,6 @@ let reload = () => {
         let actualityWithoutBan = datas.data.filter(
         (posts) => posts.users_banned == null
         );
-    console.log(actualityWithoutBan);
 
         let actualities = [];
         let tmp = new Set();
@@ -23,7 +22,6 @@ let reload = () => {
             }
         })
         let actualityWithUserLikedPostsIds =  actualityWithUserLikedPosts.map(actualityWithUserLikedPost => actualityWithUserLikedPost.id);
-        console.log('Mes post id', actualityWithUserLikedPostsIds);
 
         actualityWithoutBan.forEach((post) => {
             if (!tmp.has(post.id) && !actualityWithUserLikedPostsIds.includes(post.id)) {
@@ -34,8 +32,6 @@ let reload = () => {
                 actualities.push({...post,  isLiked: true});
             }
         });
-
-        console.log(actualities);
 
         let postBlock = "";
 
@@ -86,45 +82,8 @@ let reload = () => {
         });
         document.querySelector("#ajax").innerHTML = postBlock;
 
-
-
-
-
-      //                         <div class="d-flex flex-row justify-content-start mb-3 mt-3"
-
-      //                             `<div class="d-flex flex-column my-message w-100">`;
-      //                                 `<div class="small d-flex align-item-start">
-      //                                     <img class="img-friends me-3 ms-2" src="${post.avatar}" alt="Image de profil">
-      //                                     <div class="d-flex flex-column align-self-center">
-      //                                         <p class="mb-0 fw-bold d-flex justify-content-start">
-      //                                             <a class="orange" href="/profil?id=${post.id_user}">${post.pseudo}</a>
-      //                                         </p>
-      //                                         <div class="d-flex justify-content-start">
-      //                                             <p class="mb-0 fst-italic fw-bold">${post.post_at}</p>
-      //                                         </div>
-      //                                     </div>
-      //                                 </div>
-      //                                 <p class="fs-6 ps-2 text-start mb-0 pt-3 mb-3">
-      //                                     ${post.post}
-      //                                 </p>`
-      //                             `<div class="d-flex justify-content-end fw-bold">
-      //                                 <div>
-      //                                     <a class="fst-italic small p-2" href="/modifier-actualité?id=${post.id}">Modifier</a>
-      //                                     <a class="fst-italic small p-2" href="supprimer-actualité?id=${post.id}">Supprimer</a>
-      //                                 </div>
-      //                             </div>`;
-      //                            `</div>
-
-      //                         </div>`;
-
-      //                     ajax.innerHTML = posts;
-      //                 }
-      //             }
-      //         })
-
-
-
     });
+
     setInterval(reload,120000);
 
     document.body.addEventListener('click', (e) => {

@@ -20,15 +20,13 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
 //! number of user
 $userCount = User::count();
 $userCount = intval($userCount);
-//! number of patients per page
-$offset = LIMIT;
 //! total pages
-$pages = intval(ceil($userCount / $offset));
+$pages = intval(ceil($userCount / LIMIT));
 //! first user
-$limit = ($currentPage * $offset) - $offset;
+$offset = ($currentPage * LIMIT) - LIMIT;
 
-//! User::getAll($limit, $offset)
-$listUsers = User::getAll($limit, $offset);
+//! User::getAll($offset, LIMIT)
+$listUsers = User::getAll($offset, LIMIT);
 if ($listUsers instanceof PDOException) {
     $message = $user->getMessage();
 }
@@ -46,8 +44,8 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         }
     }
 
-    //! User::getAll($limit, $userCount, $search)
-    $listUsers = User::getAll($limit, $userCount, $search);
+    //! User::getAll($offset, $userCount, $search)
+    $listUsers = User::getAll($offset, $userCount, $search);
     if ($listUsers instanceof PDOException) {
         $message = $user->getMessage();
     }
