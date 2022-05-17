@@ -21,16 +21,16 @@
                                     <div class="col-12 col-sm-10 col-xl-11 p-0 mt-2 mb-2">
                                         <form class="d-flex justify-content-center" action="/actualités" method="POST" id="postForm">
                                             <input type="text" pattern="<?= SEARCH ?>" class="text-center form-control" id="post" name="post" placeholder="Quoi de neuf ?">
-                                            <?php if (!empty($error['post'])) { ?>
-                                                <div class="fs-7 alert fst-italic" id="alertPost">
-                                                    <small class="error fst-italic d-flex align-self-center m-2"><?= $error['post'] ?? '' ?></small>
-                                                </div>
-                                            <?php } ?>
                                         </form>
                                     </div>
                                     <div class="col-2 mt-2 col-xl-1 mb-2 d-none d-sm-block">
                                         <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">&#128512</button>
                                     </div>
+                                    <?php if (!empty($error['post'])) { ?>
+                                        <div class="d-flex justify-content-center fs-7 alert fst-italic" id="alertPost">
+                                            <small class="error fst-italic d-flex align-self-center m-2"><?= $error['post'] ?? '' ?></small>
+                                        </div>
+                                    <?php } ?>
                                     <div id="drawer" class="emoji-drawer d-flex flex-wrap justify-content-center d-none">
                                         <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😀</div>
                                         <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😁</div>

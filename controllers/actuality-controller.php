@@ -30,23 +30,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $replace = array('&#128512', '&#128513', '&#128514', '&#128517', '&#128536', '&#128567', '&#129325', '&#129319', '&#129299', '&#129312', '&#128567');
     $post = str_replace($emoji_list, $replace, $post);
 
-    if (empty($post)) {
-        $error['noPostError'] = 'noPostError';
-    } else {
+    if (!empty($post)) {
         $post = filter_var($post, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . SEARCH . "$/")));
         if ($post === false) {
-            $error['noPostError'] = 'noPostError';
+            $error['post'] = 'Le post ne respect pas les règles de formatage';
         }
-    }
 
-    //! $post->add()
-    if (empty($error)) {
-        $post = new Post($post_at, $post, $id_user);
-        $post = $post->add();
+        //! $post->add()
+        if (empty($error)) {
+            $post = new Post($post_at, $post, $id_user);
+            $post = $post->add();
 
-        //! message success or error
-        if ($post === false) {
-            $message = 'Une erreur est survenue';
+            //! message success or error
+            if ($post === false) {
+                $message = 'Une erreur est survenue';
+            }
         }
     }
 }
