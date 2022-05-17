@@ -39,7 +39,10 @@
                                             <?= $error['newPasswordConfirm'] ?? '' ?>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn my-btn fw-bolder" id="editionBtn">Valider</button>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn my-btn fw-bolder m-2" id="editionBtn">Valider</button>
+                                        <a href="/profil?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
+                                    </div>
                                 </form>
                             </div>
                         <?php } ?>

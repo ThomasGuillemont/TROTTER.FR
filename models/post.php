@@ -151,7 +151,8 @@ class Post
                     LEFT JOIN `likes` ON `likes`.`id_posts` = `posts`.`id`
                     LEFT JOIN `avatars` ON `avatars`.`id` = `users`.`id_avatars`';
             if (!is_null($search)) {
-                $sql .= ' WHERE `posts`.`post` LIKE :search';
+                $sql .= ' WHERE `posts`.`post` LIKE :search
+                        OR `users`.`pseudo` LIKE :search';
             }
             $sql .= ' ORDER BY `post_at` DESC
                     LIMIT :offset, :limit;';

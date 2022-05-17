@@ -15,7 +15,10 @@
                     <h2>Nous sommes triste de te voir partir</h2>
 
                     <form id="deleteForm" method="POST" action="/supprimer-utilisateur?id=<?= $user->id ?? '' ?>">
-                        <button type="submit" class="btn my-btn fw-bolder mt-3" id="deleteBtn">Supprimer mon compte</button>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn my-btn fw-bolder m-2" id="deleteBtn">Supprimer mon compte</button>
+                            <a href="/profil?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
+                        </div>
                     </form>
 
                 <?php } ?>

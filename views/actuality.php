@@ -24,7 +24,7 @@
                                         </form>
                                     </div>
                                     <div class="col-2 mt-2 col-xl-1 mb-2 d-none d-sm-block">
-                                        <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">Emoji</button>
+                                        <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">Emojis</button>
                                     </div>
                                     <?php if (!empty($error['post'])) { ?>
                                         <div class="d-flex justify-content-center fs-7 alert fst-italic" id="alertPost">

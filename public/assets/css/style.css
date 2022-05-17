@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-webkit-scrollbar { width: 0 !important }
-
 :root {
   --backgroundColor: #ffffff00;
   --backgroundColorButton: #e5643f;
@@ -14,6 +12,8 @@ webkit-scrollbar { width: 0 !important }
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+webkit-scrollbar { width: 0 !important }
 
 body {
   color: #222F3D;
@@ -177,7 +177,7 @@ h3 {
 }
 
 .img-friends {
-  max-height: 3em;
+  max-width: 5em;
   width: auto;
 }
 
@@ -403,6 +403,21 @@ opacity: 0;
   tbody, td, tfoot, th, thead, tr {
       font-size: 0.9em;
   }
+
+  .img-registration {
+    width: fit-content;
+    height: 4.5em;
+  }
+
+  .img-profile {
+    max-width: 7em;
+    height: auto;
+  }
+
+  .img-friends {
+    max-width: 6em;
+    width: auto;
+  }
 }
 
 /* Screen size is 768px */
@@ -410,5 +425,10 @@ opacity: 0;
   .img-fluid {
     max-width: 16em;
     height: auto;
+  }
+
+  .emoji {
+    text-align: center;
+    font-size: 1.5em;
   }
 }

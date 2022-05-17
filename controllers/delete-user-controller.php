@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         mail($to, $subject, $message, $headers);
 
-        header('location: /logout');
+        header('location: /déconnexion');
         die();
     }
 }

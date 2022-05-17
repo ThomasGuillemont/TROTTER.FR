@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postDelete = Post::delete($id);
 
     //! message success or error
-    if ($postDelete === false) {
+    if ($postDelete === false && $likesDelete === false) {
         $message = 'Une erreur est survenue';
     } else {
         SessionFlash::set('Le post a été supprimer avec succès !');

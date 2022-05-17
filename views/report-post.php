@@ -23,7 +23,10 @@
                         <div class="fs-7 alert fst-italic" id="alertReportMessage">
                             <?= $error['reportMessage'] ?? '' ?>
                         </div>
-                        <button type="submit" class="btn my-btn fw-bolder mt-3" id="reportBtn">Signaler</button>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn my-btn fw-bolder m-2" id="reportBtn">Signaler</button>
+                            <a href="/actualités" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
+                        </div>
                     </form>
 
                 <?php } ?>
