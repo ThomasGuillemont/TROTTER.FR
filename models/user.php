@@ -326,31 +326,6 @@ class User
     }
 
 
-    /** //! deletePost(int $id)
-     * @param int $id
-     * 
-     * @return bool
-     */
-    public static function deletePost(int $id): bool
-    {
-        try {
-            $sql = 'DELETE FROM `trotter`.`posts`
-                    WHERE `id_user` = :id;'; // request
-
-            $sth = Database::DbConnect()->prepare($sql); // prepare
-            $sth->bindValue(':id', $id, PDO::PARAM_INT); //bindValue
-
-            if (!$sth) {
-                throw new PDOException();
-            } else {
-                return $sth->execute();
-            }
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
-
-
     /** //! getOneById(int $id)
      * @param int $id
      * 
