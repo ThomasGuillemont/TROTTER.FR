@@ -51,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $pseudoValid = filter_var($pseudo, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . PSEUDO . "$/")));
         if ($pseudoValid === false) {
-            $error['pseudo'] = 'Le pseudo doit faire entre 2 et 30 caractères';
+            $error['pseudo'] = 'Le pseudo doit faire entre 2 et 20 caractères et ne doit pas contenir d\'espace';
         } else {
             if (User::isPseudoExist($pseudo)) {
-                $error['pseudo'] = "Ce pseudo est déjà utilisé";
+                $error['pseudo'] = "Ce pseudo est déjà utilisé par un autre utilisateur";
             }
         }
     }
@@ -62,14 +62,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! email
     $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
     if (empty($email)) {
-        $error['email'] = 'Vous devez saisir une adresse email';
+        $error['email'] = 'Vous devez saisir une adresse email valide';
     } else {
         $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
         if ($emailValid === false) {
             $error['email'] = 'Le format de l\'adresse email est incorrect';
         } else {
             if (User::isEmailExist($email)) {
-                $error['email'] = "Cette adresse email est déjà utilisée";
+                $error['email'] = "Cette adresse email est déjà utilisée pour un autre compte";
             }
         }
     }
@@ -79,19 +79,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passwordConfirm = $_POST['passwordConfirm'];
 
     if (empty($password)) {
-        $error['password'] = 'Veuillez saisir un mot de passe';
+        $error['password'] = 'Veuillez saisir un mot de passe valide';
     }
     if (empty($passwordConfirm)) {
         $error['passwordConfirm'] = 'Veuillez confirmez votre mot de passe';
     } else {
         if ($password != $passwordConfirm) {
-            $error['password'] = 'Le mots de passe et la confirmation ne sont pas identiques';
-            $error['passwordConfirm'] = 'Le mots de passe et la confirmation ne sont pas identiques';
+            $error['passwordConfirm'] = 'La confirmation du mot de passe ne correspond pas au mot de passe saisi';
         } else {
             $passwordValid = filter_var($password, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^" . PASSWORD . "$/")));
             if ($passwordValid === false) {
-                $error['password'] = 'Le mot de passe doit faire entre 2 et 30 caractères';
-                $error['passwordConfirm'] = 'La confirmation doit faire entre 2 et 30 caractères';
+                $error['password'] = 'Le mot de passe doit faire entre 5 et 30 caractères et ne doit pas contenir d\'espace';
             } else {
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             }
@@ -104,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkboxCheked = 'checked';
     }
     if ($checkbox !== 1) {
-        $error['checkbox'] = 'Vous devez lire et accepter les <a href="/conditions.html">conditions</a>';
+        $error['checkbox'] = 'Vous devez lire et accepter les <a href="/conditions.html">conditions</a> d\'utilisation';
     }
 
     //! $user->add()

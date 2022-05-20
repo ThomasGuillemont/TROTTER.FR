@@ -6,13 +6,16 @@
                 <a class="nav-link active" href="/accueil">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/actualités">Actualités</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link active" href="/profil?id=<?= $_SESSION['user']->id ?? '' ?>">Mon profil</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/actualités">Fil d'actualités</a>
+            </li>
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="/amis?id=<?= $_SESSION['user']->id ?? '' ?>">Amis</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/déconnexion">Déconnexion</a>

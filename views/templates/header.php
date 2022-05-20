@@ -48,7 +48,7 @@
                                     </a>
                                 <?php } ?>
 
-                                <!-- Button trigger modal notif -->
+                                <!-- Button trigger modal notif
                                 <button type="button" class="btn my-btn btn-profile ms-2 me-2 d-flex align-self-center fw-bold" data-bs-toggle="modal" data-bs-target="#modal">
                                     <div class=" position-relative">
                                         🔔
@@ -56,11 +56,12 @@
                                             1
                                         </span>
                                     </div>
-                                    <!-- 🔔
+                                    🔔
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                         1
-                                    </span> -->
-                                </button>
+                                    </span>
+                                </button> -->
+
                             <?php } ?>
                             <button class="btn my-btn btn-profile ms-2 me-4 d-flex align-self-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                 Menu

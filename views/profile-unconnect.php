@@ -27,14 +27,14 @@
                                             <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
                                         </div>
 
-                                        <?php if (empty($banned)) { ?>
+                                        <!-- <?php if (empty($banned)) { ?>
                                             <div class="col-12 p-2">
                                                 <a href="/édition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
                                             </div>
                                             <div class="col-12 p-2">
                                                 <a href="/message-privée?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
                                             </div>
-                                        <?php } ?>
+                                        <?php } ?> -->
 
                                     </div>
                                 </div>
