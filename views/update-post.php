@@ -29,11 +29,11 @@
                         <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">🤠</div>
                         <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😷</div>
                     </div>
-                    <form id="deleteForm" method="POST" class="w-100" action="/modifier-actualité?id=<?= $postById->id ?? '' ?>">
+                    <form id="deleteForm" method="POST" class="w-100" action="/modifier-actualite?id=<?= $postById->id ?? '' ?>">
                         <input type="text" class="text-center form-control" pattern="<?= SEARCH ?>" id="post" value="<?= $postById->post ?? '' ?>" name="post" placeholder="Entrez votre message pour modification">
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn my-btn fw-bolder m-2" id="deleteBtn">Modifier</button>
-                            <a href="/actualités" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
+                            <a href="/actualites" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
                         </div>
                     </form>
 

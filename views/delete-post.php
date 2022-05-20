@@ -15,10 +15,10 @@
                     <h2>Plus envie de voir ça ?</h2>
                     <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
 
-                    <form id="deleteForm" method="POST" action="/supprimer-actualité?id=<?= $post->id ?? '' ?>">
+                    <form id="deleteForm" method="POST" action="/supprimer-actualite?id=<?= $post->id ?? '' ?>">
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn my-btn fw-bolder m-2" id="deleteBtn">Supprimer</button>
-                            <a href="/actualités" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
+                            <a href="/actualites" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
                         </div>
                     </form>
 

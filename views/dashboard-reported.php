@@ -7,7 +7,7 @@
                         <a href="/administration-utilisateurs" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
                             👤 <span class="d-none d-lg-block">Utilisateurs</span>
                         </a>
-                        <a href="/administration-actualités" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
+                        <a href="/administration-actualites" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
                             📮 <span class="d-none d-lg-block">Actualités</span>
                         </a>
                         <a href="/administration-signalements" class="btn my-btn btn-profile fw-bold m-2 d-flex align-self-center fw-bold">
@@ -17,9 +17,6 @@
                 </nav>
             </div>
             <div class="col-12">
-                <span class="alert fst-italic">
-                    <?= SessionFlash::display('message') ?>
-                </span>
                 <div class="container-fluid p-2">
                     <div class="row justify-content-center">
 
@@ -29,10 +26,6 @@
                                 <?= $message ?? '' ?>
                             </div>
                         <?php } ?>
-
-                        <div class="col-12 fw-bold orange fs-5 pb-3">
-                            Signalements
-                        </div>
 
                         <form class="w-50 pb-3" action="/administration-signalements" method="GET" id="search">
                             <input type="search" class="form-control text-center" placeholder="🕵️‍♀️ Hello, Je cherche pour vous !" pattern="<?= SEARCH ?>" name="search" id="search" value="<?= $search ?? '' ?>">
@@ -44,6 +37,10 @@
                             <?php } ?>
 
                         </form>
+
+                        <div class="col-12 fw-bold orange fs-5 pb-3">
+                            Signalements
+                        </div>
 
                         <!-- table -->
                         <table class="table table-hover">
@@ -82,7 +79,7 @@
                                 <?php for ($page = 1; $page <= $pages; $page++) : ?>
                                     <!-- Link active -->
                                     <li class="page-item p-1 <?= ($currentPage == $page) ? "active" : '' ?>">
-                                        <a href="/administration-actualités?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                        <a href="/administration-actualites?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                                     </li>
                                 <?php endfor ?>
                             </ul>

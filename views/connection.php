@@ -13,7 +13,7 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
-                            <span class="alert fst-italic">
+                            <span class="alert fst-italic pb-3 pt-3">
                                 <?= SessionFlash::display('message') ?>
                             </span>
                             <div class="col-12 d-flex justify-content-center">
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 fw-bold">
-                                        <a href="/récupération"><small>Mot de passe oublié</small></a>
+                                        <a href="/recuperation"><small>Mot de passe oublié</small></a>
                                     </div>
                                     <button type="submit" class="btn my-btn fw-bolder" id="connectionBtn">Connexion</button>
                                 </form>

@@ -15,7 +15,7 @@
 
                         <?php if (empty($message)) { ?>
                             <div class="col-12 mt-4 d-flex justify-content-center">
-                                <form id="editionForm" method="POST" action="/édition?id=<?= $_SESSION['user']->id ?? '' ?>">
+                                <form id="editionForm" method="POST" action="/edition?id=<?= $_SESSION['user']->id ?? '' ?>">
                                     <div class="mb-3">
                                         <label for="password" class="form-label fw-bolder formTitle">Ancien
                                             mot de passe</label>

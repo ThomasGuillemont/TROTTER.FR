@@ -5,7 +5,6 @@ require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../config/constants.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Banned.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
 if ($_SESSION['user']->id_roles != 1) {
@@ -65,7 +64,6 @@ if ($bannedCheck === true) {
 
                 mail($to, $subject, $message, $headers);
 
-                SessionFlash::set('L\'utilisateur à été banni avec succès !');
                 header('location: /administration-signalements');
                 die;
             }

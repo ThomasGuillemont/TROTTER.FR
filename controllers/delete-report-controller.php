@@ -3,7 +3,6 @@
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/Reported.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! INPUT_GET ID
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -29,7 +28,6 @@ if (empty($message)) {
         if ($reportedDelete === false) {
             $message = 'Une erreur est survenue';
         } else {
-            SessionFlash::set('Le signalement a été supprimé avec succès !');
             header('location: /administration-signalements');
             die;
         }

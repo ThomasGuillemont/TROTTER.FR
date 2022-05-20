@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$user) {
             $message = 'Une erreur est survenue';
         } else {
-            SessionFlash::set('Veuillez activer votre compte en cliquant sur le lien envoyé par email !');
+            SessionFlash::set('Vérifier votre boîte mail pour activer votre compte');
             sleep(1.5);
             header('Location: /connexion');
             die;

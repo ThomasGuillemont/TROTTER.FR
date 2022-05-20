@@ -191,7 +191,7 @@ class Post
                     FROM `trotter`.`posts`
                     WHERE `id_user` = :id
                     ORDER BY `post_at`
-                    LIMIT 0, 3;';
+                    LIMIT 0, 4;';
 
             $sth = Database::DbConnect()->prepare($sql);
             $sth->bindValue(':id', $id, PDO::PARAM_INT);

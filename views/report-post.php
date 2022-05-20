@@ -16,7 +16,7 @@
 
                     <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
 
-                    <form id="deleteForm" method="POST" class="w-100" action="/signaler-actualité?id=<?= $post->id ?? '' ?>">
+                    <form id="deleteForm" method="POST" class="w-100" action="/signaler-actualite?id=<?= $post->id ?? '' ?>">
                         <input type="hidden" name="idPost" id="idPost" value="<?= $post->id ?? '' ?> " />
                         <input type="hidden" name="idUser" id="idUser" value="<?= $_SESSION['user']->id ?? '' ?> " />
                         <input type="text" class="text-center form-control" pattern="<?= SEARCH ?>" id="reportMessage" name="reportMessage" placeholder="Pourquoi souhaitez vous signaler le post ?">
@@ -25,7 +25,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn my-btn fw-bolder m-2" id="reportBtn">Signaler</button>
-                            <a href="/actualités" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
+                            <a href="/actualites" class="btn my-btn btn-profile fw-bold m-2">Annuler</a>
                         </div>
                     </form>
 

@@ -15,11 +15,8 @@
                         <div class="card-hearder text-muted">
                             <div class="container-fluid p-0">
                                 <div class="row justify-content-center me-1 ms-1">
-                                    <span class="alert fst-italic">
-                                        <?= SessionFlash::display('message') ?>
-                                    </span>
                                     <div class="col-12 col-sm-10 col-xl-11 p-0 mt-2 mb-2">
-                                        <form class="d-flex justify-content-center" action="/actualités" method="POST" id="postForm">
+                                        <form class="d-flex justify-content-center" action="/actualites" method="POST" id="postForm">
                                             <input type="text" pattern="<?= SEARCH ?>" class="text-center form-control" id="post" name="post" placeholder="Quoi de neuf ?">
                                         </form>
                                     </div>

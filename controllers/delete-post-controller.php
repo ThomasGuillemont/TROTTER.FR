@@ -4,7 +4,6 @@
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! INPUT_GET ID
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -29,8 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($postDelete === false && $likesDelete === false) {
         $message = 'Une erreur est survenue';
     } else {
-        SessionFlash::set('Le post a été supprimer avec succès !');
-        header('location: /actualités');
+        header('location: /actualites');
         die;
     }
 }

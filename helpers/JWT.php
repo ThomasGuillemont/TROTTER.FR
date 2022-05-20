@@ -52,7 +52,6 @@ class JWT
         $payload = base64_decode($tokenParts[1]);
         $signature_provided = $tokenParts[2];
 
-        var_dump(json_decode($payload));
         //! check the expiration time
         $expiration = json_decode($payload)->exp;
 

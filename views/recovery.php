@@ -5,7 +5,7 @@
                 <div class="container-fluid p-2">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <form id="recoveryForm" method="POST" action="/récupération">
+                            <form id="recoveryForm" method="POST" action="/recuperation">
                                 <span class="alert fst-italic">
                                     <?= SessionFlash::display('message') ?>
                                 </span>

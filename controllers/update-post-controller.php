@@ -6,7 +6,6 @@ require_once(dirname(__FILE__) . '/../config/constants.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
-require_once(dirname(__FILE__) . '/../helpers/sessionFlash.php');
 
 //! redirect
 if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {
@@ -59,8 +58,7 @@ if (empty($message)) {
             if ($postUpdate === false) {
                 $message = 'Une erreur est survenue';
             } else {
-                SessionFlash::set('Le post a été modifié avec succès !');
-                header('location: /actualités');
+                header('location: /actualites');
                 die;
             }
         }

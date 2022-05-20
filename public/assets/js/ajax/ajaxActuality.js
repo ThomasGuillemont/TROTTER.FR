@@ -39,14 +39,14 @@ let reload = () => {
             let actionBtn = "";
             if (post.id_user == idUserConnect) {
             actionBtn = `
-                        <a class="fst-italic small p-2" href="/modifier-actualité?id=${post.id}">Modifier</a>
-                        <a class="fst-italic small p-2" href="supprimer-actualité?id=${post.id}">Supprimer</a>
+                        <a class="fst-italic small p-2" href="/modifier-actualite?id=${post.id}">Modifier</a>
+                        <a class="fst-italic small p-2" href="supprimer-actualite?id=${post.id}">Supprimer</a>
                     `;
             } else {
                 actionBtn = `
                     <div class="like ${post.isLiked && "is-active"}" data-id="${post.id}"></div>
                     <div class="d-flex align-self-end">
-                        <a class="fst-italic small p-2" href="/signaler-actualité?id=${post.id}">Signaler</a>
+                        <a class="fst-italic small p-2" href="/signaler-actualite?id=${post.id}">Signaler</a>
                     </div>
                 `;
             }

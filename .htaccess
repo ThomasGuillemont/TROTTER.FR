@@ -22,8 +22,8 @@ RewriteRule ^contact$ /controllers/contact-controller.php [L]
 # /conditions
 RewriteRule ^conditions$ /controllers/conditions-controller.php [L]
 
-# /actualités
-RewriteRule ^actualités$ /controllers/actuality-controller.php [L]
+# /actualites
+RewriteRule ^actualites$ /controllers/actuality-controller.php [L]
 
 # /profil
 RewriteRule ^profil$ /controllers/profile-controller.php [L]
@@ -32,16 +32,16 @@ RewriteRule ^profil$ /controllers/profile-controller.php [L]
 RewriteRule ^amis$ /controllers/friends-controller.php [L]
 
 # /édition
-RewriteRule ^édition$ /controllers/edition-controller.php [L]
+RewriteRule ^edition$ /controllers/edition-controller.php [L]
 
 # /déconnexion
-RewriteRule ^déconnexion$ /controllers/logout.php [L]
+RewriteRule ^deconnexion$ /controllers/logout.php [L]
 
 # /récupération
-RewriteRule ^récupération$ /controllers/recovery-controller.php [L]
+RewriteRule ^recuperation$ /controllers/recovery-controller.php [L]
 
 # /récupération-mot-de-passe
-RewriteRule ^récupération-mot-de-passe$ /controllers/recovery-password-controller.php [L]
+RewriteRule ^recuperation-mot-de-passe$ /controllers/recovery-password-controller.php [L]
 
 # /activation
 RewriteRule ^activation$ /controllers/validate-user-controller.php [L]
@@ -49,20 +49,20 @@ RewriteRule ^activation$ /controllers/validate-user-controller.php [L]
 # /administration-utilisateurs
 RewriteRule ^administration-utilisateurs$ /controllers/dashboard-user-controller.php [L]
 
-# /administration-actualités
-RewriteRule ^administration-actualités$ /controllers/dashboard-post-controller.php [L]
+# /administration-actualite
+RewriteRule ^administration-actualites$ /controllers/dashboard-post-controller.php [L]
 
 # /administration-signalements
 RewriteRule ^administration-signalements$ /controllers/dashboard-reported-controller.php [L]
 
-# /supprimer-actualité
-RewriteRule ^supprimer-actualité$ /controllers/delete-post-controller.php [L]
+# /supprimer-actualite
+RewriteRule ^supprimer-actualite$ /controllers/delete-post-controller.php [L]
 
-# /modifier-actualité
-RewriteRule ^modifier-actualité$ /controllers/update-post-controller.php [L]
+# /modifier-actualite
+RewriteRule ^modifier-actualite$ /controllers/update-post-controller.php [L]
 
-# /signaler-actualité
-RewriteRule ^signaler-actualité$ /controllers/report-post-controller.php [L]
+# /signaler-actualite
+RewriteRule ^signaler-actualite$ /controllers/report-post-controller.php [L]
 
 # /supprimer-utilisateur
 RewriteRule ^supprimer-utilisateur$ /controllers/delete-user-controller.php [L]

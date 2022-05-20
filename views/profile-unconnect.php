@@ -29,10 +29,10 @@
 
                                         <!-- <?php if (empty($banned)) { ?>
                                             <div class="col-12 p-2">
-                                                <a href="/édition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
+                                                <a href="/edition" class="btn my-btn btn-profile fw-bolder">Demander en amis</a>
                                             </div>
                                             <div class="col-12 p-2">
-                                                <a href="/message-privée?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
+                                                <a href="/message-privee?id=<?= $user->id ?>" class="btn my-btn btn-profile fw-bolder">Envoyer un message privée</a>
                                             </div>
                                         <?php } ?> -->
 
