@@ -6,6 +6,9 @@
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
                             <form id="recoveryForm" method="POST" action="/récupération">
+                                <span class="alert fst-italic">
+                                    <?= SessionFlash::display('message') ?>
+                                </span>
                                 <div class="mb-3">
                                     <label for="email" class="form-label fw-bolder formTitle">Email</label>
                                     <input type="email" required placeholder="email@blabla.com" autocomplete="email" class="form-control text-center" id="email" name="email" value="<?= $email ?? '' ?>">

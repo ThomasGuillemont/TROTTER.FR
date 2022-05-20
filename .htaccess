@@ -40,6 +40,9 @@ RewriteRule ^déconnexion$ /controllers/logout.php [L]
 # /récupération
 RewriteRule ^récupération$ /controllers/recovery-controller.php [L]
 
+# /récupération-mot-de-passe
+RewriteRule ^récupération-mot-de-passe$ /controllers/recovery-password-controller.php [L]
+
 # /activation
 RewriteRule ^activation$ /controllers/validate-user-controller.php [L]
 

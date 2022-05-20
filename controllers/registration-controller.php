@@ -114,10 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $jwt = JWT::generate_jwt($payload);
 
         $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/activation?jwt=' . $jwt;
-        $message = '
-        Veuillez cliquer sur le lien suivant pour activé votre compte <b>Trotter</b>.<br>
-        <a href="' . $link . '">Activation</a>
-        ';
+        $message = 'Veuillez cliquer sur le lien suivant pour activé votre compte <b>Trotter</b>.<br><a href="' . $link . '">Activation</a>';
 
         $to = $email;
         $subject = 'Validation de votre inscription Trotter.fr';

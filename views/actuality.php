@@ -58,4 +58,5 @@
     </div>
 </main>
 <script src="/public/assets/js/ajax/ajaxActuality.js"></script>
+<script src="/public/assets/js/ajax/ajaxPostActuality.js"></script>
 <script src="/public/assets/js/emojiPicker.js"></script>

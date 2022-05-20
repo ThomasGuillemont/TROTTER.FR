@@ -1,5 +1,9 @@
 <?php
 
+//! require once
+require_once(dirname(__FILE__) . '/../config/constants.php');
+
+
 //! JWT
 class JWT
 {
@@ -48,6 +52,7 @@ class JWT
         $payload = base64_decode($tokenParts[1]);
         $signature_provided = $tokenParts[2];
 
+        var_dump(json_decode($payload));
         //! check the expiration time
         $expiration = json_decode($payload)->exp;
 
@@ -56,6 +61,7 @@ class JWT
         //! build a signature
         $base64_url_header = self::base64url_encode($header);
         $base64_url_payload = self::base64url_encode($payload);
+
         $signature = hash_hmac('SHA256', $base64_url_header . "." . $base64_url_payload, SECRET_JWT, true);
         $base64_url_signature = self::base64url_encode($signature);
 
