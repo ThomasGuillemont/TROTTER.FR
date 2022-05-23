@@ -13,7 +13,7 @@
                 <?php if (empty($message)) { ?>
 
                     <h2>Plus envie de voir ça ?</h2>
-                    <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
+                    <p class="fw-bold mb-0 mt-3 mb-3 my-message"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
 
                     <form id="deleteForm" method="POST" action="/supprimer-actualite?id=<?= $post->id ?? '' ?>">
                         <div class="d-flex justify-content-center">

@@ -13,7 +13,7 @@
                 <?php if (empty($message)) { ?>
 
                     <h2>Supprimer le signalement ?</h2>
-                    <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($reported->reported_at)) ?? '' ?><br><?= $reported->message ?? '' ?></p>
+                    <p class="fw-bold mb-0 mt-3 mb-3 my-message"><?= date("d-m-Y H:i", strtotime($reported->reported_at)) ?? '' ?><br><?= $reported->message ?? '' ?></p>
 
                     <form id="deleteForm" method="POST" action="/supprimer-signalement?id=<?= $reported->id ?? '' ?>">
                         <div class="d-flex justify-content-center">

@@ -14,7 +14,7 @@
 
                     <h2>On change le message ?</h2>
                     <div class="mt-2 mb-2">
-                        <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">Emojis</button>
+                        <button class="btn my-btn btn-profile fw-bolder" onclick="toggleEmojiDrawer()">🥳</button>
                     </div>
                     <div id="drawer" class="emoji-drawer d-flex flex-wrap justify-content-center d-none">
                         <div class="emoji m-1" onclick="addEmoji(this.innerHTML)">😀</div>

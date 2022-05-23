@@ -281,6 +281,7 @@ h3 {
 .my-btn {
   color: var(--titleColor);
   background: var(--backgroundColor);
+  border: 1px solid var(--borderColor);
 }
 
 .my-btn:focus {

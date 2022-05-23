@@ -14,7 +14,7 @@
 
                     <h2>Signaler le post ?</h2>
 
-                    <p class="fw-bold mb-0 mt-3 mb-3"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
+                    <p class="fw-bold mb-0 mt-3 mb-3 my-message"><?= date("d-m-Y H:i", strtotime($post->post_at)) ?? '' ?><br><?= $post->post ?? '' ?></p>
 
                     <form id="deleteForm" method="POST" class="w-100" action="/signaler-actualite?id=<?= $post->id ?? '' ?>">
                         <input type="hidden" name="idPost" id="idPost" value="<?= $post->id ?? '' ?> " />
