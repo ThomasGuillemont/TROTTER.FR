@@ -12,7 +12,7 @@
 
                 <?php if (empty($message)) { ?>
 
-                    <h2>Nous sommes triste de te voir partir</h2>
+                    <h2>Nous sommes tristes de te voir partir</h2>
 
                     <form id="deleteForm" method="POST" action="/supprimer-utilisateur?id=<?= $user->id ?? '' ?>">
                         <div class="d-flex justify-content-center">
