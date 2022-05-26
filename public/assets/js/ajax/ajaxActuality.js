@@ -56,7 +56,7 @@ let reload = () => {
                     <div class="d-flex flex-row justify-content-start mb-3 mt-3">
                         <div class="d-flex flex-column ${post.id_user == idUserConnect ? "my-message" : "message"} w-100">
                             <div class="small d-flex align-item-start">
-                                <img class="img-friends m-2" src="${post.avatar}" alt="Image de profil ${post.pseudo}">
+                                <img class="img-friends m-2" src="${post.avatar}" alt="Avatar de l'utilisateur ${post.pseudo}">
                                 <div class="d-flex flex-column align-self-center">
                                     <div class="mb-0 fw-bold d-flex justify-content-start">
                                         <a class="orange" href="/profil?id=${post.id_user}">${post.pseudo}</a>

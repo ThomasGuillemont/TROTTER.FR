@@ -27,14 +27,14 @@
                         <p class="colorText pt-2">
                             L'hébergeur du Site est :
                         </p>
-                        <!-- <p class="colorText pt-2">
+                        <p class="colorText pt-2">
                             <strong><a target="_blank" href="https://www.o2switch.fr/">o2Switch</a>,</strong><br>
                             Siret : 510 909 807 00024<br>
                             RCS Clermont Ferrand<br>
                             SARL au capital de 100 000€<br>
                             Opérateur Télécom déclaré ARCEP<br>
                             09/2989 - AS50474<br>
-                        </p> -->
+                        </p>
                         <h2>Accès au site</h2>
                         <p class="colorText pt-2">
                             Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure,

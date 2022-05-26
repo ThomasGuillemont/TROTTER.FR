@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/recovery.png" alt="recoveryIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/recovery.png" alt="Deux mains qui sortent de deux téléphones et qui se touchent du bout des doigts">
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
                         <?php } ?>
 
                         <?php if (empty($message)) { ?>
-                            <span class="alert fst-italic pb-3 pt-3">
+                            <span class="alert fst-italic pb-3">
                                 <?= SessionFlash::display('message') ?>
                             </span>
                             <div class="col-12 d-flex justify-content-center">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/connection.png" alt="connexionIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/connection.png" alt="Chien avec des éléments autour">
             </div>
         </div>
     </div>

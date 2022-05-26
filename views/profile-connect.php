@@ -23,7 +23,7 @@
                                             <p class="fst-italic">Actif depuis <?= date("d-m-Y", strtotime($user->registered_at)) ?></p>
                                         </div>
                                         <div class="col-12">
-                                            <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Image de profil">
+                                            <img class="img-profile my-auto align-middle pb-4 floating" src="<?= $user->avatar ?>" alt="Avatar de votre profil">
                                         </div>
                                         <div class="col-12 p-2">
                                             <a href="/edition?id=<?= $_SESSION['user']->id ?? '' ?>" class="btn my-btn btn-profile fw-bolder">Modifier mot de passe</a>

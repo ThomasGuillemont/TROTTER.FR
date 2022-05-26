@@ -26,7 +26,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/delete-report.png" alt="delete-reportIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/delete-report.png" alt="Personnage sur un vélo">
             </div>
         </div>
     </div>

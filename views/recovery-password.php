@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/edition.png" alt="editionIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/edition.png" alt="Personnage avec une gomme géante">
             </div>
         </div>
 </main>

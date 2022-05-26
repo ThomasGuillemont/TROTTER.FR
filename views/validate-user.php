@@ -10,7 +10,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/activate.png" alt="activatedIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/activate.png" alt="Main faisant OK avec les doigts">
             </div>
         </div>
     </div>

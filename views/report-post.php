@@ -33,7 +33,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/report-post.png" alt="report-postIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/report-post.png" alt="Femme avec un téléphone dans les mains">
             </div>
         </div>
     </div>

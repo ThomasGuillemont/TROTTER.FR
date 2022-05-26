@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/home.png" alt="accueilIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/home.png" alt="Personnage avec un casque de réalité virtuelle">
             </div>
         </div>
     </div>

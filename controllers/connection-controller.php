@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //! getOneByEmail($email)
     $user = User::getOneByEmail($email);
     if ($user instanceof PDOException) {
-        $error['email'] = 'Votre email n\'existe pas';
+        $error['email'] = 'Votre compte n\'existe pas';
     } else {
         //! check if validated_at is null
         if (is_null($user->validated_at)) {

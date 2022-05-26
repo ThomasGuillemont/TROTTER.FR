@@ -22,49 +22,49 @@
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar1">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar1" value="1" <?= ($checked == 1) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar1.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar1.png" alt="Avatar homme blanc blond">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar2">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar2" value="2" <?= ($checked == 2) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar2.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar2.png" alt="Avatar homme blanc brun avec petite barbe">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar3">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar3" value="3" <?= ($checked == 3) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar3.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar3.png" alt="Avatar homme indien avec turban et petite barbe">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar4">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar4" value="4" <?= ($checked == 4) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar4.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar4.png" alt="Avatar homme blanc cheveux grisonnants">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar5">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar5" value="5" <?= ($checked == 5) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar5.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar5.png" alt="Avatar femme blanche blonde">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar6">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar6" value="6" <?= ($checked == 6)  ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar6.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar6.png" alt="Avatar femme blanche brune avec lunettes">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar7">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar7" value="7" <?= ($checked == 7) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar7.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar7.png" alt="Avatar femme noir avec cheveux crépus">
                                             </label>
                                         </div>
                                         <div class="form-check m-2 d-flex flex-column">
                                             <label class="form-check-label" for="avatar8">
                                                 <input class="form-check-input" type="radio" name="flexRadio" id="avatar8" value="8" <?= ($checked == 8) ? 'checked' : ''; ?>>
-                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar8.png" alt="Image de profil">
+                                                <img class="img-registration my-auto align-middle" src="/public/assets/img/avatars/avatar8.png" alt="Femme blanche cheveux grissonants">
                                             </label>
                                         </div>
                                     </div>

@@ -41,7 +41,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/update-post.png" alt="updateIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/update-post.png" alt="Femme sur un scooter essayant d'attraper un papillon">
             </div>
         </div>
     </div>

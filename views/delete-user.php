@@ -25,7 +25,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/delete-user.png" alt="delete-userIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/delete-user.png" alt="Personnage avec des ballons de baudruche">
             </div>
         </div>
     </div>

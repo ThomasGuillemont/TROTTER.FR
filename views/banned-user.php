@@ -29,7 +29,7 @@
 
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/banned-user.png" alt="banned-userIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/banned-user.png" alt="Personnage debout qui tient dans sa main un ordinateur portable">
             </div>
         </div>
     </div>

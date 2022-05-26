@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-12 my-auto col-sm-6">
-                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/contact.png" alt="contactIllustration">
+                <img class="img-fluid my-auto align-middle pb-3 floating" src="/public/assets/img/Illustrations/contact.png" alt="Main avec stylo et carnet">
             </div>
         </div>
     </div>
