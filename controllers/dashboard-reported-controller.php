@@ -3,7 +3,6 @@
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/Reported.php');
-require_once(dirname(__FILE__) . '/../config/constants.php');
 
 //! redirect
 if ($_SESSION['user']->id_roles != 1) {

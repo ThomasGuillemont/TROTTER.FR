@@ -1,9 +1,9 @@
 <?php
 
 //! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once dirname(__FILE__) . '/../helpers/JWT.php';
 require_once dirname(__FILE__) . '/../models/User.php';
-require_once(dirname(__FILE__) . '/../config/constants.php');
 
 $jwt = $_GET['jwt'];
 
@@ -29,7 +29,7 @@ if (!JWT::is_jwt_valid($jwt)) {
                 if (empty($newPasswordConfirm)) {
                     $error['newPasswordConfirm'] = 'Veuillez confirmez votre nouveau mot de passe';
                 } else {
-                    if ($newPassword == $password) {
+                    if ($newPassword == $userByMail->password) {
                         $error['newPassword'] = 'Veuillez saisir un nouveau mot de passe différent de l\'ancien';
                         $error['newPasswordConfirm'] = 'Veuillez saisir un nouveau mot de passe différent de l\'ancien';
                     } else {
@@ -49,20 +49,22 @@ if (!JWT::is_jwt_valid($jwt)) {
                 }
             }
 
-            //! $user->update()
             if (empty($error)) {
-                $user = new User();
-                $user->setPassword($passwordHash);
+                //! $user->update()
+                if (empty($error)) {
+                    $user = new User();
+                    $user->setPassword($passwordHash);
 
-                $user->setId($userByMail->id);
-                $user = $user->update();
+                    $user->setId($userByMail->id);
+                    $user = $user->update();
 
-                //! message success or error
-                if ($user === false) {
-                    $message = 'Une erreur est survenue';
-                } else {
-                    header('location: /connexion');
-                    die;
+                    //! message success or error
+                    if ($user === false) {
+                        $message = 'Une erreur est survenue';
+                    } else {
+                        header('location: /connexion');
+                        die;
+                    }
                 }
             }
         }

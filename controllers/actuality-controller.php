@@ -3,7 +3,6 @@
 //! require_once
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../models/Post.php');
-require_once(dirname(__FILE__) . '/../config/constants.php');
 
 //! redirect
 if (empty($_SESSION['user']) && !isset($_SESSION['user'])) {

@@ -7,10 +7,12 @@
                         <div class="col-12">
                             <!-- JS MSG -->
                             <h2 id="randomHello"></h2>
-                            <p class="fs-6">
-                                Bienvenue sur <span class="fw-bold">Trotter</span>,<br>
-                                Le réseau social à destination des
+                            <p class="fs-6 fw-bold">
+                                🍪 0% cookie,<br>
+                                📢 0% de publicité,<br>
+                                💾 0% collecte de données.
                             </p>
+                            <a class="linkNotFound fw-bold btn my-btn btn-profile" href="/inscription">Inscrivez-vous vos futurs amis vous attendent déja !</a>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 <?php
+
+//! require once
+require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once dirname(__FILE__) . '/../helpers/JWT.php';
 require_once dirname(__FILE__) . '/../models/User.php';
-require_once(dirname(__FILE__) . '/../config/constants.php');
 
 $jwt = $_GET['jwt'];
 
@@ -10,6 +12,7 @@ if (!JWT::is_jwt_valid($jwt)) {
 } else {
     $datas = JWT::get($jwt);
 
+    //! User::getOneByEmail($datas->email)
     $userByMail = User::getOneByEmail($datas->email);
     if ($userByMail instanceof PDOException) {
         $message = '<div>Ce mail n\'existe pas</div>';
@@ -20,6 +23,7 @@ if (!JWT::is_jwt_valid($jwt)) {
         } else {
             $userByMail->validated_at = date('Y-m-d H:i:s');
 
+            //! $user->activate()
             $user = new User();
             $user->setId($userByMail->id);
             $user->setValidated_at($userByMail->validated_at);
@@ -30,7 +34,7 @@ if (!JWT::is_jwt_valid($jwt)) {
                 $message = '<div>Une erreur est survenue</div>';
             } else {
                 $message = '<div>Votre compte a bien été activé</div>
-                    <a class="fw-bold btn my-btn btn-profile mt-3" href="/connexion">Allons-y !</a>';
+                    <a class="fw-bold btn my-btn btn-profile mt-3" href="/connexion">Connexion</a>';
             }
         }
     }

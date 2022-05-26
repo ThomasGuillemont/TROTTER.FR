@@ -2,7 +2,6 @@
 
 //! require once
 require_once(dirname(__FILE__) . '/../utils/init.php');
-require_once(dirname(__FILE__) . '/../config/constants.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 require_once(dirname(__FILE__) . '/../models/Banned.php');
 
@@ -55,7 +54,8 @@ if ($bannedCheck === true) {
             if ($banned === false) {
                 $message = 'Une erreur est survenue';
             } else {
-                $message = 'Votre compte <b>Trotter</b> a été banni.';
+                $message = 'Votre compte <b>Trotter</b> a été banni. <br>
+                            motif : <b>' . $message . '</b>';
 
                 $to = $user->email;
                 $subject = 'Suppression de compte Trotter.fr';

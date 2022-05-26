@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $payload = ['email' => $email, 'exp' => (time() + 600)];
         $jwt = JWT::generate_jwt($payload);
 
-        $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/récupération-mot-de-passe?jwt=' . $jwt;
+        $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/recuperation-mot-de-passe?jwt=' . $jwt;
         $message = 'Veuillez cliquer sur le lien suivant pour choisir un nouveau mot de passe <b>Trotter</b>.<br><a href="' . $link . '">Récupération</a>';
 
 
@@ -36,8 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mail($to, $subject, $message, $headers);
 
         SessionFlash::set('Un email vous a été envoyé pour réinitialiser votre mot de passe');
-        header('Location: /récupération');
-        die;
     }
 }
 
